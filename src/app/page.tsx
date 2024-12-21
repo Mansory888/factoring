@@ -1,101 +1,543 @@
+
+"use client"
 import Image from "next/image";
+import { motion, useInView } from 'framer-motion';
+import { HomeIcon, Zap, ClipboardList } from 'lucide-react';
+import { useRef } from 'react';
+import { News } from '@/types/news';
+import NewsCard from '@/components/newsCard';
+import HeroSection from "@/components/emailContact";
+
+const MovingText = () => (
+  <div className="overflow-hidden whitespace-nowrap absolute top-4 left-0 w-24 sm:w-32 md:w-32 lg:w-40">
+    <motion.div
+      animate={{
+        x: [150, -150], // Adjust the range to fit smaller width
+      }}
+      transition={{
+        duration: 5,
+        repeat: Infinity,
+        ease: "linear"
+      }}
+      className="text-primary text-xl font-bold"
+    >
+      • VANAF €500.000
+    </motion.div>
+  </div>
+);
+
+const SpinningLogo = () => {
+  return (
+    <div className="absolute -left-6 top-1/2 transform -translate-y-1/2 flex items-center justify-center w-24 h-24">
+      {/* Circle Background */}
+      <div className="absolute w-full h-full rounded-full bg-background"></div>
+
+      {/* Spinning Logo */}
+      <motion.img
+        src="/images/logo.png" // Replace with your logo path
+        alt="Spinning Logo"
+        className="w-20 h-20"
+        animate={{ rotate: 360 }}
+        transition={{
+          repeat: Infinity,
+          duration: 3,
+          ease: "linear",
+        }}
+      />
+    </div>
+  );
+};
+
+const ChangingText = () => {
+  const words = ["Betaald", "Verzekerd"];
+
+  return (
+    <div className="h-8 overflow-hidden">
+      <motion.div
+        animate={{
+          y: [0, -30, 0], // Start at 0, move to -40, and return to 0
+        }}
+        transition={{
+          duration: 4, // Total duration of one cycle
+          repeat: Infinity,
+          times: [0, 0.5, 1],
+          ease: "easeInOut", // Equal time for each phase
+        }}
+        className="space-y-0"
+      >
+        {words.map((word) => (
+          <div key={word} className="h-8 text-navy-blue text-3xl flex flex-col items-center justify-center">
+            {word}
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
+};
+
+const stats = [
+  { value: '36K', label: 'Klanten', id: 'customers' },
+  { value: '28', label: 'Landen', id: 'countries' },
+  { value: '1 Mld.', label: 'Gefinancierd', id: 'financed' },
+  { value: '100%', label: 'Klanttevredenheid', id: 'satisfaction' }
+];
+
+const newsData: News[] = [
+  {
+    title: "Factoring Voor De Schoonmaakbranche",
+    description: "Een diepgaande analyse van factoring oplossingen voor de schoonmaaksector",
+    image: "/images/testimonial2.jpg",
+    category: "BRANCHES",
+    authorImage: "/images/testimonial2.jpg",
+    authorName: "Jaap van Aalst",
+    date: "Dec 16"
+  },
+  {
+    title: "Innovatie in Duurzaam Ondernemen",
+    description: "Nieuwe ontwikkelingen in duurzame bedrijfsvoering voor het MKB",
+    image: "/images/testimonial2.jpg",
+    category: "INNOVATION",
+    authorImage: "/images/testimonial2.jpg",
+    authorName: "Maria Jansen",
+    date: "Dec 16"
+  },
+  {
+    title: "Digitale Transformatie in 2025",
+    description: "Vooruitblik naar de digitale trends die bedrijven zullen vormgeven",
+    image: "/images/testimonial2.jpg",
+    category: "TECHNOLOGY",
+    authorImage: "/images/testimonial2.jpg",
+    authorName: "Peter de Vries",
+    date: "Dec 16"
+  }
+];
+
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const sortedNews = [...newsData]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 3);
+
+  return (
+    <div className="bg-background">
+      <section>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+
+            <motion.div
+              initial={{ x: "30%", opacity: 0 }}
+              whileInView={{ x: "0%", opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1 }}
+            >
+              <div className="space-y-8 text-center lg:text-left">
+                {/* Main Headings */}
+                <div>
+                  <h1 className="text-secondary">
+                    <span className="block text-4xl md:text-5xl font-bold lg:text-6xl mb-2">
+                      DIRECT
+                    </span>
+                    <span className="block text-4xl md:text-5xl font-bold lg:text-6xl mb-2">
+                      EXTRA
+                    </span>
+                    <span className="block text-5xl md:text-6xl lg:text-7xl italic relative inline-block">
+                      WERKKAPITAAL
+                      <span
+                        className="absolute left-0 bottom-0 w-full h-[2px] bg-primary rotate-[-2deg] transform origin-bottom-left"
+                        style={{ height: '4px' }}
+                      ></span>
+                    </span>
+                  </h1>
+                </div>
+
+                {/* Cards */}
+                <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
+                  {/* First Card */}
+                  <div className="bg-primary rounded-lg p-4 text-secondary flex flex-col items-center justify-center w-60 h-24">
+                    <p className="text-sm mb-1">- JOUW FACTUREN METEEN -</p>
+                    <ChangingText />
+                  </div>
+
+                  {/* Second Card */}
+                  <div className="bg-secondary rounded-lg p-4 text-white flex flex-col items-center justify-center w-60 h-24">
+                    <h2 className="text-xl font-bold mb-1">Neem</h2>
+                    <h2 className="text-xl font-bold mb-1">contact op</h2>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ x: "-30%", opacity: 0 }}
+              whileInView={{ x: "0%", opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+            >
+              {/* Right Image */}
+              <div className="relative">
+                <div className="aspect-w-16 aspect-h-10 md:aspect-h-12 rounded-3xl overflow-hidden bg-gray-100">
+                  <img
+                    src="/images/main.jpg"
+                    alt="Business people discussing"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <MovingText />
+                <SpinningLogo />
+              </div>
+            </motion.div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </section>
+
+      <section className="max-w-7xl mx-auto px-4">
+        <motion.div
+          initial={{ x: "-100%", opacity: 0 }}
+          whileInView={{ x: "0%", opacity: 1 }}
+          viewport={{ once: true}}
+          transition={{ duration: 1}}
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <h1
+            id="factoring-title"
+            className="text-4xl md:text-5xl font-bold text-center mb-12 text-beje bg-primary p-4 rounded-xl mx-auto w-full max-w-4xl"
+          >
+            Drie Soorten Factoring
+          </h1>
+        </motion.div>
+
+        <motion.div
+          initial={{ x: "100%", opacity: 0 }}
+          whileInView={{ x: "0%", opacity: 1 }}
+          viewport={{ once: true}}
+          transition={{ duration: 0.7 }}
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Traditionele Factoring */}
+            <article
+              className="bg-backgound border-4 border-secondary rounded-xl p-6 hover:shadow-lg transition-shadow"
+            >
+              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mb-4">
+                <HomeIcon size={24} />
+              </div>
+              <h2 className="text-2xl font-bold text-secondary mb-4">
+                Traditionele Factoring
+              </h2>
+              <ul className="space-y-2 mb-6 text-secondary">
+                <li className="flex items-center">
+                  <span className="mr-2">•</span>
+                  95% direct betaald
+                </li>
+                <li className="flex items-center">
+                  <span className="mr-2">•</span>
+                  Factorfee v.a. 1,5%
+                </li>
+              </ul>
+              <button
+                className="text-primary font-medium hover:underline flex items-center"
+                aria-label="Leer meer over Traditionele Factoring"
+              >
+                Leer meer
+                <svg
+                  className="w-4 h-4 ml-1"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+            </article>
+
+            {/* MKB Factoring */}
+            <article
+              className="bg-backgound border-4 border-secondary rounded-xl p-6 hover:shadow-lg transition-shadow"
+            >
+              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mb-4">
+                <Zap size={24} />
+              </div>
+              <h2 className="text-2xl font-bold text-secondary mb-4">
+                MKB Factoring
+              </h2>
+              <ul className="space-y-2 mb-6 text-secondary">
+                <li className="flex items-center">
+                  <span className="mr-2">•</span>
+                  100% direct betaald
+                </li>
+                <li className="flex items-center">
+                  <span className="mr-2">•</span>
+                  Factorfee v.a. 3%
+                </li>
+              </ul>
+              <button
+                className="text-primary font-medium hover:underline flex items-center"
+                aria-label="Leer meer over MKB Factoring"
+              >
+                Leer meer
+                <svg
+                  className="w-4 h-4 ml-1"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+            </article>
+
+            {/* American Factoring */}
+            <article
+              className="bg-backgound border-4 border-secondary rounded-xl p-6 hover:shadow-lg transition-shadow"
+            >
+              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mb-4">
+                <ClipboardList size={24} />
+              </div>
+              <h2 className="text-2xl font-bold text-secondary mb-4">
+                American Factoring
+              </h2>
+              <ul className="space-y-2 mb-6 text-secondary">
+                <li className="flex items-center">
+                  <span className="mr-2">•</span>
+                  100% direct betaald
+                </li>
+                <li className="flex items-center">
+                  <span className="mr-2">•</span>
+                  Factorfee v.a. 3%
+                </li>
+              </ul>
+              <button
+                className="text-primary font-medium hover:underline flex items-center"
+                aria-label="Leer meer over American Factoring"
+              >
+                Leer meer
+                <svg
+                  className="w-4 h-4 ml-1"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+            </article>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-4 py-12">
+        <div className="container mx-auto px-4 md:px-6">
+          <motion.div
+            initial={{ x: "-100%", opacity: 0 }}
+            whileInView={{ x: "0%", opacity: 1 }}
+            viewport={{ once: true}}
+            transition={{ duration: 0.7}}
+          >
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+              {/* Image Container */}
+              <div className="w-full md:w-1/2">
+                <div className="relative">
+                  <img
+                    src="/images/testimonial2.jpg"
+                    alt="Simon Adriaan Visscher in an office setting"
+                    className="w-full rounded-lg shadow-lg"
+                    width={600}
+                    height={600}
+                  />
+
+                </div>
+              </div>
+
+              {/* Content Container */}
+              <div className="w-full md:w-1/2">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-4 border-l-4 border-secondary pl-4">
+                  Soof Factoring is verankerd in mijn groeistrategie
+                </h1>
+
+                <p className="text-lg md:text-xl text-secondary mb-8">
+                  -Adriaan Werkt, Simon Adriaan Visscher
+                </p>
+
+                <motion.button
+                  className="flex items-center bg-secondary text-white rounded-full pr-1 pl-6 py-1 hover:bg-secondary transition-colors duration-200"
+                  initial="initial"
+                  whileHover="hover"
+                  whileTap={{ scale: 0.95 }}
+                  variants={{
+                    initial: {
+                      x: 0,
+                      scale: 1
+                    },
+                    hover: {
+                      x: 10,
+                      scale: 1.05,
+                      transition: {
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10
+                      }
+                    }
+                  }}
+                >
+                  <span className="text-lg font-medium mr-3">ONTDEK</span>
+                  <div className="bg-primary rounded-full p-2.5 ">
+                    <svg
+                      className="w-4 h-4 text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4 12H20M20 12L13 5M20 12L13 19"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </motion.button>
+
+              </div>
+            </div>
+          </motion.div>
+
+
+          <motion.div
+            initial={{ x: "100%", opacity: 0 }}
+            whileInView={{ x: "0%", opacity: 1 }}
+            viewport={{ once: true}}
+            transition={{ duration: 0.7, delay: 0.5}}
+          >
+            <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 py-6">
+              {/* Image Container */}
+              <div className="w-full md:w-1/2">
+                <div className="relative">
+                  <img
+                    src="/images/testimonial1.jpg"
+                    alt="Simon Adriaan Visscher in an office setting"
+                    className="w-full rounded-lg shadow-lg"
+                    width={600}
+                    height={600}
+                  />
+
+                </div>
+              </div>
+
+              {/* Content Container */}
+              <div className="w-full md:w-1/2 ">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-4 border-l-4 border-secondary pl-4">
+                  Ik hoef nooit meer sjaggerijnige belletjes te doen naar mijn klanten. Dat doet de relatie goed.
+                </h1>
+
+                <p className="text-lg md:text-xl text-secondary mb-8">
+                  -Cees Schraag, Do-Bo transport
+                </p>
+
+                <motion.button
+                  className="flex items-center bg-secondary text-white rounded-full pr-1 pl-6 py-1 hover:bg-secondary transition-colors duration-200"
+                  initial="initial"
+                  whileHover="hover"
+                  whileTap={{ scale: 0.95 }}
+                  variants={{
+                    initial: {
+                      x: 0,
+                      scale: 1
+                    },
+                    hover: {
+                      x: 10,
+                      scale: 1.05,
+                      transition: {
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10
+                      }
+                    }
+                  }}
+                >
+                  <span className="text-lg font-medium mr-3">ONTDEK</span>
+                  <div className="bg-primary rounded-full p-2.5 ">
+                    <svg
+                      className="w-4 h-4 text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4 12H20M20 12L13 5M20 12L13 19"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </motion.button>
+
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto bg-secondary text-beje rounded-3xl">
+        <div className="px-4 px-4 pt-12">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+              {stats.map((stat) => (
+                <motion.div
+                key={stat.id}
+                className="text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: stat.id === 'customers' ? 0 : stat.id === 'countries' ? 0.2 : stat.id === 'financed' ? 0.4 : 0.6 }}
+              >
+                <motion.div
+                  className="text-4xl md:text-5xl font-bold mb-2"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {stat.value}
+                </motion.div>
+                <motion.div
+                  className="text-sm md:text-base text-gray-300"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.1, duration: 0.4 }}
+                >
+                  {stat.label}
+                </motion.div>
+              </motion.div>
+              ))}
+            </div>
+
+            <div className="border-t-2 border-beje text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mt-4">
+                Nieuws
+              </h2>
+
+              <div className="p-6">
+                <div className="max-w-6xl mx-auto">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+                    {sortedNews.map((news, index) => (
+                      <NewsCard key={index} news={news} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <HeroSection />
+      </section>
+
+
+
     </div>
   );
 }
