@@ -24,7 +24,7 @@ const NewsCard: React.FC<{ news: News }> = ({ news }) => {
               className="h-full w-full object-cover"
             />
           </div>
-          <h3 className="font-medium text-white uppercase border-b border-gray-400 pb-1">
+          <h3 className="font-medium text-beje uppercase border-b border-gray-400 pb-1">
             {news.authorName}
           </h3>
           <div className="flex-1">

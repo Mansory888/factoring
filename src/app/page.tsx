@@ -121,7 +121,7 @@ export default function Home() {
 
   return (
     <div className="bg-background">
-      <section>
+      <section className="overflow-x-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -161,7 +161,7 @@ export default function Home() {
                   </div>
 
                   {/* Second Card */}
-                  <div className="bg-secondary rounded-lg p-4 text-white flex flex-col items-center justify-center w-60 h-24">
+                  <div className="bg-secondary rounded-lg p-4 text-beje flex flex-col items-center justify-center w-60 h-24">
                     <h2 className="text-xl font-bold mb-1">Neem</h2>
                     <h2 className="text-xl font-bold mb-1">contact op</h2>
                   </div>
@@ -192,12 +192,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4">
+      <section className="max-w-7xl mx-auto px-4 overflow-x-hidden">
         <motion.div
           initial={{ x: "-100%", opacity: 0 }}
           whileInView={{ x: "0%", opacity: 1 }}
-          viewport={{ once: true}}
-          transition={{ duration: 1}}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
         >
           <h1
             id="factoring-title"
@@ -210,8 +210,8 @@ export default function Home() {
         <motion.div
           initial={{ x: "100%", opacity: 0 }}
           whileInView={{ x: "0%", opacity: 1 }}
-          viewport={{ once: true}}
-          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.4 }}
         >
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -219,7 +219,7 @@ export default function Home() {
             <article
               className="bg-backgound border-4 border-secondary rounded-xl p-6 hover:shadow-lg transition-shadow"
             >
-              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mb-4">
+              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-beje mb-4">
                 <HomeIcon size={24} />
               </div>
               <h2 className="text-2xl font-bold text-secondary mb-4">
@@ -256,7 +256,7 @@ export default function Home() {
             <article
               className="bg-backgound border-4 border-secondary rounded-xl p-6 hover:shadow-lg transition-shadow"
             >
-              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mb-4">
+              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-beje mb-4">
                 <Zap size={24} />
               </div>
               <h2 className="text-2xl font-bold text-secondary mb-4">
@@ -293,7 +293,7 @@ export default function Home() {
             <article
               className="bg-backgound border-4 border-secondary rounded-xl p-6 hover:shadow-lg transition-shadow"
             >
-              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mb-4">
+              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-beje mb-4">
                 <ClipboardList size={24} />
               </div>
               <h2 className="text-2xl font-bold text-secondary mb-4">
@@ -329,13 +329,14 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 py-12">
+
+      <section className="max-w-7xl mx-auto px-4 py-12 overflow-x-hidden">
         <div className="container mx-auto px-4 md:px-6">
           <motion.div
             initial={{ x: "-100%", opacity: 0 }}
             whileInView={{ x: "0%", opacity: 1 }}
-            viewport={{ once: true}}
-            transition={{ duration: 0.7}}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
               {/* Image Container */}
@@ -363,7 +364,7 @@ export default function Home() {
                 </p>
 
                 <motion.button
-                  className="flex items-center bg-secondary text-white rounded-full pr-1 pl-6 py-1 hover:bg-secondary transition-colors duration-200"
+                  className="flex items-center bg-secondary text-beje rounded-full pr-1 pl-6 py-1 hover:bg-secondary transition-colors duration-200"
                   initial="initial"
                   whileHover="hover"
                   whileTap={{ scale: 0.95 }}
@@ -386,7 +387,7 @@ export default function Home() {
                   <span className="text-lg font-medium mr-3">ONTDEK</span>
                   <div className="bg-primary rounded-full p-2.5 ">
                     <svg
-                      className="w-4 h-4 text-white"
+                      className="w-4 h-4 text-beje"
                       viewBox="0 0 24 24"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -410,8 +411,8 @@ export default function Home() {
           <motion.div
             initial={{ x: "100%", opacity: 0 }}
             whileInView={{ x: "0%", opacity: 1 }}
-            viewport={{ once: true}}
-            transition={{ duration: 0.7, delay: 0.5}}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
           >
             <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 py-6">
               {/* Image Container */}
@@ -439,7 +440,7 @@ export default function Home() {
                 </p>
 
                 <motion.button
-                  className="flex items-center bg-secondary text-white rounded-full pr-1 pl-6 py-1 hover:bg-secondary transition-colors duration-200"
+                  className="flex items-center bg-secondary text-beje rounded-full pr-1 pl-6 py-1 hover:bg-secondary transition-colors duration-200"
                   initial="initial"
                   whileHover="hover"
                   whileTap={{ scale: 0.95 }}
@@ -462,7 +463,7 @@ export default function Home() {
                   <span className="text-lg font-medium mr-3">ONTDEK</span>
                   <div className="bg-primary rounded-full p-2.5 ">
                     <svg
-                      className="w-4 h-4 text-white"
+                      className="w-4 h-4 text-beje"
                       viewBox="0 0 24 24"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -484,51 +485,104 @@ export default function Home() {
         </div>
       </section>
 
+
       <section className="max-w-7xl mx-auto bg-secondary text-beje rounded-3xl">
         <div className="px-4 px-4 pt-12">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
               {stats.map((stat) => (
                 <motion.div
-                key={stat.id}
-                className="text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: stat.id === 'customers' ? 0 : stat.id === 'countries' ? 0.2 : stat.id === 'financed' ? 0.4 : 0.6 }}
-              >
-                <motion.div
-                  className="text-4xl md:text-5xl font-bold mb-2"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.3 }}
+                  key={stat.id}
+                  className="text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  viewport={{ once: true }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: stat.id === 'customers' ? 0 : stat.id === 'countries' ? 0.2 : stat.id === 'financed' ? 0.4 : 0.6 }}
                 >
-                  {stat.value}
+                  <motion.div
+                    className="text-4xl md:text-5xl font-bold mb-2"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {stat.value}
+                  </motion.div>
+                  <motion.div
+                    className="text-sm md:text-base text-gray-300"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1, duration: 0.4 }}
+                  >
+                    {stat.label}
+                  </motion.div>
                 </motion.div>
-                <motion.div
-                  className="text-sm md:text-base text-gray-300"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.1, duration: 0.4 }}
-                >
-                  {stat.label}
-                </motion.div>
-              </motion.div>
               ))}
             </div>
 
             <div className="border-t-2 border-beje text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mt-4">
-                Nieuws
-              </h2>
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.4 }}
+              >
+                <h2 className="text-3xl md:text-4xl font-bold mt-4">
+                  Nieuws
+                </h2>
 
-              <div className="p-6">
-                <div className="max-w-6xl mx-auto">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
-                    {sortedNews.map((news, index) => (
-                      <NewsCard key={index} news={news} />
-                    ))}
+                <div className="p-6">
+                  <div className="max-w-6xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+                      {sortedNews.map((news, index) => (
+                        <NewsCard key={index} news={news} />
+                      ))}
+                    </div>
                   </div>
                 </div>
+              </motion.div>
+
+              <div className="flex items-center justify-center">
+                <motion.button
+                  className="flex items-center bg-primary text-beje rounded-full pr-1 pl-6 py-1 hover:bg-primary transition-colors duration-200"
+                  initial="initial"
+                  whileHover="hover"
+                  whileTap={{ scale: 0.95 }}
+                  variants={{
+                    initial: {
+                      x: 0,
+                      scale: 1
+                    },
+                    hover: {
+                      x: 10,
+                      scale: 1.05,
+                      transition: {
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10
+                      }
+                    }
+                  }}
+                >
+                  <span className="text-lg font-medium mr-3">bekijk alles</span>
+                  <div className="bg-secondary rounded-full p-2.5 ">
+                    <svg
+                      className="w-4 h-4 text-beje"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4 12H20M20 12L13 5M20 12L13 19"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </motion.button>
               </div>
             </div>
           </div>

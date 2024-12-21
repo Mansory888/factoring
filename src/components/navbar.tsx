@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const NavLink = ({ href, children, onClick, isMobile }:any) => {
+const NavLink = ({ href, children, onClick, isMobile }: any) => {
   if (isMobile) {
     return (
-      <Link 
+      <Link
         href={href}
         className="block text-4xl font-medium py-4 text-center hover:text-gray-600 transition-colors"
         onClick={onClick}
@@ -17,17 +17,14 @@ const NavLink = ({ href, children, onClick, isMobile }:any) => {
   }
 
   return (
-    <div className="group relative overflow-hidden">
-      <Link 
-        href={href}
-        className="relative inline-block py-2 transition-transform duration-300 group-hover:-translate-y-full"
-      >
-        {children}
-      </Link>
-      <span className="absolute left-0 top-full inline-block py-2 transition-transform duration-300 group-hover:-translate-y-full">
+    <Link href={href} className="group relative overflow-hidden inline-block">
+      <span className="relative block py-2 transition-transform duration-300 group-hover:-translate-y-full">
         {children}
       </span>
-    </div>
+      <span className="absolute left-0 top-full block py-2 transition-transform duration-300 group-hover:-translate-y-full">
+        {children}
+      </span>
+    </Link>
   );
 };
 
@@ -48,7 +45,7 @@ const Navbar = () => {
         {/* Logo and company name */}
         <Link href="/" className="flex items-center space-x-3 flex-shrink-0">
           <div className="relative w-12 h-12">
-            <Image 
+            <Image
               src="/images/logo.png"
               alt="SOOF Factoring Logo"
               fill
@@ -66,20 +63,17 @@ const Navbar = () => {
           aria-label="Toggle menu"
         >
           <div className="w-6 h-5 relative flex flex-col justify-center items-center">
-            <span 
-              className={`absolute w-full h-0.5 bg-black transform transition-all duration-300 ease-in-out ${
-                isOpen ? 'rotate-45' : '-translate-y-2'
-              }`}
+            <span
+              className={`absolute w-full h-0.5 bg-black transform transition-all duration-300 ease-in-out ${isOpen ? 'rotate-45' : '-translate-y-2'
+                }`}
             />
-            <span 
-              className={`absolute w-full h-0.5 bg-black transform transition-all duration-300 ease-in-out ${
-                isOpen ? 'opacity-0' : 'opacity-100'
-              }`}
+            <span
+              className={`absolute w-full h-0.5 bg-black transform transition-all duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'
+                }`}
             />
-            <span 
-              className={`absolute w-full h-0.5 bg-black transform transition-all duration-300 ease-in-out ${
-                isOpen ? '-rotate-45' : 'translate-y-2'
-              }`}
+            <span
+              className={`absolute w-full h-0.5 bg-black transform transition-all duration-300 ease-in-out ${isOpen ? '-rotate-45' : 'translate-y-2'
+                }`}
             />
           </div>
         </button>
@@ -95,9 +89,8 @@ const Navbar = () => {
 
         {/* Full-screen mobile menu */}
         <div
-          className={`fixed inset-0 bg-white transition-transform duration-500 transform lg:hidden ${
-            isOpen ? 'translate-y-0' : '-translate-y-full'
-          }`}
+          className={`fixed inset-0 bg-white transition-transform duration-500 transform lg:hidden ${isOpen ? 'translate-y-0' : '-translate-y-full'
+            }`}
         >
           <div className="h-full flex flex-col items-center justify-center space-y-6 p-8">
             {links.map((link) => (
