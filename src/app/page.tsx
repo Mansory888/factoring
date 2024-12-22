@@ -1,9 +1,7 @@
 
 "use client"
-import Image from "next/image";
-import { motion, useInView } from 'framer-motion';
+import { motion} from 'framer-motion';
 import { HomeIcon, Zap, ClipboardList } from 'lucide-react';
-import { useRef } from 'react';
 import { News } from '@/types/news';
 import NewsCard from '@/components/newsCard';
 import HeroSection from "@/components/emailContact";

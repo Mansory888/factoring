@@ -63,7 +63,7 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="space-y-6"
           >
-            <h3 className="text-lg font-semibold">Pagina's</h3>
+            <h3 className="text-lg font-semibold">Pagina&apos;s</h3>
             <nav className="flex flex-col space-y-3">
               <a href="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">
                 Contact

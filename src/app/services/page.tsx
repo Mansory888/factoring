@@ -132,7 +132,7 @@ const Services = () => {
         mkb: false,
     });
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         // Handle form submission logic here
         console.log('Phone number submitted:', phoneNumber);
@@ -161,7 +161,7 @@ const Services = () => {
                         Laat je adviseren
                     </h2>
                     <p className="text-secondary mb-6">
-                        Afhankelijk van de grootte van je bedrijf, de hoeveelheid facturen die je wilt factoren, je financiële reserves, je groeiambities, het betalingsgedrag van je klanten - en de kredietrisico's die ermee gepaard gaan - maakt het zeker uit welke vorm van Factoring je kiest.
+                        Afhankelijk van de grootte van je bedrijf, de hoeveelheid facturen die je wilt factoren, je financiële reserves, je groeiambities, het betalingsgedrag van je klanten - en de kredietrisico&apos;s die ermee gepaard gaan - maakt het zeker uit welke vorm van Factoring je kiest.
                     </p>
                     <p className="text-secondary">
                         In dit blog leggen we je uit wat Factoring in de basis inhoudt, welke serieuze vormen van Factoring er zijn, hoe ze werken, én vertellen we over de voor- en nadelen. Toch adviseren we je met klem om niet op basis van internetkennis een beslissing te maken.

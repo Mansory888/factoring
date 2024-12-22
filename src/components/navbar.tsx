@@ -1,9 +1,17 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, MouseEventHandler, ReactNode  } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const NavLink = ({ href, children, onClick, isMobile }: any) => {
+
+interface NavLinkProps {
+  href: string;
+  children: ReactNode;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
+  isMobile?: boolean;
+}
+
+const NavLink: React.FC<NavLinkProps> = ({ href, children, onClick, isMobile }) => {
   if (isMobile) {
     return (
       <Link
