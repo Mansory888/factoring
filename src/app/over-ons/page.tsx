@@ -79,106 +79,107 @@ const About = () => {
                     />
 
                 </section>
-
-                <section className="max-w-7xl mx-auto px-4 mt-6 overflow-x-hidden bg-secondary text-beje rounded-3xl">
-                    <div className="container mx-auto px-4 md:px-6">
-                        <motion.div
-                            initial={{ x: "-100%", opacity: 0 }}
-                            whileInView={{ x: "0%", opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                        >
-                            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-                                {/* Image Container */}
-                                <div className="w-full md:w-1/2">
-                                    <div className="relative">
-                                        <img
-                                            src="/images/jaap.png"
-                                            alt="Simon Adriaan Visscher in an office setting"
-                                            width={600}
-                                            height={600}
-                                        />
-
-                                    </div>
-                                </div>
-
-                                {/* Content Container */}
-                                <div className="w-full md:w-1/2">
-
-                                    <p className="text-xl font-bold mb-2 text-primary">
-                                        CEO
-                                    </p>
-
-                                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ">
-                                        Jaap van Aalst
-                                    </h1>
-
-                                    <div className="text-lg md:text-xl mb-8">
-                                        <p className="mb-4">
-                                            With over 15 years of experience as a stock analyst on Wall Street, Jane has solidified her reputation as a seasoned professional.
-                                        </p>
-                                        <p className="mb-4">
-                                            Her insights, honed during the post-financial crisis, have consistently garnered attention and respect.
-                                        </p>
-                                        <p>
-                                            Since 2015, Jane has been a prominent figure at stock conferences and in the media, sharing her bold predictions and in-depth analyses.
-                                        </p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </motion.div>
-
-
-                        <motion.div
-                            initial={{ x: "100%", opacity: 0 }}
-                            whileInView={{ x: "0%", opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.5 }}
-                        >
-                            <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 py-6">
-                                {/* Image Container */}
-                                <div className="w-full md:w-1/2">
-                                    <div className="relative">
-                                        <img
-                                            src="/images/jap2.png"
-                                            alt="Simon Adriaan Visscher in an office setting"
-                                            width={600}
-                                            height={600}
-                                        />
-
-                                    </div>
-                                </div>
-
-                                {/* Content Container */}
-                                <div className="w-full md:w-1/2 ">
-                                    <p className="text-xl font-bold mb-2 text-primary">
-                                        CFO
-                                    </p>
-
-                                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ">
-                                        Jaap van Aalst
-                                    </h1>
-
-                                    <div className="text-lg md:text-xl mb-8">
-                                        <p className="mb-4">
-                                            Registeraccountant (RA) met uitgebreide ervaring bij accountantskantoren (Big Four en niet-Big Four) en klanten variërend van non-profitorganisaties en MKB tot financiële instellingen.
-                                        </p>
-                                        <p className="mb-4">
-                                            Ik ben analytisch sterk, resultaatgericht en pas me gemakkelijk aan verschillende teams en culturen aan.
-                                        </p>
-                                        <p>
-                                            Mijn achtergrond omvat onder andere auditing, interne controle, externe verslaggeving (RJ/IFRS), risicomanagement, consolidatie en projectmanagement.
-                                        </p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </motion.div>
-                    </div>
-                </section>
             </div>
+
+            <section className="max-w-7xl mx-auto px-4 py-8 mt-6 overflow-x-hidden bg-secondary text-beje rounded-3xl">
+                <div className="container mx-auto px-4 md:px-6">
+                    <motion.div
+                        initial={{ x: "-100%", opacity: 0 }}
+                        whileInView={{ x: "0%", opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                    >
+                        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                            {/* Image Container */}
+                            <div className="w-full md:w-1/2">
+                                <div className="relative">
+                                    <img
+                                        src="/images/jaap.png"
+                                        alt="Simon Adriaan Visscher in an office setting"
+                                        width={600}
+                                        height={600}
+                                    />
+
+                                </div>
+                            </div>
+
+                            {/* Content Container */}
+                            <div className="w-full md:w-1/2">
+
+                                <p className="text-xl font-bold mb-2 text-primary">
+                                    CEO
+                                </p>
+
+                                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ">
+                                    Jaap van Aalst
+                                </h1>
+
+                                <div className="text-lg md:text-xl mb-8">
+                                    <p className="mb-4">
+                                        With over 15 years of experience as a stock analyst on Wall Street, Jane has solidified her reputation as a seasoned professional.
+                                    </p>
+                                    <p className="mb-4">
+                                        Her insights, honed during the post-financial crisis, have consistently garnered attention and respect.
+                                    </p>
+                                    <p>
+                                        Since 2015, Jane has been a prominent figure at stock conferences and in the media, sharing her bold predictions and in-depth analyses.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </motion.div>
+
+
+                    <motion.div
+                        initial={{ x: "100%", opacity: 0 }}
+                        whileInView={{ x: "0%", opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.5 }}
+                    >
+                        <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 py-6">
+                            {/* Image Container */}
+                            <div className="w-full md:w-1/2">
+                                <div className="relative">
+                                    <img
+                                        src="/images/jap2.png"
+                                        alt="Simon Adriaan Visscher in an office setting"
+                                        width={600}
+                                        height={600}
+                                    />
+
+                                </div>
+                            </div>
+
+                            {/* Content Container */}
+                            <div className="w-full md:w-1/2 ">
+                                <p className="text-xl font-bold mb-2 text-primary">
+                                    CFO
+                                </p>
+
+                                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ">
+                                    Jaap van Aalst
+                                </h1>
+
+                                <div className="text-lg md:text-xl mb-8">
+                                    <p className="mb-4">
+                                        Registeraccountant (RA) met uitgebreide ervaring bij accountantskantoren (Big Four en niet-Big Four) en klanten variërend van non-profitorganisaties en MKB tot financiële instellingen.
+                                    </p>
+                                    <p className="mb-4">
+                                        Ik ben analytisch sterk, resultaatgericht en pas me gemakkelijk aan verschillende teams en culturen aan.
+                                    </p>
+                                    <p>
+                                        Mijn achtergrond omvat onder andere auditing, interne controle, externe verslaggeving (RJ/IFRS), risicomanagement, consolidatie en projectmanagement.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
         </div>
+
 
     );
 };
