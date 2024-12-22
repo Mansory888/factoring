@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 
 const steps = [
@@ -22,14 +23,14 @@ const steps = [
     {
         number: 3,
         icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-handshake"><path d="m11 17 2 2a1 1 0 1 0 3-3" /><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" /><path d="m21 3 1 11h-2" /><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" /><path d="M3 4h8" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-handshake"><path d="m11 17 2 2a1 1 0 1 0 3-3" /><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" /><path d="m21 3 1 11h-2" /><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" /><path d="M3 4h8" /></svg>
         ),
         title: "DBS2 neemt het debiteurenbeheer over."
     },
     {
         number: 4,
         icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-hand-coins"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17" /><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9" /><path d="m2 16 6 6" /><circle cx="16" cy="9" r="2.9" /><circle cx="6" cy="5" r="3" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-hand-coins"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17" /><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9" /><path d="m2 16 6 6" /><circle cx="16" cy="9" r="2.9" /><circle cx="6" cy="5" r="3" /></svg>
         ),
         title: "Jouw klant betaalt de factuur aan DBS2."
     }
@@ -77,13 +78,68 @@ const products = [
     }
 ];
 
+const factoringTypes = [
+    {
+        id: 'traditional',
+        title: 'Traditionele Factoring',
+        description: 'Traditionele factoring biedt verschillende voordelen, maar ook enkele nadelen die DBS2 wegneemt.',
+        advantages: [
+            "Kosten van traditionele factoring vallen relatief lager uit. Bij DBS2 rekenen we de scherpste tarieven in de markt.",
+            "Er gelden over het algemeen minder strenge eisen voor je debiteuren."
+        ],
+        disadvantages: [
+            "Substantiële omzet-eisen bij de gemiddelde factoraar.",
+            "Meer voorwaarden: bedrijf moet minimaal 3 jaar bestaan, verplicht iedere factuur onderbrengen.",
+            "Debiteurenrisico ligt bij jou. DBS factureert en int zelf.",
+            "Niet direct 100% uitbetaald, maar tussen 80% en 90%. Bij DBS2 95%."
+        ]
+    },
+    {
+        id: 'american',
+        title: 'American Style Factoring',
+        description: 'American Style Factoring wordt gezien als de meest flexibele vorm van Factoring, vooral geschikt voor MKBers en ZZPers.',
+        advantages: [
+            "Overeenkomst vaak binnen een dag geregeld, factuur direct verzekerd tegen wanbetaling.",
+            "Flexibiliteit: niet verplicht alle facturen uit te besteden, behoud van regie."
+        ],
+        disadvantages: [
+            "Factoraar mag debiteur weigeren bij hoog risico. DBS2 biedt krachtig debiteurenbeheer.",
+            "Hoger vergoedingspercentage door lagere factuurwaarde. DBS2 biedt scherpste tarieven.",
+            "Doorgaans niet direct 100% uitbetaald. Bij DBS2 wel 100%.",
+            "Debiteurenbeheer meestal niet inbegrepen. Bij DBS2 wel."
+        ]
+    },
+    {
+        id: 'mkb',
+        title: 'MKB Factoring',
+        description: 'MKB Factoring lijkt op American Style Factoring, maar werkt anders qua rentepercentages en uitbetaling.',
+        advantages: [
+            "Vergelijkbaar met American Style factoring.",
+            "Goedkoper als klanten binnen 30 dagen betalen."
+        ],
+        disadvantages: [
+            "Duurder als klanten gemiddeld later dan 30 dagen betalen."
+        ]
+    }
+];
+
+
 const Services = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
+    const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
+        traditional: true,
+        american: false,
+        mkb: false,
+    });
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
         // Handle form submission logic here
         console.log('Phone number submitted:', phoneNumber);
+    };
+
+    const toggleSection = (section: string) => {
+        setExpandedSections(prev => ({ ...prev, [section]: !prev[section] }));
     };
 
 
@@ -191,7 +247,7 @@ const Services = () => {
                 </div>
             </div>
 
-            <section className="max-w-7xl bg-secondary mx-auto text-beje px-4 py-8 rounded-3xl">
+            <section className="max-w-7xl bg-secondary mx-auto text-beje px-8 py-2 rounded-3xl">
                 <div className="max-w-6xl mx-auto px-4 py-12">
                     <div className="text-center mb-8">
                         <p className="text-primary uppercase text-sm font-bold mb-4">
@@ -272,7 +328,7 @@ const Services = () => {
                         {/* Call to Action Section */}
                         <div className="space-y-4 sm:space-y-6">
                             {/* Callback Form */}
-                            <div className="text-secondary p-4 rounded-lg">
+                            <div className="text-secondary rounded-lg">
                                 <h2 className="text-lg font-semibold mb-3">Bel mij terug</h2>
                                 <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
                                     <input
@@ -280,7 +336,7 @@ const Services = () => {
                                         value={phoneNumber}
                                         onChange={(e) => setPhoneNumber(e.target.value)}
                                         placeholder="Telefoonnummer"
-                                        className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
+                                        className="flex-1 px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
                                         aria-label="Telefoonnummer"
                                     />
                                     <button
@@ -304,101 +360,55 @@ const Services = () => {
                     </article>
                 </div>
 
-                <div>
-                    <h2 className="text-2xl font-bold mb-4">De voordelen van Traditionele Factoring</h2>
+                <article className='my-8'>
+                    <h1 className="text-4xl font-bold mb-8 text-primary text-center">Factoring Opties Vergelijken</h1>
 
-                    <p className="mb-4 text-primary font-bold border-l-4 border-primary pl-4">
-                        Die bij DBS2 groter zijn
-                    </p>
+                    <div className="space-y-6">
+                        {factoringTypes.map((type) => (
+                            <div key={type.id} className="bg-beje rounded-lg shadow-md overflow-hidden">
+                                <button
+                                    onClick={() => toggleSection(type.id)}
+                                    className="w-full flex justify-between items-center p-6 text-left focus:outline-none"
+                                >
+                                    <h2 className="text-2xl font-bold text-primary">{type.title}</h2>
+                                    {expandedSections[type.id] ? <ChevronUp className="text-secondary" /> : <ChevronDown className="text-secondary" />}
+                                </button>
 
-                    <ul className="list-disc pl-8 space-y-2 text-beje">
-                        <li>Kijk je naar de aanbieders in de markt, zie je dat de kosten van traditionele factoring relatief een stuk lager uitvallen. Welke vorm van factoring je ook kiest, bij DBS2 rekenen we het scherpste tarieven in de markt.</li>
-                        <li>Er gelden er over het algemeen minder strenge eisen voor je debiteuren.</li>
-                    </ul>
-                </div>
+                                {expandedSections[type.id] && (
+                                    <div className="p-6 pt-0 space-y-6">
+                                        <p className="text-secondary">{type.description}</p>
 
-                <div className='mt-8'>
-                    <h2 className="text-2xl font-bold mb-4">De nadelen van Traditionele Factoring</h2>
+                                        <div className="grid md:grid-cols-2 gap-6">
+                                            <div className="space-y-4">
+                                                <h3 className="text-xl font-semibold text-secondary">Voordelen</h3>
+                                                <p className="text-primary font-bold border-l-4 border-primary pl-4">
+                                                    Die bij DBS2 groter zijn
+                                                </p>
+                                                <ul className="list-disc pl-8 space-y-2 text-secondary">
+                                                    {type.advantages.map((advantage, index) => (
+                                                        <li key={index}>{advantage}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
 
-                    <p className="mb-4 text-primary font-bold border-l-4 border-primary pl-4">
-                        Ddie DBS2 wegneemt
-                    </p>
-
-                    <ul className="list-disc pl-8 space-y-2 text-beje">
-                        <li>Je moet aan bij de gemiddelde factoraar aan substantiële omzet-eisen voldoen.</li>
-                        <li>Er gelden meer voorwaarden: je bedrijf moet minimaal 3 jaar bestaan en meestal ben je verplicht om iedere factuur bij het factoringbedrijf onder te brengen. Je gaat hiermee all-in en krijgt niet de kans om de meerwaarde van Factoring rustig te ervaren. Bij DBS2 heb je dat probleem niet.</li>
-                        <li>Bij Traditionele Factoring ligt het debiteurenrisico bij jou. Jij moet factureren. Betaalt jouw klant te laat, dan merk jij dat in je portemonnee. DBS factureert en int zelf. Dat scheelt jou tijd én geld.</li>
-                        <li>Er wordt niet direct 100% uitbetaald, maar tussen de 80% en 90%. Bij DBS2 95%.</li>
-                    </ul>
-                </div>
-
-                <div className="border-b-2 border-primary my-8"></div>
-
-                <div>
-                    <h2 className="text-2xl text-primary font-bold mb-4">American Style Factoring</h2>
-
-                    <p className="mb-4 ">
-                        American Style Factoring wordt als de meeste flexibele vorm van Factoring gezien. Zoals het meestal in de markt wordt aangeboden, is het vooral geschikt voor MKB'ers en ZZP'ers. Je hoeft dan namelijk niet al je facturen aan een factoraar uitbesteden, maar kan volstaan met een deel van je facturen; of zelfs een enkele factuur. Dus maak je gebruik van de service als het jou uitkomt. Bij DBS2 is dat niet anders, maar weet dat je bij onze vorm van Traditionele Factoring ook maar een gedeelte van je facturen kan factoren.
-                    </p>
-
-                    <p className="mb-4 ">
-                        Bij American Style Factoring wordt doorgaans niet het volledige bedrag uitgekeerd. De meeste factoraars keren in eerste instantie 80% tot 90% uit. Het overige deel van de factuurwaarde wordt gereserveerd - in afwachting van de termijn waarop de opdrachtgever betaalt. Hoe langer dat duurt, hoe hoger het vergoedingspercentage is dat de factoraar rekent. Bij DBS2 heb je dat probleem niet, want bij American Style Factoring keren wij 100% van het bedrag uit - met aftrek van het vooraf overeengekomen vergoedingspercentage.
-                    </p>
-                </div>
-
-                <div>
-                    <h2 className="text-2xl font-bold mb-4">De voordelen van American Style Factoring</h2>
-
-                    <p className="mb-4 text-primary font-bold border-l-4 border-primary pl-4">
-                        Die bij DBS2 groter zijn
-                    </p>
-
-                    <ul className="list-disc pl-8 space-y-2 text-beje">
-                        <li>Een overeenkomst met een factoraar is vaak al binnen een dag geregeld, en meestal is je factuur direct verzekerd tegen wanbetaling. Bij DBS2 is dat áltijd het geval.</li>
-                        <li>Je hoeft niet all-in te gaan en de behoudt de regie. Weet je dat een klant binnen een week betaalt, hoef je niet te factoren. Bij DBS2 kan je zelfs op klantniveau bepalen of je een enkele factuur wél of niet via ons laat verlopen.</li>
-                    </ul>
-                </div>
-
-                <div className='mt-8'>
-                    <h2 className="text-2xl font-bold mb-4">De nadelen van American Style Factoring</h2>
-
-                    <p className="mb-4 text-primary font-bold border-l-4 border-primary pl-4">
-                        Die DBS2 wegneemt
-                    </p>
-
-                    <ul className="list-disc pl-8 space-y-2 text-beje">
-                        <li>Bij American Style Factoring mag een factoraar een debiteur weigeren als deze het risico te hoog wordt ingeschat. Als factoraar wil je natuurlijk voorkomen dat je service alleen wordt ingezet op probleemdossiers. Bij DBS2 maakt krachtig debiteurenbeheer standaard onderdeel uit van onze service; daardoor komt het zelden voor dat wij het risico als te hoog inschatten.</li>
-                        <li>Het gerekende vergoedingspercentage valt hoger uit omdat de opgetelde factuurwaarde lager ligt. Welke vorm van factoring je ook kiest, bij DBS2 rekenen we de scherpste tarieven in de markt, hanteren we de beste voorwaarden en bieden we de meeste service.</li>
-                        <li>Er wordt doorgaans niet direct 100% uitbetaald, maar tussen de 80% en 90%. Bij DBS2 100%.</li>
-                        <li>Debiteurenbeheer - oftewel: factureren en najagen - is meestal niet inbegrepen. Bij DBS2 wel.</li>
-                    </ul>
-                </div>
-
-                <div className="border-b-2 border-primary my-8"></div>
-
-                <div>
-                    <h2 className="text-2xl text-primary font-bold mb-4">MKB Factoring</h2>
-
-                    <p className="mb-4 ">
-                        Dit heeft veel weg van American Style Factoring. Toch is het wezenlijk anders. Al helemaal als je DBS2 met de concurrentie vergelijkt. Op het eerste gezicht lijken de rentepercentages nagenoeg gelijk. En wordt er bij beide Factoring vormen direct 100% uitgekeerd. Maar waarbij American Factoring een vast rentepercentage wordt ingehouden, werkt dat anders bij MKB Factoring.
-                    </p>
-
-                    <p className="mb-4 ">
-                        Als je opdrachtgever later dan 30 dagen betaalt, krijg je achteraf een factuur vanuit de factoraar gestuurd op basis van een vooraf afgesproken rentepercentage. Na 30 dagen wordt er per 30 dagen pakweg 1 procent van de factuurwaarde naar je gefactureerd. Om de kans daarop zoveel mogelijk te verkleinen, nemen wij het debiteurenbeheer over. Wij kunnen - op vriendelijke wijze - nét even wat strenger zijn dan jij.
-                    </p>
-                </div>
-
-                <div className='mt-8'>
-                    <h2 className="text-2xl font-bold mb-4">De voordelen en nadelen</h2>
-
-                    <p className="mb-4 text-primary font-bold border-l-4 border-primary pl-4">
-                        van MKB Factoring
-                    </p>
-
-                    <p className="mb-4 ">
-                        Ze zijn goed vergelijkbaar met die van American Style factoring. Betalen je klanten doorgaans binnen 30 dagen, ben je goedkoper uit. Betalen ze gemiddeld genomen later dan 30 dagen, dan betaal je nét wat meer.
-                    </p>
-                </div>
+                                            <div className="space-y-4">
+                                                <h3 className="text-xl font-semibold text-secondary">Nadelen</h3>
+                                                <p className="text-primary font-bold border-l-4 border-primary  pl-4">
+                                                    Die DBS2 wegneemt
+                                                </p>
+                                                <ul className="list-disc pl-8 space-y-2 text-secondary">
+                                                    {type.disadvantages.map((disadvantage, index) => (
+                                                        <li key={index}>{disadvantage}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </article>
 
 
             </section>
