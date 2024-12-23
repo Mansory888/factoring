@@ -21,7 +21,7 @@ export function AnimatedFAQItem({ question, answer }: FAQItemProps) {
         className="w-full flex justify-between items-center py-4 px-6 text-left focus:outline-none bg-background hover:bg-background transition-colors duration-200"
         aria-expanded={isOpen}
       >
-        <span className="text-xl text-secondary font-medium text-foreground">{question}</span>
+        <span className="text-xl text-secondary bg-beje font-medium text-foreground">{question}</span>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}

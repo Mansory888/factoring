@@ -45,7 +45,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
     }
 
     return (
-        <div className="max-w-4xl mx-auto p-6">
+        <div className="max-w-4xl mx-auto p-6 bg-background">
             <h1 className="text-4xl font-bold text-secondary mb-4">{article.title}</h1>
             <p className="text-secondary mb-6">
                 Door {article.authorName} | {new Date(article.date).toLocaleDateString()}

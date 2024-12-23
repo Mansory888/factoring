@@ -276,7 +276,7 @@ const Services = () => {
                         </div>
 
                         {/* Second Option */}
-                        <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+                        <div className="bg-beje rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
                             <h2 className="text-xl text-secondary font-bold mb-4">
                                 80-95% wordt uitbetaald
                             </h2>
