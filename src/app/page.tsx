@@ -2,7 +2,8 @@
 "use client"
 import { motion} from 'framer-motion';
 import { HomeIcon, Zap, ClipboardList } from 'lucide-react';
-import { News } from '@/types/news';
+import { Article } from '@/types/article';
+import Data from '../../public/data.json';
 import NewsCard from '@/components/newsCard';
 import HeroSection from "@/components/emailContact";
 
@@ -80,40 +81,10 @@ const stats = [
   { value: '100%', label: 'Klanttevredenheid', id: 'satisfaction' }
 ];
 
-const newsData: News[] = [
-  {
-    title: "Factoring Voor De Schoonmaakbranche",
-    description: "Een diepgaande analyse van factoring oplossingen voor de schoonmaaksector",
-    image: "/images/testimonial2.jpg",
-    category: "BRANCHES",
-    authorImage: "/images/testimonial2.jpg",
-    authorName: "Jaap van Aalst",
-    date: "Dec 16"
-  },
-  {
-    title: "Innovatie in Duurzaam Ondernemen",
-    description: "Nieuwe ontwikkelingen in duurzame bedrijfsvoering voor het MKB",
-    image: "/images/testimonial2.jpg",
-    category: "INNOVATION",
-    authorImage: "/images/testimonial2.jpg",
-    authorName: "Maria Jansen",
-    date: "Dec 16"
-  },
-  {
-    title: "Digitale Transformatie in 2025",
-    description: "Vooruitblik naar de digitale trends die bedrijven zullen vormgeven",
-    image: "/images/testimonial2.jpg",
-    category: "TECHNOLOGY",
-    authorImage: "/images/testimonial2.jpg",
-    authorName: "Peter de Vries",
-    date: "Dec 16"
-  }
-];
-
 
 export default function Home() {
 
-  const sortedNews = [...newsData]
+  const sortedNews: Article[] = [...Data]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, 3);
 
@@ -534,7 +505,7 @@ export default function Home() {
                   <div className="max-w-6xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
                       {sortedNews.map((news, index) => (
-                        <NewsCard key={index} news={news} />
+                        <NewsCard key={index} news={news} delay={0}/>
                       ))}
                     </div>
                   </div>

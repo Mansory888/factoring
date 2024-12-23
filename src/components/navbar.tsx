@@ -97,7 +97,7 @@ const Navbar = () => {
 
         {/* Full-screen mobile menu */}
         <div
-          className={`fixed inset-0 bg-white transition-transform duration-500 transform lg:hidden ${isOpen ? 'translate-y-0' : '-translate-y-full'
+          className={`fixed inset-0 bg-beje transition-transform duration-500 transform lg:hidden ${isOpen ? 'translate-y-0' : '-translate-y-full'
             }`}
         >
           <div className="h-full flex flex-col items-center justify-center space-y-6 p-8">

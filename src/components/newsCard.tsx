@@ -1,44 +1,46 @@
 import React from 'react';
-import { News } from '@/types/news';
+import { Article } from '@/types/article';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
-const NewsCard: React.FC<{ news: News }> = ({ news }) => {
+const NewsCard: React.FC<{ news: Article; delay: number }> = ({ news, delay }) => {
+
   return (
-    <div className="relative overflow-hidden rounded-lg text-beje w-full max-w-sm">
-      {/* Image with gradient overlay */}
-      <div className="relative h-60">
-        <img
-          src={news.image}
-          alt={news.title}
-          className="h-full w-full object-cover rounded-lg"
-        />
-      </div>
-
-      {/* Content */}
-      <div className="relative p-4">
-        {/* Author section */}
-        <div className="flex items-center gap-3 mb-4">
-          <div className="h-10 w-10 overflow-hidden rounded-full bg-gray-600">
-            <img
-              src={news.authorImage}
-              alt={news.authorImage}
-              className="h-full w-full object-cover"
-            />
-          </div>
-          <h3 className="font-medium text-beje uppercase border-b border-gray-400 pb-1">
-            {news.authorName}
-          </h3>
-          <div className="flex-1">
-            <div className="flex flex-col mt-2 px-6">
-              <span className="text-xs font-semibold text-secondary bg-beje font-bold rounded-full p-2">{news.category}</span>
-              <span className="text-sm text-beje mt-2">{news.date}</span>
-            </div>
-          </div>
+    <motion.div
+      className="overflow-hidden w-full max-w-sm"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay }} // Delay for domino effect
+    >
+      <Link href={`/nieuws/${news.slug}`} className="block">
+        <div className="relative aspect-video">
+          <img
+            src={news.image}
+            alt={news.title}
+            className="object-cover w-full h-full rounded-lg"
+          />
         </div>
-
-        {/* Title and description */}
-        <h2 className="text-xl font-bold mb-2">{news.title}</h2>
-      </div>
-    </div>
+        <div className="p-4">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 rounded-full overflow-hidden">
+                <img
+                  src={news.authorImage}
+                  alt={news.authorName}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <span className="text-sm font-medium text-beje">{news.authorName}</span>
+            </div>
+            <span className="px-2 py-1 text-base text-beje font-semibold bg-primary rounded-full">
+              {news.category}
+            </span>
+          </div>
+          <h2 className="text-xl font-bold text-beje mb-2 line-clamp-2">{news.title}</h2>
+          <time className="text-sm text-beje">{news.date}</time>
+        </div>
+      </Link>
+    </motion.div>
   );
 };
 

@@ -18,7 +18,7 @@ export function AnimatedFAQItem({ question, answer }: FAQItemProps) {
     <div className="border rounded-lg overflow-hidden mb-4">
       <button
         onClick={toggleOpen}
-        className="w-full flex justify-between items-center py-4 px-6 text-left focus:outline-none bg-background hover:bg-accent transition-colors duration-200"
+        className="w-full flex justify-between items-center py-4 px-6 text-left focus:outline-none bg-background hover:bg-background transition-colors duration-200"
         aria-expanded={isOpen}
       >
         <span className="text-xl text-secondary font-medium text-foreground">{question}</span>

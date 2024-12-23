@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { motion, AnimatePresence } from "framer-motion";
 
 
 const steps = [
@@ -169,7 +170,7 @@ const Services = () => {
                 </div>
 
 
-                <div className="bg-secondary shadow overflow-hidden sm:rounded-lg my-12">
+                <div className="bg-secondary shadow overflow-hidden rounded-lg my-12">
                     <div className="px-4 py-5 sm:p-6">
                         <h2 className="text-2xl font-bold text-beje mb-4">
                             Factoring is serious business
@@ -265,7 +266,7 @@ const Services = () => {
 
                     <div className="grid md:grid-cols-2 gap-6 mt-8">
                         {/* First Option */}
-                        <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+                        <div className="bg-beje rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
                             <h2 className="text-xl text-secondary font-bold mb-4">
                                 100% in één keer uitbetaald
                             </h2>
@@ -371,40 +372,53 @@ const Services = () => {
                                     className="w-full flex justify-between items-center p-6 text-left focus:outline-none"
                                 >
                                     <h2 className="text-2xl font-bold text-primary">{type.title}</h2>
-                                    {expandedSections[type.id] ? <ChevronUp className="text-secondary" /> : <ChevronDown className="text-secondary" />}
+                                    {expandedSections[type.id] ? (
+                                        <ChevronUp className="text-secondary" />
+                                    ) : (
+                                        <ChevronDown className="text-secondary" />
+                                    )}
                                 </button>
 
-                                {expandedSections[type.id] && (
-                                    <div className="p-6 pt-0 space-y-6">
-                                        <p className="text-secondary">{type.description}</p>
+                                <AnimatePresence initial={false}>
+                                    {expandedSections[type.id] && (
+                                        <motion.div
+                                            key={type.id} // Ensure unique keys for each section
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: "auto", opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                                            className="p-6 pt-0 space-y-6"
+                                        >
+                                            <p className="text-secondary">{type.description}</p>
 
-                                        <div className="grid md:grid-cols-2 gap-6">
-                                            <div className="space-y-4">
-                                                <h3 className="text-xl font-semibold text-secondary">Voordelen</h3>
-                                                <p className="text-primary font-bold border-l-4 border-primary pl-4">
-                                                    Die bij DBS2 groter zijn
-                                                </p>
-                                                <ul className="list-disc pl-8 space-y-2 text-secondary">
-                                                    {type.advantages.map((advantage, index) => (
-                                                        <li key={index}>{advantage}</li>
-                                                    ))}
-                                                </ul>
-                                            </div>
+                                            <div className="grid md:grid-cols-2 gap-6">
+                                                <div className="space-y-4">
+                                                    <h3 className="text-xl font-semibold text-secondary">Voordelen</h3>
+                                                    <p className="text-primary font-bold border-l-4 border-primary pl-4">
+                                                        Die bij DBS2 groter zijn
+                                                    </p>
+                                                    <ul className="list-disc pl-8 space-y-2 text-secondary">
+                                                        {type.advantages.map((advantage, index) => (
+                                                            <li key={index}>{advantage}</li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
 
-                                            <div className="space-y-4">
-                                                <h3 className="text-xl font-semibold text-secondary">Nadelen</h3>
-                                                <p className="text-primary font-bold border-l-4 border-primary  pl-4">
-                                                    Die DBS2 wegneemt
-                                                </p>
-                                                <ul className="list-disc pl-8 space-y-2 text-secondary">
-                                                    {type.disadvantages.map((disadvantage, index) => (
-                                                        <li key={index}>{disadvantage}</li>
-                                                    ))}
-                                                </ul>
+                                                <div className="space-y-4">
+                                                    <h3 className="text-xl font-semibold text-secondary">Nadelen</h3>
+                                                    <p className="text-primary font-bold border-l-4 border-primary pl-4">
+                                                        Die DBS2 wegneemt
+                                                    </p>
+                                                    <ul className="list-disc pl-8 space-y-2 text-secondary">
+                                                        {type.disadvantages.map((disadvantage, index) => (
+                                                            <li key={index}>{disadvantage}</li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                )}
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             </div>
                         ))}
                     </div>
