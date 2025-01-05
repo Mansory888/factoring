@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Mail, Phone } from 'lucide-react';
+import Image from 'next/image';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -17,20 +18,21 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="space-y-8"
+            className="space-y-4"
           >
-            <div className="flex items-center justify-center md:justify-start">
-              <img
+            <div className="relative w-48 h-14 flex-shrink-0">
+              <Image
                 src="/images/logo.png"
                 alt="Company Logo"
-                className="h-10 w-10"
+                className="h-full w-full object-contain"
+                fill
               />
-              <span className="ml-4 text-lg font-semibold">Soof Factoring</span>
             </div>
             <div className="space-y-2 text-center md:text-left">
               <div className="flex flex-col items-center lg:flex-row lg:items-start lg:space-x-4">
                 <p className="text-secondary">
-                  Hereweg 83e<br />2361 EJ Warmond
+                Schuitegatstraat 37, 
+                <br />2225 MD Katwijk
                 </p>
               </div>
               <div className="flex flex-col items-center lg:flex-row lg:items-center lg:space-x-4">
@@ -38,7 +40,7 @@ const Footer = () => {
                   href="mailto:info@dbs2.nl"
                   className="text-secondary hover:text-primary transition-colors"
                 >
-                  info@dbs2.nl
+                  info@sooffactoring.nl
                 </a>
               </div>
               <div className="flex flex-col items-center lg:flex-row lg:items-center lg:space-x-4">
@@ -46,7 +48,7 @@ const Footer = () => {
                   href="tel:07140881164"
                   className="text-secondary hover:text-primary transition-colors"
                 >
-                  071 40 88 164
+                  +31 06 51 950 524
                 </a>
               </div>
             </div>

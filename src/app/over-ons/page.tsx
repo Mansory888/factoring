@@ -71,17 +71,10 @@ const About = () => {
                             </motion.button>
                         </div>
                     </div>
-
-                    <img
-                        src="/images/main.jpg"
-                        alt="Business people discussing"
-                        className="w-1/2 mx-auto object-cover" // Adjusted size
-                    />
-
                 </section>
             </div>
 
-            <section className="max-w-7xl mx-auto px-4 py-8 mt-6 overflow-x-hidden bg-secondary text-beje rounded-3xl">
+            <section className="mx-auto px-4 py-8 mt-6 overflow-x-hidden bg-secondary text-beje rounded-3xl">
                 <div className="container mx-auto px-4 md:px-6">
                     <motion.div
                         initial={{ x: "-100%", opacity: 0 }}

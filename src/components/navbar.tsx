@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, MouseEventHandler, ReactNode  } from 'react';
+import React, { useState, MouseEventHandler, ReactNode } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -51,17 +51,16 @@ const Navbar = () => {
     <nav className="font-inter bg-background py-2 px-6 relative z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo and company name */}
-        <Link href="/" className="flex items-center space-x-3 flex-shrink-0">
-          <div className="relative w-12 h-12">
+        <Link href="/" className="flex items-center flex-shrink-0">
+          <div className="relative w-48 h-16 lg:w-56 lg:h-20 flex-shrink-0">
             <Image
               src="/images/logo.png"
               alt="SOOF Factoring Logo"
               fill
-              className="object-contain"
+              className="object-contain" 
               priority
             />
           </div>
-          <span className="text-xl text-secondary font-medium">SOOF FACTORING B.V.</span>
         </Link>
 
         {/* Mobile menu button */}

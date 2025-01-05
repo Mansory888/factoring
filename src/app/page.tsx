@@ -1,24 +1,25 @@
 
 "use client"
-import { motion} from 'framer-motion';
-import { HomeIcon, Zap, ClipboardList } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { HomeIcon, Zap, ClipboardList, Check } from 'lucide-react';
 import { Article } from '@/types/article';
 import Data from '../../public/data.json';
 import NewsCard from '@/components/newsCard';
 import HeroSection from "@/components/emailContact";
+import { useState } from 'react';
 
 const MovingText = () => (
   <div className="overflow-hidden whitespace-nowrap absolute top-4 left-0 w-24 sm:w-32 md:w-32 lg:w-40">
     <motion.div
       animate={{
-        x: [150, -150], // Adjust the range to fit smaller width
+        x: [150, -215], // Adjust the range to fit smaller width
       }}
       transition={{
-        duration: 5,
+        duration: 7,
         repeat: Infinity,
         ease: "linear"
       }}
-      className="text-primary text-xl font-bold"
+      className="text-primary text-2xl font-bold"
     >
       • VANAF €500.000
     </motion.div>
@@ -27,19 +28,19 @@ const MovingText = () => (
 
 const SpinningLogo = () => {
   return (
-    <div className="absolute -left-6 top-1/2 transform -translate-y-1/2 flex items-center justify-center w-24 h-24">
+    <div className="absolute -left-16 bottom-[40%] transform -translate-y-1/2 flex items-center justify-center w-32 h-32">
       {/* Circle Background */}
       <div className="absolute w-full h-full rounded-full bg-background"></div>
 
       {/* Spinning Logo */}
       <motion.img
-        src="/images/logo.png" // Replace with your logo path
+        src="/images/logoSingle.png" // Replace with your logo path
         alt="Spinning Logo"
-        className="w-20 h-20"
+        className="w-28 h-28"
         animate={{ rotate: 360 }}
         transition={{
           repeat: Infinity,
-          duration: 3,
+          duration: 10,
           ease: "linear",
         }}
       />
@@ -49,23 +50,27 @@ const SpinningLogo = () => {
 
 const ChangingText = () => {
   const words = ["Betaald", "Verzekerd"];
+  const extendedWords = [...words, words[0]];
 
   return (
     <div className="h-8 overflow-hidden">
       <motion.div
         animate={{
-          y: [0, -30, 0], // Start at 0, move to -40, and return to 0
+          y: [0, 0, -32, -32, -64, -64],
         }}
         transition={{
-          duration: 4, // Total duration of one cycle
+          duration: 5,
+          times: [0, 0.2, 0.4, 0.6, 0.8, 1],
           repeat: Infinity,
-          times: [0, 0.5, 1],
-          ease: "easeInOut", // Equal time for each phase
+          repeatType: "loop",
+          ease: "easeInOut",
         }}
-        className="space-y-0"
       >
-        {words.map((word) => (
-          <div key={word} className="h-8 text-navy-blue text-3xl flex flex-col items-center justify-center">
+        {extendedWords.map((word, i) => (
+          <div
+            key={i}
+            className="h-8 text-navy-blue text-3xl flex items-center justify-center"
+          >
             {word}
           </div>
         ))}
@@ -73,6 +78,7 @@ const ChangingText = () => {
     </div>
   );
 };
+
 
 const stats = [
   { value: '36K', label: 'Klanten', id: 'customers' },
@@ -87,6 +93,15 @@ export default function Home() {
   const sortedNews: Article[] = [...Data]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, 3);
+
+  const [phoneNumber, setPhoneNumber] = useState('');
+
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Handle form submission logic here
+    console.log('Phone number submitted:', phoneNumber);
+  };
 
   return (
     <div className="bg-background">
@@ -105,17 +120,17 @@ export default function Home() {
                 {/* Main Headings */}
                 <div>
                   <h1 className="text-secondary">
-                    <span className="block text-4xl md:text-5xl font-bold lg:text-6xl mb-2">
+                    <span className="block text-7xl md:text-8xl lg:text-9xl mb-2">
                       DIRECT
                     </span>
-                    <span className="block text-4xl md:text-5xl font-bold lg:text-6xl mb-2">
+                    <span className="block text-7xl md:text-8xl lg:text-9xl mb-2">
                       EXTRA
                     </span>
-                    <span className="block text-5xl md:text-6xl lg:text-7xl italic relative inline-block">
+
+                    <span className="block text-5xl sm:text-7xl md:text-7xl lg:text-7.5xl italic relative inline-block">
                       WERKKAPITAAL
                       <span
-                        className="absolute left-0 bottom-0 w-full h-[2px] bg-primary rotate-[-2deg] transform origin-bottom-left"
-                        style={{ height: '4px' }}
+                        className="absolute left-0 bottom-0 w-full h-1 sm:h-1.5 md:h-2 bg-primary transform -rotate-2 origin-bottom-left"
                       ></span>
                     </span>
                   </h1>
@@ -124,15 +139,15 @@ export default function Home() {
                 {/* Cards */}
                 <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
                   {/* First Card */}
-                  <div className="bg-primary rounded-lg p-4 text-secondary flex flex-col items-center justify-center w-60 h-24">
-                    <p className="text-sm mb-1">- JOUW FACTUREN METEEN -</p>
+                  <div className="bg-primary rounded-lg p-4 text-secondary flex flex-col items-center justify-center w-72 h-24">
+                    <p className="text-sm font-semibold">- JOUW FACTUREN METEEN -</p>
                     <ChangingText />
                   </div>
 
                   {/* Second Card */}
-                  <div className="bg-secondary rounded-lg p-4 text-beje flex flex-col items-center justify-center w-60 h-24">
-                    <h2 className="text-xl font-bold mb-1">Neem</h2>
-                    <h2 className="text-xl font-bold mb-1">contact op</h2>
+                  <div className="bg-secondary rounded-lg p-4 text-beje flex flex-col items-center justify-center w-72 h-24">
+                    <h2 className="text-2xl font-bold mb-1">Neem</h2>
+                    <h2 className="text-2xl font-bold mb-1">contact op</h2>
                   </div>
                 </div>
               </div>
@@ -148,7 +163,7 @@ export default function Home() {
               <div className="relative">
                 <div className="aspect-w-16 aspect-h-10 md:aspect-h-12 rounded-3xl overflow-hidden bg-gray-100">
                   <img
-                    src="/images/main.jpg"
+                    src="/images/main.png"
                     alt="Business people discussing"
                     className="w-full h-full object-cover"
                   />
@@ -161,145 +176,24 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 overflow-x-hidden">
-        <motion.div
-          initial={{ x: "-100%", opacity: 0 }}
-          whileInView={{ x: "0%", opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.2 }}
-        >
-          <h1
-            id="factoring-title"
-            className="text-4xl md:text-5xl font-bold text-center mb-12 text-beje bg-primary p-4 rounded-xl mx-auto w-full max-w-4xl"
-          >
-            Drie Soorten Factoring
-          </h1>
-        </motion.div>
-
-        <motion.div
-          initial={{ x: "100%", opacity: 0 }}
-          whileInView={{ x: "0%", opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-        >
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Traditionele Factoring */}
-            <article
-              className="bg-backgound border-4 border-secondary rounded-xl p-6 hover:shadow-lg transition-shadow"
-            >
-              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-beje mb-4">
-                <HomeIcon size={24} />
-              </div>
-              <h2 className="text-2xl font-bold text-secondary mb-4">
-                Traditionele Factoring
-              </h2>
-              <ul className="space-y-2 mb-6 text-secondary">
-                <li className="flex items-center">
-                  <span className="mr-2">•</span>
-                  95% direct betaald
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-2">•</span>
-                  Factorfee v.a. 1,5%
-                </li>
-              </ul>
-              <button
-                className="text-primary font-medium hover:underline flex items-center"
-                aria-label="Leer meer over Traditionele Factoring"
-              >
-                Leer meer
-                <svg
-                  className="w-4 h-4 ml-1"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </button>
-            </article>
-
-            {/* MKB Factoring */}
-            <article
-              className="bg-backgound border-4 border-secondary rounded-xl p-6 hover:shadow-lg transition-shadow"
-            >
-              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-beje mb-4">
-                <Zap size={24} />
-              </div>
-              <h2 className="text-2xl font-bold text-secondary mb-4">
-                MKB Factoring
-              </h2>
-              <ul className="space-y-2 mb-6 text-secondary">
-                <li className="flex items-center">
-                  <span className="mr-2">•</span>
-                  100% direct betaald
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-2">•</span>
-                  Factorfee v.a. 3%
-                </li>
-              </ul>
-              <button
-                className="text-primary font-medium hover:underline flex items-center"
-                aria-label="Leer meer over MKB Factoring"
-              >
-                Leer meer
-                <svg
-                  className="w-4 h-4 ml-1"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </button>
-            </article>
-
-            {/* American Factoring */}
-            <article
-              className="bg-backgound border-4 border-secondary rounded-xl p-6 hover:shadow-lg transition-shadow"
-            >
-              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-beje mb-4">
-                <ClipboardList size={24} />
-              </div>
-              <h2 className="text-2xl font-bold text-secondary mb-4">
-                American Factoring
-              </h2>
-              <ul className="space-y-2 mb-6 text-secondary">
-                <li className="flex items-center">
-                  <span className="mr-2">•</span>
-                  100% direct betaald
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-2">•</span>
-                  Factorfee v.a. 3%
-                </li>
-              </ul>
-              <button
-                className="text-primary font-medium hover:underline flex items-center"
-                aria-label="Leer meer over American Factoring"
-              >
-                Leer meer
-                <svg
-                  className="w-4 h-4 ml-1"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </button>
-            </article>
-          </div>
-        </motion.div>
-      </section>
 
 
       <section className="max-w-7xl mx-auto px-4 py-12 overflow-x-hidden">
+
+        <motion.h1
+          id="factoring-title"
+          className="text-4xl md:text-5xl font-bold text-center mb-12 text-beje bg-primary p-4 rounded-xl mx-auto w-full max-w-4xl"
+          initial={{ opacity: 0, y: -50 }}
+          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+        >
+          Drie Soorten Factoring
+        </motion.h1>
+
         <div className="container mx-auto px-4 md:px-6">
           <motion.div
             initial={{ x: "-100%", opacity: 0 }}
@@ -307,13 +201,13 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-4 md:mb-8 lg:mb-12">
               {/* Image Container */}
               <div className="w-full md:w-1/2">
                 <div className="relative">
                   <img
-                    src="/images/testimonial2.jpg"
-                    alt="Simon Adriaan Visscher in an office setting"
+                    src="/images/tradfactoring.jpg"
+                    alt="Traditionele Factoring"
                     className="w-full rounded-lg shadow-lg"
                     width={600}
                     height={600}
@@ -325,11 +219,22 @@ export default function Home() {
               {/* Content Container */}
               <div className="w-full md:w-1/2">
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-4 border-l-4 border-secondary pl-4">
-                  Soof Factoring is verankerd in mijn groeistrategie
+                  Traditionele Factoring
                 </h1>
 
-                <p className="text-lg md:text-xl text-secondary mb-8">
-                  -Adriaan Werkt, Simon Adriaan Visscher
+                <ul className="space-y-4 mb-8 text-secondary text-lg ">
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 mr-2 mt-1 flex-shrink-0 text-green-500" />
+                    <span>95% direct betaald</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 mr-2 mt-1 flex-shrink-0 text-green-500" />
+                    <span >Factorfee v.a. 1,5%</span>
+                  </li>
+                </ul>
+
+                <p className="text-lg md:text-xl text-secondary mb-4">
+                  Traditionele factoring is vooral geschikt voor grote bedrijven, waarbij het volledige debiteurenportfolio wordt overgedragen aan een factor. Op basis van de verwachte factuursom wordt een kredietlimiet afgesproken. De factor betaalt de facturen tot deze limiet is bereikt. Bij DBS2 is de kans hierop klein, omdat wij de facturatie naar je klant verzorgen.
                 </p>
 
                 <motion.button
@@ -353,7 +258,7 @@ export default function Home() {
                     }
                   }}
                 >
-                  <span className="text-lg font-medium mr-3">ONTDEK</span>
+                  <span className="text-lg font-medium mr-3">Leer meer</span>
                   <div className="bg-primary rounded-full p-2.5 ">
                     <svg
                       className="w-4 h-4 text-beje"
@@ -381,15 +286,15 @@ export default function Home() {
             initial={{ x: "100%", opacity: 0 }}
             whileInView={{ x: "0%", opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.5 }}
+            transition={{ duration: 1.5, delay: 0.4 }}
           >
-            <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 py-6">
+            <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 py-6 mb-4 md:mb-8 lg:mb-12">
               {/* Image Container */}
               <div className="w-full md:w-1/2">
                 <div className="relative">
                   <img
-                    src="/images/testimonial1.jpg"
-                    alt="Simon Adriaan Visscher in an office setting"
+                    src="/images/americanF.jpg"
+                    alt="American Style Factoring"
                     className="w-full rounded-lg shadow-lg"
                     width={600}
                     height={600}
@@ -401,11 +306,22 @@ export default function Home() {
               {/* Content Container */}
               <div className="w-full md:w-1/2 ">
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-4 border-l-4 border-secondary pl-4">
-                  Ik hoef nooit meer sjaggerijnige belletjes te doen naar mijn klanten. Dat doet de relatie goed.
+                  American Style Factoring
                 </h1>
 
-                <p className="text-lg md:text-xl text-secondary mb-8">
-                  -Cees Schraag, Do-Bo transport
+                <ul className="space-y-4 mb-8 text-secondary text-lg ">
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 mr-2 mt-1 flex-shrink-0 text-green-500" />
+                    <span>100% direct betaald</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 mr-2 mt-1 flex-shrink-0 text-green-500" />
+                    <span >Factorfee v.a. 3%</span>
+                  </li>
+                </ul>
+
+                <p className="text-lg md:text-xl text-secondary mb-4">
+                  Dit lijkt op American Style Factoring, maar het is wezenlijk anders, vooral in vergelijking met DBS2 en de concurrentie. Hoewel de rentepercentages bijna gelijk lijken en beide vormen 100% direct uitkeren, wordt bij American Factoring een vast rentepercentage ingehouden, terwijl dit anders werkt bij MKB Factoring.
                 </p>
 
                 <motion.button
@@ -429,7 +345,7 @@ export default function Home() {
                     }
                   }}
                 >
-                  <span className="text-lg font-medium mr-3">ONTDEK</span>
+                  <span className="text-lg font-medium mr-3">Leer meer</span>
                   <div className="bg-primary rounded-full p-2.5 ">
                     <svg
                       className="w-4 h-4 text-beje"
@@ -451,14 +367,150 @@ export default function Home() {
               </div>
             </div>
           </motion.div>
+
+
+          <motion.div
+            initial={{ x: "-100%", opacity: 0 }}
+            whileInView={{ x: "0%", opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, delay: 0.4 }}
+          >
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+              {/* Image Container */}
+              <div className="w-full md:w-1/2">
+                <div className="relative">
+                  <img
+                    src="/images/MkbF.jpg"
+                    alt="MKB Factoring"
+                    className="w-full rounded-lg shadow-lg"
+                    width={600}
+                    height={600}
+                  />
+
+                </div>
+              </div>
+
+              {/* Content Container */}
+              <div className="w-full md:w-1/2">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-4 border-l-4 border-secondary pl-4">
+                  MKB Factoring
+                </h1>
+
+                <ul className="space-y-4 mb-8 text-secondary text-lg ">
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 mr-2 mt-1 flex-shrink-0 text-green-500" />
+                    <span>95% direct betaald</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 mr-2 mt-1 flex-shrink-0 text-green-500" />
+                    <span >Factorfee v.a. 1,5%</span>
+                  </li>
+                </ul>
+
+                <p className="text-lg md:text-xl text-secondary mb-4">
+                  Dit lijkt op American Factoring, maar verschilt wezenlijk, vooral vergeleken met DBS2 en concurrenten. Hoewel de rentepercentages vergelijkbaar zijn en beide vormen direct 100% uitkeren, wordt bij American Factoring een vast rentepercentage ingehouden, terwijl MKB Factoring anders werkt.
+                </p>
+
+                <motion.button
+                  className="flex items-center bg-secondary text-beje rounded-full pr-1 pl-6 py-1 hover:bg-secondary transition-colors duration-200"
+                  initial="initial"
+                  whileHover="hover"
+                  whileTap={{ scale: 0.95 }}
+                  variants={{
+                    initial: {
+                      x: 0,
+                      scale: 1
+                    },
+                    hover: {
+                      x: 10,
+                      scale: 1.05,
+                      transition: {
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10
+                      }
+                    }
+                  }}
+                >
+                  <span className="text-lg font-medium mr-3">Leer meer</span>
+                  <div className="bg-primary rounded-full p-2.5 ">
+                    <svg
+                      className="w-4 h-4 text-beje"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4 12H20M20 12L13 5M20 12L13 19"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </motion.button>
+
+              </div>
+            </div>
+          </motion.div>
+
+
+
         </div>
       </section>
 
 
-      <section className="max-w-7xl mx-auto bg-secondary text-beje rounded-3xl">
-        <div className="px-4 px-4 pt-12">
+
+      <section className="py-12 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="text-center md:text-left">
+              <h2 className="text-3xl font-bold text-secondary mb-4">
+                Factoring voor Elke Organisatie
+              </h2>
+              <p className="text-lg text-secondary mb-6">
+                Ontdek hoe DBS2's aantrekkelijke voorwaarden factoring toegankelijk maken voor kleinere bedrijven.
+              </p>
+              <p className="text-secondary">
+                Traditionele factoring wordt vaak geassocieerd met grote bedrijven, maar DBS2 maakt het nu ook aantrekkelijk voor kleinere organisaties. Ontdek hoe wij uw bedrijfsfinanciering kunnen optimaliseren, ongeacht de grootte van uw organisatie.
+              </p>
+            </div>
+
+            <div className="bg-gray-100 rounded-lg p-6 shadow-md w-full max-w-md mx-auto">
+              <h3 className="text-2xl font-semibold text-secondary mb-2">Bel mij terug</h3>
+              <p className="text-sm text-secondary mb-4">
+                Laat uw nummer achter, en wij nemen zo snel mogelijk contact met u op.
+              </p>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <input
+                    type="tel"
+                    id="phoneNumber"
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    placeholder="Uw telefoonnummer"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors duration-200 font-semibold"
+                >
+                  Verzoek terugbelafspraak
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section className="mx-auto bg-secondary text-beje rounded-3xl">
+        <div className="px-4 py-4">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+            {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
               {stats.map((stat) => (
                 <motion.div
                   key={stat.id}
@@ -488,24 +540,26 @@ export default function Home() {
                   </motion.div>
                 </motion.div>
               ))}
-            </div>
+            </div> */}
 
-            <div className="border-t-2 border-beje text-center">
+            <div className="text-center">
               <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.4 }}
               >
-                <h2 className="text-3xl md:text-4xl font-bold mt-4">
+                <h2 className="text-7xl md:text-7xl font-bold mt-4">
                   Nieuws
                 </h2>
+
+                <div className="border-b-4 mt-4"></div>
 
                 <div className="p-6">
                   <div className="max-w-6xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
                       {sortedNews.map((news, index) => (
-                        <NewsCard key={index} news={news} delay={0}/>
+                        <NewsCard key={index} news={news} delay={0} />
                       ))}
                     </div>
                   </div>

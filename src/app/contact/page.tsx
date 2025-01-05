@@ -75,19 +75,19 @@ const Contact = () => {
                                             <div className="flex flex-col items-center lg:flex-row lg:items-start lg:space-x-4">
                                                 <MapPin className="w-6 h-6 text-primary mb-2 lg:mb-0 flex-shrink-0" />
                                                 <p className="text-secondary">
-                                                    Hereweg 83e<br />2361 EJ Warmond
+                                                Schuitegatstraat 37,<br />2225 MD Katwijk
                                                 </p>
                                             </div>
                                             <div className="flex flex-col items-center lg:flex-row lg:items-center lg:space-x-4">
                                                 <Mail className="w-6 h-6 text-primary mb-2 lg:mb-0 flex-shrink-0" />
                                                 <a href="mailto:info@dbs2.nl" className="text-secondary hover:text-primary transition-colors">
-                                                    info@dbs2.nl
+                                                info@sooffactoring.nl
                                                 </a>
                                             </div>
                                             <div className="flex flex-col items-center lg:flex-row lg:items-center lg:space-x-4">
                                                 <Phone className="w-6 h-6 text-primary mb-2 lg:mb-0 flex-shrink-0" />
                                                 <a href="tel:07140881164" className="text-secondary hover:text-primary transition-colors">
-                                                    071 40 88 164
+                                                +31 06 51 950 524
                                                 </a>
                                             </div>
                                         </div>
@@ -181,7 +181,7 @@ const Contact = () => {
                 </section>
 
 
-                <div className="overflow-x-hidden">
+                {/* <div className="overflow-x-hidden">
                     <motion.div
                         initial={{ x: "100%", opacity: 0 }}
                         whileInView={{ x: "0%", opacity: 1 }}
@@ -204,7 +204,7 @@ const Contact = () => {
                         </section>
 
                     </motion.div>
-                </div>
+                </div> */}
 
             </div>
         </div>
