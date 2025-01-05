@@ -28,7 +28,7 @@ const MovingText = () => (
 
 const SpinningLogo = () => {
   return (
-    <div className="absolute -left-16 bottom-[40%] transform -translate-y-1/2 flex items-center justify-center w-32 h-32">
+    <div className="absolute -left-6 md:-left-16 bottom-[40%] transform -translate-y-1/2 flex items-center justify-center w-24 h-24 md:w-32 md:h-32">
       {/* Circle Background */}
       <div className="absolute w-full h-full rounded-full bg-background"></div>
 
@@ -36,7 +36,7 @@ const SpinningLogo = () => {
       <motion.img
         src="/images/logoSingle.png" // Replace with your logo path
         alt="Spinning Logo"
-        className="w-28 h-28"
+        className="w-20 h-20 md:w-28 md:h-28"
         animate={{ rotate: 360 }}
         transition={{
           repeat: Infinity,
@@ -161,9 +161,9 @@ export default function Home() {
             >
               {/* Right Image */}
               <div className="relative">
-                <div className="aspect-w-16 aspect-h-10 md:aspect-h-12 rounded-3xl overflow-hidden bg-gray-100">
+                <div className="aspect-w-16 aspect-h-10 md:aspect-h-12 rounded-3xl overflow-hidden">
                   <img
-                    src="/images/main.png"
+                    src="/images/main.jpg"
                     alt="Business people discussing"
                     className="w-full h-full object-cover"
                   />
@@ -184,12 +184,12 @@ export default function Home() {
           id="factoring-title"
           className="text-4xl md:text-5xl font-bold text-center mb-12 text-beje bg-primary p-4 rounded-xl mx-auto w-full max-w-4xl"
           initial={{ opacity: 0, y: -50 }}
-          viewport={{ once: true }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.8,
             ease: "easeInOut",
           }}
+          viewport={{ once: true, amount: 1 }}
         >
           Drie Soorten Factoring
         </motion.h1>
@@ -462,46 +462,62 @@ export default function Home() {
 
 
 
-      <section className="py-12 bg-white">
+      <section className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="text-center md:text-left">
-              <h2 className="text-3xl font-bold text-secondary mb-4">
-                Factoring voor Elke Organisatie
-              </h2>
-              <p className="text-lg text-secondary mb-6">
-                Ontdek hoe DBS2's aantrekkelijke voorwaarden factoring toegankelijk maken voor kleinere bedrijven.
-              </p>
-              <p className="text-secondary">
-                Traditionele factoring wordt vaak geassocieerd met grote bedrijven, maar DBS2 maakt het nu ook aantrekkelijk voor kleinere organisaties. Ontdek hoe wij uw bedrijfsfinanciering kunnen optimaliseren, ongeacht de grootte van uw organisatie.
-              </p>
-            </div>
 
-            <div className="bg-gray-100 rounded-lg p-6 shadow-md w-full max-w-md mx-auto">
-              <h3 className="text-2xl font-semibold text-secondary mb-2">Bel mij terug</h3>
-              <p className="text-sm text-secondary mb-4">
-                Laat uw nummer achter, en wij nemen zo snel mogelijk contact met u op.
-              </p>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <input
-                    type="tel"
-                    id="phoneNumber"
-                    value={phoneNumber}
-                    onChange={(e) => setPhoneNumber(e.target.value)}
-                    placeholder="Uw telefoonnummer"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
-                    required
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors duration-200 font-semibold"
-                >
-                  Verzoek terugbelafspraak
-                </button>
-              </form>
-            </div>
+            <motion.div
+              initial={{ y: -100, opacity: 0 }}  // Start from up (y = -100)
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }} // Move to center
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+            >
+              <div className="text-center md:text-left">
+                <h2 className="text-3xl font-bold text-secondary mb-4">
+                  Factoring voor Elke Organisatie
+                </h2>
+                <p className="text-lg text-secondary mb-6">
+                  Ontdek hoe DBS2's aantrekkelijke voorwaarden factoring toegankelijk maken voor kleinere bedrijven.
+                </p>
+                <p className="text-secondary">
+                  Traditionele factoring wordt vaak geassocieerd met grote bedrijven, maar DBS2 maakt het nu ook aantrekkelijk voor kleinere organisaties. Ontdek hoe wij uw bedrijfsfinanciering kunnen optimaliseren, ongeacht de grootte van uw organisatie.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 100, opacity: 0 }}  // Start from down (y = 100)
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}  // Move to center
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+            >
+
+              <div className="rounded-lg p-6 shadow-md w-full max-w-md mx-auto">
+                <h3 className="text-2xl font-semibold text-secondary mb-2">Bel mij terug</h3>
+                <p className="text-sm text-secondary mb-4">
+                  Laat uw nummer achter, en wij nemen zo snel mogelijk contact met u op.
+                </p>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <input
+                      type="tel"
+                      id="phoneNumber"
+                      value={phoneNumber}
+                      onChange={(e) => setPhoneNumber(e.target.value)}
+                      placeholder="Uw telefoonnummer"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
+                      required
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors duration-200 font-semibold"
+                  >
+                    Verzoek terugbelafspraak
+                  </button>
+                </form>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
