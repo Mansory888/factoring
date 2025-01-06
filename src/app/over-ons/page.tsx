@@ -106,10 +106,10 @@ const About = () => {
             <section className="mx-auto px-4 py-8 mt-6 overflow-x-hidden bg-secondary text-beje rounded-3xl">
                 <div className="container mx-auto px-4 md:px-6">
                     <motion.div
-                        initial={{ x: "-100%", opacity: 0 }}
+                        initial={{ x: -200, opacity: 0 }}
                         whileInView={{ x: "0%", opacity: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
+                        transition={{ duration: 1, delay: 0.2 }}
                     >
                         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                             {/* Image Container */}
@@ -148,10 +148,10 @@ const About = () => {
 
 
                     <motion.div
-                        initial={{ x: "100%", opacity: 0 }}
+                        initial={{ x: 200, opacity: 0 }}
                         whileInView={{ x: "0%", opacity: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.5 }}
+                        transition={{ duration: 1, delay: 0.4 }}
                     >
                         <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 py-6">
                             {/* Image Container */}

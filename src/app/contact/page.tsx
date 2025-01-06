@@ -30,26 +30,29 @@ const Contact = () => {
                     <div className="max-w-5xl mx-auto px-4">
 
 
-                        <motion.div
-                            className="text-center mb-12"
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{
-                                duration: 0.8,
-                                ease: "easeInOut",
 
-                            }}
+
+
+                        <motion.h1
+                            className="text-4xl md:text-6xl lg:text-7xl font-bold text-secondary text-center mb-6"
+                            initial={{ y: -50, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
                         >
-                            <h1 className="text-4xl text-primary font-bold mb-4">Contact</h1>
-                            <p className="text-secondary">
-                                Iemand aan de lijn die jouw taal spreekt? Vul het onderstaande formulier in, dan nemen we nemen zo snel mogelijk contact met je op.
-                            </p>
-                            <p className="text-secondary mt-2">
-                                Direct contact met commercieel directeur Jaap van Aalst
-                                Bel Jaap, of stuur hem een Whatsapp bericht
-                            </p>
-                        </motion.div>
+                            Contact
+                        </motion.h1>
+
+
+                        <motion.p
+                            className="text-sm md:text-base lg:text-lg max-w-4xl mx-auto mt-12 text-secondary text-center"
+                            initial={{ y: 50, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                        >
+                            Iemand aan de lijn die jouw taal spreekt? Vul het onderstaande formulier in, dan nemen we nemen zo snel mogelijk contact met je op. Direct contact met commercieel directeur Jaap van Aalst. Bel Jaap, of stuur hem een Whatsapp bericht
+                        </motion.p>
+
+
 
 
 
@@ -66,7 +69,7 @@ const Contact = () => {
                             }}
                         >
 
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
                                 {/* Company Information */}
                                 <div className="space-y-8 text-center lg:text-left">
                                     <div>
@@ -75,19 +78,19 @@ const Contact = () => {
                                             <div className="flex flex-col items-center lg:flex-row lg:items-start lg:space-x-4">
                                                 <MapPin className="w-6 h-6 text-primary mb-2 lg:mb-0 flex-shrink-0" />
                                                 <p className="text-secondary">
-                                                Schuitegatstraat 37,<br />2225 MD Katwijk
+                                                    Schuitegatstraat 37,<br />2225 MD Katwijk
                                                 </p>
                                             </div>
                                             <div className="flex flex-col items-center lg:flex-row lg:items-center lg:space-x-4">
                                                 <Mail className="w-6 h-6 text-primary mb-2 lg:mb-0 flex-shrink-0" />
                                                 <a href="mailto:info@SOOF.nl" className="text-secondary hover:text-primary transition-colors">
-                                                info@sooffactoring.nl
+                                                    info@sooffactoring.nl
                                                 </a>
                                             </div>
                                             <div className="flex flex-col items-center lg:flex-row lg:items-center lg:space-x-4">
                                                 <Phone className="w-6 h-6 text-primary mb-2 lg:mb-0 flex-shrink-0" />
                                                 <a href="tel:07140881164" className="text-secondary hover:text-primary transition-colors">
-                                                +31 06 51 950 524
+                                                    +31 06 51 950 524
                                                 </a>
                                             </div>
                                         </div>
@@ -104,7 +107,7 @@ const Contact = () => {
                                             <input
                                                 type="text"
                                                 id="name"
-                                                name="name"                                   
+                                                name="name"
                                                 className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                 required
                                             />

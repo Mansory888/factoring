@@ -148,13 +148,25 @@ const Services = () => {
     return (
         <div className="bg-background">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-8">
-                <div className="text-center mb-10">
-                    <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-                        Welke vorm van Factoring past bij jouw bedrijf?
-                    </h1>
-                    <p className="text-secondary text-lg max-w-3xl mx-auto">
+                <div className="text-center my-12">
+                    <motion.h1
+                        className="text-4xl md:text-6xl lg:text-7xl font-bold text-secondary mb-6"
+                        initial={{ y: -50, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                    >
+                        Welke vorm van Factoring <br/> past bij jouw bedrijf?
+                    </motion.h1>
+
+                    <motion.p
+                        className="text-sm md:text-base lg:text-lg max-w-4xl mx-auto mt-12 text-secondary text-center"
+                        initial={{ y: 50, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                    >
                         Factoring is een flexibele manier om werkkapitaal (liquiditeit) te vergroten, waarbij de financiering op een natuurlijke wijze meegroeit met jouw onderneming. Daarnaast zijn je debiteuren met Factoring via SOOF verzekerd voor wanbetaling en voeren wij professioneel debiteurenbeheer uit.
-                    </p>
+                    </motion.p>
+
                 </div>
 
                 <div className="mt-12">

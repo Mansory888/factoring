@@ -29,7 +29,7 @@ const MovingText = () => (
 
 const SpinningLogo = () => {
   return (
-    <div className="absolute -left-6 md:-left-16 bottom-[40%] transform -translate-y-1/2 flex items-center justify-center w-24 h-24 md:w-32 md:h-32">
+    <div className="absolute -left-5 md:-left-6 lg:-left-16 bottom-[40%] transform -translate-y-1/2 flex items-center justify-center w-24 h-24 md:w-32 md:h-32">
       {/* Circle Background */}
       <div className="absolute w-full h-full rounded-full bg-background"></div>
 
@@ -129,7 +129,7 @@ export default function Home() {
                       EXTRA
                     </span>
 
-                    <span className="block text-5xl sm:text-7xl md:text-7xl lg:text-7.5xl italic relative inline-block">
+                    <span className="block text-5xl sm:text-7xl md:text-7xl lg:text-7xl italic relative inline-block">
                       WERKKAPITAAL
                       <span
                         className="absolute left-0 bottom-0 w-full h-1 sm:h-1.5 md:h-2 bg-primary transform -rotate-2 origin-bottom-left"
@@ -142,7 +142,7 @@ export default function Home() {
                 <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start mt-20">
                   {/* First Card */}
                   <div className="bg-primary rounded-lg p-4 text-secondary flex flex-col items-center justify-center w-72 h-32">
-                    <p className="text-lg md:text-base lg:text-lg font-semibold">-JOUW FACTUREN METEEN-</p>
+                    <p className="text-lg md:text-base lg:text-lg font-semibold text-center">JOUW FACTUREN METEEN</p>
                     <ChangingText />
                   </div>
 
@@ -198,7 +198,7 @@ export default function Home() {
 
         <div className="container mx-auto px-4 md:px-6">
           <motion.div
-            initial={{ x: "-100%", opacity: 0 }}
+            initial={{ x: -200, opacity: 0 }}
             whileInView={{ x: "0%", opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -286,7 +286,7 @@ export default function Home() {
 
 
           <motion.div
-            initial={{ x: "100%", opacity: 0 }}
+            initial={{ x: 200, opacity: 0 }}
             whileInView={{ x: "0%", opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, delay: 0.4 }}
@@ -374,7 +374,7 @@ export default function Home() {
 
 
           <motion.div
-            initial={{ x: "-100%", opacity: 0 }}
+            initial={{ x: -200, opacity: 0 }}
             whileInView={{ x: "0%", opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, delay: 0.4 }}
