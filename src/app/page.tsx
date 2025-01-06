@@ -69,7 +69,7 @@ const ChangingText = () => {
         {extendedWords.map((word, i) => (
           <div
             key={i}
-            className="h-8 text-navy-blue text-3xl flex items-center justify-center"
+            className="h-8 text-navy-blue text-4xl flex items-center justify-center"
           >
             {word}
           </div>
@@ -116,7 +116,7 @@ export default function Home() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 1 }}
             >
-              <div className="space-y-8 text-center lg:text-left">
+              <div className="text-center lg:text-left">
                 {/* Main Headings */}
                 <div>
                   <h1 className="text-secondary">
@@ -137,17 +137,17 @@ export default function Home() {
                 </div>
 
                 {/* Cards */}
-                <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
+                <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start mt-16">
                   {/* First Card */}
-                  <div className="bg-primary rounded-lg p-4 text-secondary flex flex-col items-center justify-center w-72 h-24">
-                    <p className="text-sm font-semibold">- JOUW FACTUREN METEEN -</p>
+                  <div className="bg-primary rounded-lg p-4 text-secondary flex flex-col items-center justify-center w-72 h-28">
+                    <p className="text-base font-semibold">- JOUW FACTUREN METEEN -</p>
                     <ChangingText />
                   </div>
 
                   {/* Second Card */}
-                  <div className="bg-secondary rounded-lg p-4 text-beje flex flex-col items-center justify-center w-72 h-24">
-                    <h2 className="text-2xl font-bold mb-1">Neem</h2>
-                    <h2 className="text-2xl font-bold mb-1">contact op</h2>
+                  <div className="bg-secondary rounded-lg p-4 text-beje flex flex-col items-center justify-center w-72 h-28">
+                    <h2 className="text-3xl font-bold mb-1">Neem</h2>
+                    <h2 className="text-3xl font-bold mb-1">contact op</h2>
                   </div>
                 </div>
               </div>

@@ -1,14 +1,14 @@
 
 "use client"
 import React from 'react';
-import { motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const About = () => {
     return (
         <div className="bg-background">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
                 <section >
-                    <div className="text-center py-8 md:py-16 lg:py-20">
+                    <div className="text-center py-8 md:py-16">
 
                         <motion.h1
                             className="text-4xl md:text-6xl lg:text-7xl font-bold text-secondary mb-6"
@@ -29,7 +29,33 @@ const About = () => {
                             TRANSPARANTE EN BETROUWBARE FACTORINGDIENSTEN DIE UW CASHFLOW VERSTERKEN
                         </motion.p>
 
-                        <div className="flex items-center justify-center pt-8">
+                        <div className="py-16">
+                            <div className="space-y-20">
+                                <div className="flex flex-col md:flex-row items-start md:items-center">
+                                    <div className="w-full md:w-1/3 mb-6 md:mb-0">
+                                        <h2 className="text-3xl font-semibold text-secondary mb-2">Wie zijn wij</h2>
+                                    </div>
+                                    <div className="w-full md:w-2/3 text-secondary md:border-l-4 md:border-secondary leading-relaxed px-4">
+                                        <p className="mb-4">
+                                            Soof Factoring B.V., onderdeel van de Soof Group, staat voor pragmatische en efficiënte dienstverlening die klanten écht vooruithelpt. Met slimme automatisering maken wij werkkapitaal toegankelijk via flexibele debiteurenfactoring, zodat onze klanten hun marktaandeel kunnen vergroten en hun winstgevendheid kunnen verbeteren. Maar wat ons écht onderscheidt, is ons persoonlijke contact. Bij Soof Factoring geloven we dat menselijk maatwerk het verschil maakt.  Ons doel? Niet alleen financiële oplossingen bieden, maar ook een betrouwbare partner zijn die op een persoonlijke manier met u werkt aan groei en succes.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="flex flex-col md:flex-row items-start md:items-center">
+                                    <div className="w-full md:w-1/3 mb-6 md:mb-0">
+                                        <h2 className="text-3xl font-semibold text-secondary mb-2">Hoe helpen wij u</h2>
+                                    </div>
+                                    <div className="w-full md:w-2/3 text-secondary leading-relaxed md:border-l-4 md:border-secondary px-4 ">
+                                        <p className="mb-4">
+                                            Soof Factoring biedt u de mogelijkheid om op een eenvoudige manier uw werkkapitaal te vergroten en daarmee ook direct het ondernemersrisico te verkleinen. Dit doen wij door uw factuur op te kopen - en deze direct aan u te betalen - om het uitstaande bedrag vervolgens zelf te innen bij uw opdrachtgever. Afhankelijk van de vorm van Factoring betaalt u Soof Factoring een klein percentage over het factuurbedrag en voert Soof Factoring het debiteurenbeheer. De vrijgekomen liquiditeit geeft u weer nieuwe investeringsmogelijkheden.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="flex items-center justify-center">
                             <motion.button
                                 className="flex items-center bg-secondary text-beje rounded-full pr-1 pl-6 py-1 hover:bg-secondary transition-colors duration-200"
                                 initial="initial"

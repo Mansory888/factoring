@@ -248,7 +248,7 @@ const Services = () => {
                 </div>
             </div>
 
-            <section className="max-w-7xl bg-secondary mx-auto text-beje px-8 py-2 rounded-3xl">
+            <section className=" bg-secondary mx-auto text-beje px-8 py-2 rounded-3xl">
                 <div className="max-w-6xl mx-auto px-4 py-12">
                     <div className="text-center mb-8">
                         <p className="text-primary uppercase text-sm font-bold mb-4">
@@ -288,7 +288,7 @@ const Services = () => {
                 </div>
 
 
-                <div>
+                <div className='max-w-7xl mx-auto px-8'>
                     <h2 className="text-2xl text-primary font-bold mb-4">Traditionele Factoring</h2>
 
                     <p className="mb-4 ">
@@ -361,7 +361,7 @@ const Services = () => {
                     </article>
                 </div>
 
-                <article className='my-8'>
+                <article className='my-8 max-w-7xl mx-auto px-8'>
                     <h1 className="text-4xl font-bold mb-8 text-primary text-center">Factoring Opties Vergelijken</h1>
 
                     <div className="space-y-6">
