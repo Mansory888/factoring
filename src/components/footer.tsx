@@ -20,19 +20,21 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             className="space-y-4"
           >
-            <div className="relative w-48 h-14 flex-shrink-0">
-              <Image
-                src="/images/logo.png"
-                alt="Company Logo"
-                className="h-full w-full object-contain"
-                fill
-              />
+            <div className="flex justify-center md:justify-start">
+              <div className="relative w-48 h-14 flex-shrink-0">
+                <Image
+                  src="/images/logo.png"
+                  alt="Company Logo"
+                  className="h-full w-full object-contain"
+                  fill
+                />
+              </div>
             </div>
             <div className="space-y-2 text-center md:text-left">
               <div className="flex flex-col items-center lg:flex-row lg:items-start lg:space-x-4">
                 <p className="text-secondary">
-                Schuitegatstraat 37, 
-                <br />2225 MD Katwijk
+                  Schuitegatstraat 37,
+                  <br />2225 MD Katwijk
                 </p>
               </div>
               <div className="flex flex-col items-center lg:flex-row lg:items-center lg:space-x-4">
