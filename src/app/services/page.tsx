@@ -26,56 +26,56 @@ const steps = [
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-handshake"><path d="m11 17 2 2a1 1 0 1 0 3-3" /><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" /><path d="m21 3 1 11h-2" /><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" /><path d="M3 4h8" /></svg>
         ),
-        title: "DBS2 neemt het debiteurenbeheer over."
+        title: "SOOF neemt het debiteurenbeheer over."
     },
     {
         number: 4,
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-hand-coins"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17" /><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9" /><path d="m2 16 6 6" /><circle cx="16" cy="9" r="2.9" /><circle cx="6" cy="5" r="3" /></svg>
         ),
-        title: "Jouw klant betaalt de factuur aan DBS2."
+        title: "Jouw klant betaalt de factuur aan SOOF."
     }
 ];
 
 const products = [
     {
         type: "Traditionele Factoring",
-        payment: "95% wordt direct uitbetaald. Het restant als de klant betaalt.",
-        fee: "v.a. 1.5%",
-        backCalculatedInterest: false,
-        suitableFor: "Past in feite bij ieder bedrijf",
-        completeness: "Per factuur, per debiteur, volledig; het is allemaal mogelijk.",
-        paymentSpeed: "Altijd binnen 24 uur, meestal dezelfde werkdag",
-        creditInsurance: "Alle facturen zijn voor 90% verzekerd tegen wanbetaling en faillissement.",
-        debtorManagement: "Volledig inbegrepen",
-        serviceArea: "Factoring mogelijk in heel Europa",
-        contactPerson: "Vast"
+        HoogteUitbetaling: "90% wordt direct uitbetaald. Het restant als de klant betaalt.",
+        FactorFee: "v.a. 1.5%",
+        AchterafBerekendeRente: false,
+        PastGoedBij: "Past in feite bij ieder bedrijf",
+        VolledigOfPartieel: "Per factuur, per debiteur, volledig; het is allemaal mogelijk.",
+        HoeSnelBetaald: "Altijd binnen 24 uur, meestal dezelfde werkdag",
+        Kredietverzekering: "Alle facturen zijn voor 90% verzekerd tegen wanbetaling en faillissement.",
+        Debiteurenbeheer: "Volledig inbegrepen",
+        Servicegebied: "Factoring mogelijk in heel Europa",
+        Contactpersoon: "Vast"
     },
     {
         type: "MKB Factoring",
-        payment: "100% wordt direct uitbetaald. De factor fee wordt direct verrekend.",
-        fee: "v.a. 2.99%",
-        backCalculatedInterest: true,
-        suitableFor: "Veel gekozen door het klein MKB",
-        completeness: "Per factuur, per debiteur, volledig; het is allemaal mogelijk.",
-        paymentSpeed: "Altijd binnen 24 uur, meestal dezelfde werkdag",
-        creditInsurance: "Alle facturen zijn voor 90% verzekerd tegen wanbetaling en faillissement.",
-        debtorManagement: "Volledig inbegrepen",
-        serviceArea: "Factoring mogelijk in Nederland",
-        contactPerson: "Vast"
+        HoogteUitbetaling: "100% wordt direct uitbetaald. De factor fee wordt direct verrekend.",
+        FactorFee: "v.a. 1.3%",
+        AchterafBerekendeRente: true,
+        PastGoedBij: "Veel gekozen door het klein MKB",
+        VolledigOfPartieel: "Per factuur, per debiteur, volledig; het is allemaal mogelijk.",
+        HoeSnelBetaald: "Altijd binnen 24 uur, meestal dezelfde werkdag",
+        Kredietverzekering: "Alle facturen zijn voor 90% verzekerd tegen wanbetaling en faillissement.",
+        Debiteurenbeheer: "Volledig inbegrepen",
+        Servicegebied: "Factoring mogelijk in Nederland",
+        Contactpersoon: "Vast"
     },
     {
         type: "American Factoring",
-        payment: "100% wordt direct uitbetaald. De factor fee wordt direct verrekend.",
-        fee: "v.a. 3%",
-        backCalculatedInterest: false,
-        suitableFor: "Veel gekozen door het klein MKB en ZZP",
-        completeness: "Per factuur, per debiteur, volledig; het is allemaal mogelijk.",
-        paymentSpeed: "Altijd binnen 24 uur, meestal dezelfde werkdag",
-        creditInsurance: "Alle facturen zijn voor 90% verzekerd tegen wanbetaling en faillissement.",
-        debtorManagement: "Volledig inbegrepen",
-        serviceArea: "Factoring mogelijk in Nederland",
-        contactPerson: "Vast"
+        HoogteUitbetaling: "100% wordt direct uitbetaald. De factor fee wordt direct verrekend.",
+        FactorFee: "v.a. 4.1%",
+        AchterafBerekendeRente: false,
+        PastGoedBij: "Veel gekozen door het klein MKB en ZZP",
+        VolledigOfPartieel: "Per factuur, per debiteur, volledig; het is allemaal mogelijk.",
+        HoeSnelBetaald: "Altijd binnen 24 uur, meestal dezelfde werkdag",
+        Kredietverzekering: "Alle facturen zijn voor 90% verzekerd tegen wanbetaling en faillissement.",
+        Debiteurenbeheer: "Volledig inbegrepen",
+        Servicegebied: "Factoring mogelijk in Nederland",
+        Contactpersoon: "Vast"
     }
 ];
 
@@ -83,16 +83,16 @@ const factoringTypes = [
     {
         id: 'traditional',
         title: 'Traditionele Factoring',
-        description: 'Traditionele factoring biedt verschillende voordelen, maar ook enkele nadelen die DBS2 wegneemt.',
+        description: 'Traditionele factoring biedt verschillende voordelen, maar ook enkele nadelen die SOOF wegneemt.',
         advantages: [
-            "Kosten van traditionele factoring vallen relatief lager uit. Bij DBS2 rekenen we de scherpste tarieven in de markt.",
+            "Kosten van traditionele factoring vallen relatief lager uit. Bij SOOF rekenen we de scherpste tarieven in de markt.",
             "Er gelden over het algemeen minder strenge eisen voor je debiteuren."
         ],
         disadvantages: [
             "Substantiële omzet-eisen bij de gemiddelde factoraar.",
             "Meer voorwaarden: bedrijf moet minimaal 3 jaar bestaan, verplicht iedere factuur onderbrengen.",
             "Debiteurenrisico ligt bij jou. DBS factureert en int zelf.",
-            "Niet direct 100% uitbetaald, maar tussen 80% en 90%. Bij DBS2 95%."
+            "Niet direct 100% uitbetaald, maar tussen 80% en 90%. Bij SOOF 90%."
         ]
     },
     {
@@ -104,10 +104,10 @@ const factoringTypes = [
             "Flexibiliteit: niet verplicht alle facturen uit te besteden, behoud van regie."
         ],
         disadvantages: [
-            "Factoraar mag debiteur weigeren bij hoog risico. DBS2 biedt krachtig debiteurenbeheer.",
-            "Hoger vergoedingspercentage door lagere factuurwaarde. DBS2 biedt scherpste tarieven.",
-            "Doorgaans niet direct 100% uitbetaald. Bij DBS2 wel 100%.",
-            "Debiteurenbeheer meestal niet inbegrepen. Bij DBS2 wel."
+            "Factoraar mag debiteur weigeren bij hoog risico. SOOF biedt krachtig debiteurenbeheer.",
+            "Hoger vergoedingspercentage door lagere factuurwaarde. SOOF biedt scherpste tarieven.",
+            "Doorgaans niet direct 100% uitbetaald. Bij SOOF wel 100%.",
+            "Debiteurenbeheer meestal niet inbegrepen. Bij SOOF wel."
         ]
     },
     {
@@ -199,7 +199,7 @@ const Services = () => {
                     </p>
 
                     <p className="mb-4 text-secondary">
-                        Door voor een factoraar als DBS2 te kiezen, heb je jouw zuurverdiende geld nagenoeg direct op je rekening staan. Dat komt omdat wij jouw factuur als het ware opkopen, deze direct aan jou betalen - om het uitstaande bedrag vervolgens zelf te innen bij jouw opdrachtgever. Afhankelijk van de vorm van Factoring betaal je de factoraar een klein percentage over het factuurbedrag.
+                        Door voor een factoraar als SOOF te kiezen, heb je jouw zuurverdiende geld nagenoeg direct op je rekening staan. Dat komt omdat wij jouw factuur als het ware opkopen, deze direct aan jou betalen - om het uitstaande bedrag vervolgens zelf te innen bij jouw opdrachtgever. Afhankelijk van de vorm van Factoring betaal je de factoraar een klein percentage over het factuurbedrag.
                     </p>
                 </div>
 
@@ -292,7 +292,7 @@ const Services = () => {
                     <h2 className="text-2xl text-primary font-bold mb-4">Traditionele Factoring</h2>
 
                     <p className="mb-4 ">
-                        Traditionele Factoring wordt met name als geschikt gezien voor grote corporate bedrijven. Doorgaans (bij DBS2 hoeft dat niet) draag je je complete debiteurenportfolio over aan een factoraar. Op basis van de waarde van de te verwachten totale factuursom, wordt een kredietlimiet afgesproken. De factoraar betaalt elke factuur van jou direct uit, tót de grens van de kredietlimiet is bereikt. De kans dat je deze bereikt via DBS2 is zeer klein omdat wij de facturatie naar je klant voor rekening nemen.
+                        Traditionele Factoring wordt met name als geschikt gezien voor grote corporate bedrijven. Doorgaans (bij SOOF hoeft dat niet) draag je je complete debiteurenportfolio over aan een factoraar. Op basis van de waarde van de te verwachten totale factuursom, wordt een kredietlimiet afgesproken. De factoraar betaalt elke factuur van jou direct uit, tót de grens van de kredietlimiet is bereikt. De kans dat je deze bereikt via SOOF is zeer klein omdat wij de facturatie naar je klant voor rekening nemen.
                     </p>
 
                     <p className="mb-4 ">
@@ -300,7 +300,7 @@ const Services = () => {
                     </p>
 
                     <p className="mb-4 ">
-                        Bij Traditionele Factoring betaalt DBS2 in één keer 95% uit. Ons vergoedings-percentage behoort tot de scherpste in de markt. Bovendien het debiteurenbeheer uit handen. Dat scheelt je tijd en geld.
+                        Bij Traditionele Factoring betaalt SOOF in één keer 95% uit. Ons vergoedings-percentage behoort tot de scherpste in de markt. Bovendien het debiteurenbeheer uit handen. Dat scheelt je tijd en geld.
                     </p>
                 </div>
 
@@ -320,7 +320,7 @@ const Services = () => {
                         <div className="text-secondary leading-relaxed">
                             <p>
                                 Traditionele Factoring wordt met name als geschikt gezien voor grote corporate
-                                bedrijven. Maar door de aantrekkelijke voorwaarden en services van DBS2, wordt
+                                bedrijven. Maar door de aantrekkelijke voorwaarden en services van SOOF, wordt
                                 deze vorm ook interessant voor kleinere organisaties. Wil je hier meer over weten?
                                 Maak een afspraak.
                             </p>
@@ -348,15 +348,6 @@ const Services = () => {
                                     </button>
                                 </form>
                             </div>
-
-                            {/* Appointment Button */}
-                            <a
-                                href="/adviesgesprek"
-                                className="block w-full bg-white border-2 border-primary text-primary px-6 py-3 rounded-lg hover:bg-secondary hover:text-beje transition-colors duration-200 text-center font-semibold"
-                            >
-                                Adviesgesprek aanvragen
-                                <span className="inline-block ml-2">→</span>
-                            </a>
                         </div>
                     </article>
                 </div>
@@ -395,7 +386,7 @@ const Services = () => {
                                                 <div className="space-y-4">
                                                     <h3 className="text-xl font-semibold text-secondary">Voordelen</h3>
                                                     <p className="text-primary font-bold border-l-4 border-primary pl-4">
-                                                        Die bij DBS2 groter zijn
+                                                        Die bij SOOF groter zijn
                                                     </p>
                                                     <ul className="list-disc pl-8 space-y-2 text-secondary">
                                                         {type.advantages.map((advantage, index) => (
@@ -407,7 +398,7 @@ const Services = () => {
                                                 <div className="space-y-4">
                                                     <h3 className="text-xl font-semibold text-secondary">Nadelen</h3>
                                                     <p className="text-primary font-bold border-l-4 border-primary pl-4">
-                                                        Die DBS2 wegneemt
+                                                        Die SOOF wegneemt
                                                     </p>
                                                     <ul className="list-disc pl-8 space-y-2 text-secondary">
                                                         {type.disadvantages.map((disadvantage, index) => (
@@ -432,11 +423,11 @@ const Services = () => {
                     {/* Main Content Section */}
                     <div className="lg:w-1/2">
                         <h1 className="text-3xl font-bold text-secondary lg:text-4xl mb-4">
-                            DBS2 maakt Factoring makkelijk
+                            SOOF maakt Factoring makkelijk
                         </h1>
                         <p className="text-secondary leading-relaxed lg:text-lg">
                             Door de verschillen zo klein mogelijk te maken tussen de verschillende vormen van
-                            Factoring, maakt DBS2 het eenvoudiger om een keuze te maken. Hoe minder verschillen, hoe
+                            Factoring, maakt SOOF het eenvoudiger om een keuze te maken. Hoe minder verschillen, hoe
                             minder je hoeft af te wegen.
                         </p>
                     </div>
@@ -444,7 +435,7 @@ const Services = () => {
                     {/* Info Box Section */}
                     <div className="bg-gray-100 rounded-lg shadow-sm mt-6 lg:mt-0 lg:w-1/2 p-6">
                         <h2 className="text-xl font-semibold text-secondary mb-4">
-                            Bij alle vormen van DBS2 Factoring:
+                            Bij alle vormen van SOOF Factoring:
                         </h2>
                         <ul className="space-y-4">
                             <li className="flex items-center">
@@ -501,14 +492,14 @@ const Services = () => {
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <h1 className="text-3xl text-secondary font-bold text-center mb-2">Vergelijk alle DBS2 Factoring producten</h1>
+                <h1 className="text-3xl text-secondary font-bold text-center mb-2">Vergelijk alle SOOF Factoring producten</h1>
                 <p className="text-center mb-8 text-secondary">
                     Kijk niet alleen naar onze vormen van Factoring, maar kijk ook naar alternatieven in de markt. Dan vind je steeds meer redenen om met ons af te spreken.
                 </p>
 
-                <div className="overflow-x-auto">
-                    <table className="min-w-full divide-y divide-gray-200">
-                        <thead className="bg-secondary">
+                <div className="overflow-x-auto rounded-xl shadow">
+                    <table className="min-w-full divide-y divide-gray-200 ">
+                        <thead className="bg-primary">
                             <tr>
                                 <th scope="col" className="px-6 py-3 text-left text-sm font-semibold text-white">
                                     Kenmerken
@@ -520,7 +511,7 @@ const Services = () => {
                                 ))}
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-gray-200">
+                        <tbody className="bg-beje divide-y divide-gray-200">
                             {Object.keys(products[0]).slice(1).map((key) => (
                                 <tr key={key} className="hover:bg-gray-50">
                                     <th scope="row" className="px-6 py-4 text-sm font-medium text-secondary whitespace-nowrap">
@@ -528,12 +519,12 @@ const Services = () => {
                                     </th>
                                     {products.map((product) => (
                                         <td key={`${product.type}-${key}`} className="px-6 py-4 text-sm text-secondary">
-                                            {key === 'backCalculatedInterest' ? (
+                                            {key === 'AchterafBerekendeRente' ? (
                                                 product[key] ?
                                                     <span className="text-green-600">✓</span> :
                                                     <span className="text-red-600">✗</span>
                                             ) : (
-                                                key === 'fee' ? (
+                                                key === 'FactorFee' ? (
                                                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
                                                         {product[key]}
                                                     </span>

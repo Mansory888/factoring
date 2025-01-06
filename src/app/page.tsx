@@ -7,6 +7,7 @@ import Data from '../../public/data.json';
 import NewsCard from '@/components/newsCard';
 import HeroSection from "@/components/emailContact";
 import { useState } from 'react';
+import { useRouter } from "next/navigation";
 
 const MovingText = () => (
   <div className="overflow-hidden whitespace-nowrap absolute top-4 left-0 w-24 sm:w-32 md:w-32 lg:w-40">
@@ -89,6 +90,7 @@ const stats = [
 
 
 export default function Home() {
+  const router = useRouter();
 
   const sortedNews: Article[] = [...Data]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
@@ -137,17 +139,17 @@ export default function Home() {
                 </div>
 
                 {/* Cards */}
-                <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start mt-16">
+                <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start mt-20">
                   {/* First Card */}
-                  <div className="bg-primary rounded-lg p-4 text-secondary flex flex-col items-center justify-center w-72 h-28">
-                    <p className="text-base font-semibold">- JOUW FACTUREN METEEN -</p>
+                  <div className="bg-primary rounded-lg p-4 text-secondary flex flex-col items-center justify-center w-72 h-32">
+                    <p className="text-lg md:text-base lg:text-lg font-semibold">-JOUW FACTUREN METEEN-</p>
                     <ChangingText />
                   </div>
 
                   {/* Second Card */}
-                  <div className="bg-secondary rounded-lg p-4 text-beje flex flex-col items-center justify-center w-72 h-28">
-                    <h2 className="text-3xl font-bold mb-1">Neem</h2>
-                    <h2 className="text-3xl font-bold mb-1">contact op</h2>
+                  <div className="bg-secondary rounded-lg p-4 text-beje flex flex-col items-center justify-center w-72 h-32">
+                    <h2 className="text-4xl font-bold mb-1">Neem</h2>
+                    <h2 className="text-4xl font-bold mb-1">contact op</h2>
                   </div>
                 </div>
               </div>
@@ -225,7 +227,7 @@ export default function Home() {
                 <ul className="space-y-4 mb-8 text-secondary text-lg ">
                   <li className="flex items-start">
                     <Check className="w-5 h-5 mr-2 mt-1 flex-shrink-0 text-green-500" />
-                    <span>95% direct betaald</span>
+                    <span>90% direct betaald</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="w-5 h-5 mr-2 mt-1 flex-shrink-0 text-green-500" />
@@ -234,7 +236,7 @@ export default function Home() {
                 </ul>
 
                 <p className="text-lg md:text-xl text-secondary mb-4">
-                  Traditionele factoring is vooral geschikt voor grote bedrijven, waarbij het volledige debiteurenportfolio wordt overgedragen aan een factor. Op basis van de verwachte factuursom wordt een kredietlimiet afgesproken. De factor betaalt de facturen tot deze limiet is bereikt. Bij DBS2 is de kans hierop klein, omdat wij de facturatie naar je klant verzorgen.
+                  Traditionele factoring is vooral geschikt voor grote bedrijven, waarbij het volledige debiteurenportfolio wordt overgedragen aan een factor. Op basis van de verwachte factuursom wordt een kredietlimiet afgesproken. De factor betaalt de facturen tot deze limiet is bereikt. Bij SOOF is de kans hierop klein, omdat wij de facturatie naar je klant verzorgen.
                 </p>
 
                 <motion.button
@@ -242,6 +244,7 @@ export default function Home() {
                   initial="initial"
                   whileHover="hover"
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => router.push("/services")}
                   variants={{
                     initial: {
                       x: 0,
@@ -316,18 +319,19 @@ export default function Home() {
                   </li>
                   <li className="flex items-start">
                     <Check className="w-5 h-5 mr-2 mt-1 flex-shrink-0 text-green-500" />
-                    <span >Factorfee v.a. 3%</span>
+                    <span >Factorfee v.a. 4,1%</span>
                   </li>
                 </ul>
 
                 <p className="text-lg md:text-xl text-secondary mb-4">
-                  Dit lijkt op American Style Factoring, maar het is wezenlijk anders, vooral in vergelijking met DBS2 en de concurrentie. Hoewel de rentepercentages bijna gelijk lijken en beide vormen 100% direct uitkeren, wordt bij American Factoring een vast rentepercentage ingehouden, terwijl dit anders werkt bij MKB Factoring.
+                  Dit lijkt op American Style Factoring, maar het is wezenlijk anders, vooral in vergelijking met SOOF en de concurrentie. Hoewel de rentepercentages bijna gelijk lijken en beide vormen 100% direct uitkeren, wordt bij American Factoring een vast rentepercentage ingehouden, terwijl dit anders werkt bij MKB Factoring.
                 </p>
 
                 <motion.button
                   className="flex items-center bg-secondary text-beje rounded-full pr-1 pl-6 py-1 hover:bg-secondary transition-colors duration-200"
                   initial="initial"
                   whileHover="hover"
+                  onClick={() => router.push("/services")}
                   whileTap={{ scale: 0.95 }}
                   variants={{
                     initial: {
@@ -399,22 +403,23 @@ export default function Home() {
                 <ul className="space-y-4 mb-8 text-secondary text-lg ">
                   <li className="flex items-start">
                     <Check className="w-5 h-5 mr-2 mt-1 flex-shrink-0 text-green-500" />
-                    <span>95% direct betaald</span>
+                    <span>100% direct betaald</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="w-5 h-5 mr-2 mt-1 flex-shrink-0 text-green-500" />
-                    <span >Factorfee v.a. 1,5%</span>
+                    <span >Factorfee v.a. 1,3%</span>
                   </li>
                 </ul>
 
                 <p className="text-lg md:text-xl text-secondary mb-4">
-                  Dit lijkt op American Factoring, maar verschilt wezenlijk, vooral vergeleken met DBS2 en concurrenten. Hoewel de rentepercentages vergelijkbaar zijn en beide vormen direct 100% uitkeren, wordt bij American Factoring een vast rentepercentage ingehouden, terwijl MKB Factoring anders werkt.
+                  Dit lijkt op American Factoring, maar verschilt wezenlijk, vooral vergeleken met SOOF en concurrenten. Hoewel de rentepercentages vergelijkbaar zijn en beide vormen direct 100% uitkeren, wordt bij American Factoring een vast rentepercentage ingehouden, terwijl MKB Factoring anders werkt.
                 </p>
 
                 <motion.button
                   className="flex items-center bg-secondary text-beje rounded-full pr-1 pl-6 py-1 hover:bg-secondary transition-colors duration-200"
                   initial="initial"
                   whileHover="hover"
+                  onClick={() => router.push("/services")}
                   whileTap={{ scale: 0.95 }}
                   variants={{
                     initial: {
@@ -477,10 +482,10 @@ export default function Home() {
                   Factoring voor Elke Organisatie
                 </h2>
                 <p className="text-lg text-secondary mb-6">
-                  Ontdek hoe DBS2's aantrekkelijke voorwaarden factoring toegankelijk maken voor kleinere bedrijven.
+                  Ontdek hoe SOOF's aantrekkelijke voorwaarden factoring toegankelijk maken voor kleinere bedrijven.
                 </p>
                 <p className="text-secondary">
-                  Traditionele factoring wordt vaak geassocieerd met grote bedrijven, maar DBS2 maakt het nu ook aantrekkelijk voor kleinere organisaties. Ontdek hoe wij uw bedrijfsfinanciering kunnen optimaliseren, ongeacht de grootte van uw organisatie.
+                  Traditionele factoring wordt vaak geassocieerd met grote bedrijven, maar SOOF maakt het nu ook aantrekkelijk voor kleinere organisaties. Ontdek hoe wij uw bedrijfsfinanciering kunnen optimaliseren, ongeacht de grootte van uw organisatie.
                 </p>
               </div>
             </motion.div>
@@ -492,7 +497,7 @@ export default function Home() {
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
             >
 
-              <div className="rounded-lg p-6 shadow-md w-full max-w-md mx-auto">
+              <div className="border-2 border-secondary rounded-lg p-6 shadow-md w-full max-w-md mx-auto">
                 <h3 className="text-2xl font-semibold text-secondary mb-2">Bel mij terug</h3>
                 <p className="text-sm text-secondary mb-4">
                   Laat uw nummer achter, en wij nemen zo snel mogelijk contact met u op.
@@ -565,7 +570,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.4 }}
               >
-                <h2 className="text-7xl md:text-7xl font-bold mt-4">
+                <h2 className="text-5xl md:text-7xl font-bold mt-4">
                   Nieuws
                 </h2>
 
@@ -588,6 +593,7 @@ export default function Home() {
                   initial="initial"
                   whileHover="hover"
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => router.push("/nieuws")}
                   variants={{
                     initial: {
                       x: 0,

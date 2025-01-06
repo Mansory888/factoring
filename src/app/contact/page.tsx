@@ -80,7 +80,7 @@ const Contact = () => {
                                             </div>
                                             <div className="flex flex-col items-center lg:flex-row lg:items-center lg:space-x-4">
                                                 <Mail className="w-6 h-6 text-primary mb-2 lg:mb-0 flex-shrink-0" />
-                                                <a href="mailto:info@dbs2.nl" className="text-secondary hover:text-primary transition-colors">
+                                                <a href="mailto:info@SOOF.nl" className="text-secondary hover:text-primary transition-colors">
                                                 info@sooffactoring.nl
                                                 </a>
                                             </div>
@@ -104,8 +104,7 @@ const Contact = () => {
                                             <input
                                                 type="text"
                                                 id="name"
-                                                name="name"
-                                                placeholder="e. g. John Doe"
+                                                name="name"                                   
                                                 className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                 required
                                             />
@@ -119,7 +118,6 @@ const Contact = () => {
                                                 type="email"
                                                 id="email"
                                                 name="email"
-                                                placeholder="e. g. johndoe@email.com"
                                                 className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                 required
                                             />
@@ -133,7 +131,6 @@ const Contact = () => {
                                                 type="tel"
                                                 id="phone"
                                                 name="phone"
-                                                placeholder="(123) - 456 - 789"
                                                 className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                 required
                                             />

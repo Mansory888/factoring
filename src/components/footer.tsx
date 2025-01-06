@@ -37,7 +37,7 @@ const Footer = () => {
               </div>
               <div className="flex flex-col items-center lg:flex-row lg:items-center lg:space-x-4">
                 <a
-                  href="mailto:info@dbs2.nl"
+                  href="mailto:info@SOOF.nl"
                   className="text-secondary hover:text-primary transition-colors"
                 >
                   info@sooffactoring.nl

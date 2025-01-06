@@ -2,8 +2,10 @@
 "use client"
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useRouter } from "next/navigation";
 
 const About = () => {
+    const router = useRouter();
     return (
         <div className="bg-background">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -60,6 +62,7 @@ const About = () => {
                                 className="flex items-center bg-secondary text-beje rounded-full pr-1 pl-6 py-1 hover:bg-secondary transition-colors duration-200"
                                 initial="initial"
                                 whileHover="hover"
+                                onClick={() => router.push("/contact")}
                                 whileTap={{ scale: 0.95 }}
                                 variants={{
                                     initial: {
@@ -77,7 +80,7 @@ const About = () => {
                                     }
                                 }}
                             >
-                                <span className="text-lg font-medium mr-3">Verken</span>
+                                <span className="text-lg font-medium mr-3">Contact</span>
                                 <div className="bg-primary rounded-full p-2.5 ">
                                     <svg
                                         className="w-4 h-4 text-beje"
@@ -135,13 +138,7 @@ const About = () => {
 
                                 <div className="text-lg md:text-xl mb-8">
                                     <p className="mb-4">
-                                        With over 15 years of experience as a stock analyst on Wall Street, Jane has solidified her reputation as a seasoned professional.
-                                    </p>
-                                    <p className="mb-4">
-                                        Her insights, honed during the post-financial crisis, have consistently garnered attention and respect.
-                                    </p>
-                                    <p>
-                                        Since 2015, Jane has been a prominent figure at stock conferences and in the media, sharing her bold predictions and in-depth analyses.
+                                    Met zijn uitgebreide kennis van debiteurenbeheer en bedrijfsfinanciering helpt hij ondernemers aan snelle en flexibele oplossingen. Als commercieel directeur is Jaap verantwoordelijk voor het aantrekken van nieuwe klanten, het onderhouden van klantrelaties en het ontwikkelen van klantgerichte strategieën. Zijn toewijding aan klanttevredenheid en inzicht in zakelijke financiering positioneren Soof Factoring als een betrouwbare partner voor bedrijven in uiteenlopende sectoren.
                                     </p>
                                 </div>
 
@@ -177,18 +174,12 @@ const About = () => {
                                 </p>
 
                                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ">
-                                    Jaap van Aalst
+                                Arnold van Dijk
                                 </h1>
 
                                 <div className="text-lg md:text-xl mb-8">
                                     <p className="mb-4">
-                                        Registeraccountant (RA) met uitgebreide ervaring bij accountantskantoren (Big Four en niet-Big Four) en klanten variërend van non-profitorganisaties en MKB tot financiële instellingen.
-                                    </p>
-                                    <p className="mb-4">
-                                        Ik ben analytisch sterk, resultaatgericht en pas me gemakkelijk aan verschillende teams en culturen aan.
-                                    </p>
-                                    <p>
-                                        Mijn achtergrond omvat onder andere auditing, interne controle, externe verslaggeving (RJ/IFRS), risicomanagement, consolidatie en projectmanagement.
+                                    Arnold van Dijk is registeraccountant (RA) met een brede achtergrond in zowel Big Four- als middelgrote accountantskantoren. Hij heeft uitgebreide ervaring opgedaan bij diverse klanten, variërend van non-profitorganisaties en MKB-bedrijven tot financiële instellingen. Arnold combineert analytische scherpte met een resultaatgerichte aanpak en weet zich moeiteloos aan te passen aan verschillende teams en culturen. Zijn expertise omvat auditing, interne controle, externe verslaggeving (RJ/IFRS), risicomanagement, consolidatie en projectmanagement, waarmee hij een sterke financiële basis biedt voor Soof Factoring.
                                     </p>
                                 </div>
 
