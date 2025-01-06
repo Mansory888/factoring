@@ -26,31 +26,30 @@ const SplashScreen = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center h-screen bg-background space-y-4 md:space-y-0 md:space-x-12">
+    <div className="flex flex-col items-center justify-center h-screen bg-background space-y-4">
       {/* Logo Image */}
       <div
-        className={`flex-shrink-0 ${
-          animateOut ? "bounce-out-top" : "roll-in-left"
-        }`}
+        className={`flex-shrink-0 ${animateOut ? "bounce-out-top" : "roll-in-left"
+          }`}
       >
         <img
           src="/images/logoSingle.png"
           alt="SOOF Factoring Logo"
-          className="w-40 h-40 md:w-48 md:h-48"
+          className="w-36 h-36 md:w-48 md:h-48"
         />
       </div>
 
       {/* Company Name */}
-      <div className="text-center md:text-left">
+      <div className="text-center">
         <h1
-          className={`text-4xl md:text-5xl font-bold text-secondary ${
-            animateOut ? "text-blur-out" : "tracking-in-expand"
-          }`}
+          className={`text-4xl md:text-7xl font-bold text-secondary ${animateOut ? "text-blur-out" : "tracking-in-expand"
+            }`}
         >
           SOOF Factoring B.V.
         </h1>
       </div>
     </div>
+
   );
 };
 
