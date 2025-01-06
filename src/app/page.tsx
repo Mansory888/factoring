@@ -10,7 +10,7 @@ import { useState } from 'react';
 import { useRouter } from "next/navigation";
 
 const MovingText = () => (
-  <div className="overflow-hidden whitespace-nowrap absolute top-4 left-0 w-24 sm:w-32 md:w-32 lg:w-40">
+  <div className="overflow-hidden whitespace-nowrap absolute top-4 left-0 w-24 sm:w-32 md:w-32 lg:w-[160px]">
     <motion.div
       animate={{
         x: [150, -215], // Adjust the range to fit smaller width
@@ -29,7 +29,7 @@ const MovingText = () => (
 
 const SpinningLogo = () => {
   return (
-    <div className="absolute -left-5 md:-left-6 lg:-left-16 bottom-[40%] transform -translate-y-1/2 flex items-center justify-center w-24 h-24 md:w-32 md:h-32">
+    <div className="absolute left-1/2 bottom-[-45px] transform -translate-x-1/2 md:left-[40px] lg:left-[0px] md:bottom-[50%] flex items-center justify-center w-24 h-24 md:w-32 md:h-32">
       {/* Circle Background */}
       <div className="absolute w-full h-full rounded-full bg-background"></div>
 
@@ -108,7 +108,7 @@ export default function Home() {
   return (
     <div className="bg-background">
       <section className="overflow-x-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
 
@@ -147,10 +147,12 @@ export default function Home() {
                   </div>
 
                   {/* Second Card */}
-                  <div className="bg-secondary rounded-lg p-4 text-beje flex flex-col items-center justify-center w-72 h-32">
-                    <h2 className="text-4xl font-bold mb-1">Neem</h2>
-                    <h2 className="text-4xl font-bold mb-1">contact op</h2>
-                  </div>
+                  <a href="/contact" className="block">
+                    <div className="bg-secondary rounded-lg p-4 text-beje flex flex-col items-center justify-center w-72 h-32 cursor-pointer">
+                      <h2 className="text-4xl font-bold mb-1">Neem</h2>
+                      <h2 className="text-4xl font-bold mb-1">contact op</h2>
+                    </div>
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -184,7 +186,7 @@ export default function Home() {
 
         <motion.h1
           id="factoring-title"
-          className="text-4xl md:text-5xl font-bold text-center mb-12 text-beje bg-primary p-4 rounded-xl mx-auto w-full max-w-4xl"
+          className="text-4xl md:text-5xl font-bold text-center mb-12 text-beje bg-primary p-4  rounded-xl mx-auto w-full max-w-4xl"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -574,7 +576,7 @@ export default function Home() {
                   Nieuws
                 </h2>
 
-                <div className="border-b-4 mt-4"></div>
+                <div className="border-b-4 mb-12 mt-4"></div>
 
                 <div className="p-6">
                   <div className="max-w-6xl mx-auto">

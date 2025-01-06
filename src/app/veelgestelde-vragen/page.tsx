@@ -27,7 +27,7 @@ Zodra wij de benodigde gegevens hebben ontvangen en de overeenkomst getekend ret
     {
         question: 'Ja, ik wil klant worden bij SOOF Factoring. Hoe doe ik dat?',
         answer: `
-            Vul het contactformulier in op de pagina ‘informatie aanvragen’. Dit verplicht je tot niets. Wij nemen vervolgens contact met je op om (vrijblijvend) de mogelijkheden voor jouw onderneming te bespreken. Je mag uiteraard ook zelf contact met ons opnemen via (071) 40 88 164. Wij zijn bereikbaar op werkdagen van 9.00 tot 17.00 uur.
+            Vul het contactformulier in op de pagina ‘informatie aanvragen’. Dit verplicht je tot niets. Wij nemen vervolgens contact met je op om (vrijblijvend) de mogelijkheden voor jouw onderneming te bespreken. Je mag uiteraard ook zelf contact met ons opnemen via +31 06 51 950 524. Wij zijn bereikbaar op werkdagen van 9.00 tot 17.00 uur.
         `
     }
 ];
