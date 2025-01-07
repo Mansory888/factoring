@@ -29,7 +29,7 @@ const SplashScreen = () => {
     <div className="flex flex-col items-center justify-center h-screen bg-background space-y-4">
       {/* Logo Image */}
       <div
-        className={`flex-shrink-0 ${animateOut ? "bounce-out-top" : "roll-in-left"
+        className={`flex-shrink-0 ${animateOut ? "roll-out-right" : "roll-in-blurred-left"
           }`}
       >
         <img
@@ -42,7 +42,7 @@ const SplashScreen = () => {
       {/* Company Name */}
       <div className="text-center">
         <h1
-          className={`text-4xl md:text-7xl font-bold text-secondary ${animateOut ? "text-blur-out" : "tracking-in-expand"
+          className={`text-4xl md:text-7xl font-bold text-secondary ${animateOut ? "text-blur-out" : "text-focus-in"
             }`}
         >
           SOOF Factoring B.V.

@@ -16,7 +16,7 @@ const MovingText = () => (
         x: [150, -215], // Adjust the range to fit smaller width
       }}
       transition={{
-        duration: 7,
+        duration: 13,
         repeat: Infinity,
         ease: "linear"
       }}
@@ -41,7 +41,7 @@ const SpinningLogo = () => {
         animate={{ rotate: 360 }}
         transition={{
           repeat: Infinity,
-          duration: 10,
+          duration: 15,
           ease: "linear",
         }}
       />
@@ -105,6 +105,10 @@ export default function Home() {
     console.log('Phone number submitted:', phoneNumber);
   };
 
+  const NeemContactOp = () => {
+    router.push("/contact"); // Navigate to the contact page
+  };
+
   return (
     <div className="bg-background">
       <section className="overflow-x-hidden">
@@ -147,12 +151,12 @@ export default function Home() {
                   </div>
 
                   {/* Second Card */}
-                  <a href="/contact" className="block">
-                    <div className="bg-secondary rounded-lg p-4 text-beje flex flex-col items-center justify-center w-72 h-32 cursor-pointer">
-                      <h2 className="text-4xl font-bold mb-1">Neem</h2>
-                      <h2 className="text-4xl font-bold mb-1">contact op</h2>
-                    </div>
-                  </a>
+
+                  <div className="bg-secondary rounded-lg p-4 text-beje flex flex-col items-center justify-center w-72 h-32 cursor-pointer" onClick={NeemContactOp}>
+                    <h2 className="text-4xl font-bold mb-1">Neem</h2>
+                    <h2 className="text-4xl font-bold mb-1">contact op</h2>
+                  </div>
+
                 </div>
               </div>
             </motion.div>

@@ -113,7 +113,15 @@ const Footer = () => {
           className="text-center mt-12 pt-8 border-t border-primary"
         >
           <p className="text-gray-600 text-sm">
-            © {currentYear} Soof Factoring B.V. Made by NovaGate Solutions
+            © {currentYear} Soof Factoring B.V. Made by{" "}
+            <a
+              href="https://www.novagate-solutions.com" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              NovaGate Solutions
+            </a>
           </p>
         </motion.div>
       </div>
