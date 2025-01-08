@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Mail, Phone } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -66,18 +67,10 @@ const Footer = () => {
           >
             <h3 className="text-lg font-semibold">Algemeen</h3>
             <nav className="flex flex-col space-y-3">
-              <a href="/" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Home
-              </a>
-              <a href="/over-ons" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Over Ons
-              </a>
-              <a href="/services" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Services
-              </a>
-              <a href="/blog" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Blog
-              </a>
+              <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors">Home</Link>
+              <Link href="/over-ons" className="text-gray-600 hover:text-gray-900 transition-colors">Over Ons</Link>
+              <Link href="/services" className="text-gray-600 hover:text-gray-900 transition-colors">Services</Link>
+              <Link href="/nieuws" className="text-gray-600 hover:text-gray-900 transition-colors">Nieuws</Link>
             </nav>
           </motion.div>
 
@@ -91,15 +84,9 @@ const Footer = () => {
           >
             <h3 className="text-lg font-semibold">Pagina&apos;s</h3>
             <nav className="flex flex-col space-y-3">
-              <a href="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Contact
-              </a>
-              <a href="/veelgestelde-vragen" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Veelgestelde vragen
-              </a>
-              <a href="/privacy-beleid" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Privacy Beleid
-              </a>
+              <Link href="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">Contact</Link>
+              <Link href="/veelgestelde-vragen" className="text-gray-600 hover:text-gray-900 transition-colors">Veelgestelde vragen</Link>
+              <Link href="/privacy-beleid" className="text-gray-600 hover:text-gray-900 transition-colors">Privacy Beleid</Link>
             </nav>
           </motion.div>
         </div>
@@ -115,7 +102,7 @@ const Footer = () => {
           <p className="text-gray-600 text-sm">
             © {currentYear} Soof Factoring B.V. Made by{" "}
             <a
-              href="https://www.novagate-solutions.com" 
+              href="https://www.novagate-solutions.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary hover:underline"
