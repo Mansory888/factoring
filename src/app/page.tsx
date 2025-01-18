@@ -1,29 +1,22 @@
 
 "use client"
 import { motion } from 'framer-motion';
-import { HomeIcon, Zap, ClipboardList, Check } from 'lucide-react';
+import { HomeIcon, Zap, ClipboardList, Check, MessageCircle } from 'lucide-react';
 import { Article } from '@/types/article';
 import Data from '../../public/data.json';
 import NewsCard from '@/components/newsCard';
 import HeroSection from "@/components/emailContact";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from "next/navigation";
+import PhoneContactSection from '@/components/phoneContact';
 
 const MovingText = () => (
-  <div className="overflow-hidden whitespace-nowrap absolute top-4 left-0 w-24 sm:w-32 md:w-32 lg:w-[160px]">
-    <motion.div
-      animate={{
-        x: [150, -215], // Adjust the range to fit smaller width
-      }}
-      transition={{
-        duration: 13,
-        repeat: Infinity,
-        ease: "linear"
-      }}
-      className="text-primary text-2xl font-bold"
+  <div className="overflow-hidden whitespace-nowrap absolute top-1 md:top-4 left-0 w-24 sm:w-32 md:w-32 lg:w-[160px]">
+    <div
+      className="text-primary text-xl md:text-3xl font-bold"
     >
-      • VANAF €500.000
-    </motion.div>
+      • VANAF • <br /> €500.000
+    </div>
   </div>
 );
 
@@ -76,6 +69,84 @@ const ChangingText = () => {
           </div>
         ))}
       </motion.div>
+    </div>
+  );
+};
+
+const FeatureBar = () => {
+  const features = [
+    'Beste voorwaarden',
+    'Lage kosten',
+    'Lage acceptatiedrempel',
+    'Optimale kredietverzekering',
+    'Direct en persoonlijk contact',
+    'Overeenkomst binnen 2 dagen'
+  ];
+
+  return (
+    <div className="w-full ">
+      <div className="max-w-7xl mx-auto px-4 py-6 overflow-hidden relative">
+        <motion.div
+          className="flex flex-nowrap space-x-8 md:space-x-12"
+          animate={{
+            x: ["0%", "-50%"]
+          }}
+          transition={{
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 10,
+              ease: "linear",
+            },
+          }}
+        >
+          {/* Original features */}
+          {features.map((feature, index) => (
+            <div
+              key={`a-${index}`}
+              className="flex items-center space-x-2 flex-shrink-0"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-green-500 mr-3"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              <span className="text-base md:text-xl font-medium text-secondary whitespace-nowrap">
+                {feature}
+              </span>
+            </div>
+          ))}
+
+          {/* Duplicated features for seamless loop */}
+          {features.map((feature, index) => (
+            <div
+              key={`b-${index}`}
+              className="flex items-center space-x-2 flex-shrink-0"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-green-500 mr-3"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              <span className="text-base md:text-xl font-medium text-secondary whitespace-nowrap">
+                {feature}
+              </span>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Gradient overlays for smooth fade effect */}
+        <div className="absolute left-0 inset-y-0 w-16 bg-gradient-to-r from-gray-50 to-transparent pointer-events-none" />
+        <div className="absolute right-0 inset-y-0 w-16 bg-gradient-to-l from-gray-50 to-transparent pointer-events-none" />
+      </div>
     </div>
   );
 };
@@ -133,17 +204,14 @@ export default function Home() {
                       EXTRA
                     </span>
 
-                    <span className="block text-5xl sm:text-7xl md:text-7xl lg:text-7xl italic relative inline-block">
+                    <span className="block text-5xl sm:text-7xl md:text-7xl lg:text-7xl border-b-8 border-primary inline-block">
                       WERKKAPITAAL
-                      <span
-                        className="absolute left-0 bottom-0 w-full h-1 sm:h-1.5 md:h-2 bg-primary transform -rotate-2 origin-bottom-left"
-                      ></span>
                     </span>
                   </h1>
                 </div>
 
                 {/* Cards */}
-                <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start mt-20">
+                <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start mt-16">
                   {/* First Card */}
                   <div className="bg-primary rounded-lg p-4 text-secondary flex flex-col items-center justify-center w-72 h-32">
                     <p className="text-lg md:text-base lg:text-lg font-semibold text-center">JOUW FACTUREN METEEN</p>
@@ -152,9 +220,12 @@ export default function Home() {
 
                   {/* Second Card */}
 
-                  <div className="bg-secondary rounded-lg p-4 text-beje flex flex-col items-center justify-center w-72 h-32 cursor-pointer" onClick={NeemContactOp}>
-                    <h2 className="text-4xl font-bold mb-1">Neem</h2>
-                    <h2 className="text-4xl font-bold mb-1">contact op</h2>
+                  <div
+                    onClick={NeemContactOp}
+                    className="bg-[#25D366] rounded-lg p-6 text-white flex flex-col items-center justify-center w-72 h-32 cursor-pointer hover:bg-[#15853f] transition-colors duration-200 shadow-lg"
+                  >
+                    <MessageCircle size={48} className="mb-2" />
+                    <h2 className="text-3xl font-bold">Contact op</h2>
                   </div>
 
                 </div>
@@ -183,6 +254,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <FeatureBar />
 
 
 
@@ -242,7 +315,7 @@ export default function Home() {
                 </ul>
 
                 <p className="text-lg md:text-xl text-secondary mb-4">
-                  Traditionele factoring is vooral geschikt voor grote bedrijven, waarbij het volledige debiteurenportfolio wordt overgedragen aan een factor. Op basis van de verwachte factuursom wordt een kredietlimiet afgesproken. De factor betaalt de facturen tot deze limiet is bereikt. Bij SOOF is de kans hierop klein, omdat wij de facturatie naar je klant verzorgen.
+                Traditionele factoring is vooral geschikt voor grote bedrijven, waarbij het volledige debiteurenportfolio wordt overgedragen aan Soof Factoring. Op basis van de verwachte openstaande factuursom wordt een kredietlimiet afgesproken. Soof Factoring betaalt de facturen tot deze limiet is bereikt.
                 </p>
 
                 <motion.button
@@ -285,6 +358,7 @@ export default function Home() {
                     </svg>
                   </div>
                 </motion.button>
+                <PhoneContactSection/>
 
               </div>
             </div>
@@ -325,12 +399,12 @@ export default function Home() {
                   </li>
                   <li className="flex items-start">
                     <Check className="w-5 h-5 mr-2 mt-1 flex-shrink-0 text-green-500" />
-                    <span >Factorfee v.a. 4,1%</span>
+                    <span >Factorfee v.a. 3,9%</span>
                   </li>
                 </ul>
 
                 <p className="text-lg md:text-xl text-secondary mb-4">
-                  Dit lijkt op American Style Factoring, maar het is wezenlijk anders, vooral in vergelijking met SOOF en de concurrentie. Hoewel de rentepercentages bijna gelijk lijken en beide vormen 100% direct uitkeren, wordt bij American Factoring een vast rentepercentage ingehouden, terwijl dit anders werkt bij MKB Factoring.
+                American Style Factoring wordt als de meeste flexibele vorm van Factoring gezien. Zoals het meestal in de markt wordt aangeboden, is het vooral geschikt voor MKB'ers en ZZP'ers. U hoeft dan namelijk niet al uw facturen aan een factoraar uit te besteden, maar kan volstaan met een deel van de facturen, of zelfs een enkele factuur. Waar andere factoraars tussen de 80% en 90% uitkeren, keren wij tot 100% van het bedrag uit - met aftrek van het vooraf overeengekomen vergoedingspercentage.
                 </p>
 
                 <motion.button
@@ -418,7 +492,7 @@ export default function Home() {
                 </ul>
 
                 <p className="text-lg md:text-xl text-secondary mb-4">
-                  Dit lijkt op American Factoring, maar verschilt wezenlijk, vooral vergeleken met SOOF en concurrenten. Hoewel de rentepercentages vergelijkbaar zijn en beide vormen direct 100% uitkeren, wordt bij American Factoring een vast rentepercentage ingehouden, terwijl MKB Factoring anders werkt.
+                Bij MKB-Factoring keren wij tot 100% van het bedrag uit - met aftrek van het vooraf overeengekomen vergoedingspercentage. De rente over de looptijd wordt achteraf in rekening gebracht. Let op dit is voor bedrijven met een minimale jaaromzet van 2.500.000 EUR.
                 </p>
 
                 <motion.button

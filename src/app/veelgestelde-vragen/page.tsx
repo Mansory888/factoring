@@ -70,7 +70,7 @@ const OverigeVragen = [
     {
         question: 'Wat is de minimale looptijd?',
         answer: `
-            Je bepaalt zelf voor welke opdrachtgever je factoring wilt inzetten. Heb je met een klant afgesproken dat er wordt betaald, dan heb je SOOF niet nodig. In tegenstelling tot alternatieven in de markt is het geheel vrijblijvend welke facturen je bij SOOF Factoring indient. Wij hanteren bovendien geen minimale looptijd. Wil je op enig moment stoppen met SOOF Factoring, dan kan dat.
+            wij hanteren een minimale looptijd van 6 maanden dit is afhankelijk van de aard en omvang van uw onderneming. De reden dat wij een looptijd hanteren is omdat wij geld voor u apart moeten houden, wat wij niet op een andere manier kunnen laten renderen.
         `
     },
     {
@@ -146,12 +146,7 @@ const Riskos = [
     {
         question: 'Welke facturen kan ik wel insturen en welke facturen niet?',
         answer: `
-           - SOOF Factoring accepteert alleen vorderingen op bedrijven, niet op particulieren;
-- De vorderingen hoeven niet branche-gebonden te zijn;
-- Er geldt geen minimum of maximum bedrag;
-- SOOF Factoring accepteert alleen onbetwiste vorderingen;
-- Er geldt geen minimum of maximum aantal voor de vorderingen die je ons toestuurt. Je beslist daar zelf over, afhankelijk van je eigen cash behoefte of omzet;
-- Je opdrachtgever dient kredietwaardig te zijn (volgens beoordeling SOOF Factoring).
+ SOOF Factoring accepteert alleen vorderingen op bedrijven, niet op particulieren; De vorderingen hoeven niet branche-gebonden te zijn; Er geldt geen minimum of maximum bedrag; SOOF Factoring accepteert alleen onbetwiste vorderingen; Er geldt geen minimum of maximum aantal voor de vorderingen die je ons toestuurt. Je beslist daar zelf over, afhankelijk van je eigen cash behoefte of omzet; Je opdrachtgever dient kredietwaardig te zijn (volgens beoordeling SOOF Factoring).
         `
     }
 ];

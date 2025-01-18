@@ -1,8 +1,8 @@
 "use client"
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, HelpCircle, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from "framer-motion";
-
+import { useRouter } from "next/navigation";
 
 const steps = [
     {
@@ -83,7 +83,7 @@ const factoringTypes = [
     {
         id: 'traditional',
         title: 'Traditionele Factoring',
-        description: 'Traditionele factoring biedt verschillende voordelen, maar ook enkele nadelen die SOOF wegneemt.',
+        description: 'Bij Traditionele Factoring wordt een groot percentage van de factuur direct door de factoraar betaald. Doorgaans varieert dat van 80% tot 90%. De restwaarde van de factuur wordt betaald zodra de klant dat ook heeft gedaan. Hoe langer dat duurt, hoe hoger het percentage is dat de Factoraar rekent. Bij Traditionele Factoring betaalt SOOF in één keer tot 95% uit. Ons vergoedings-percentage behoort tot de scherpste in de markt. Bovendien het debiteurenbeheer uit handen. Dat scheelt je tijd en geld. ',
         advantages: [
             "Kosten van traditionele factoring vallen relatief lager uit. Bij SOOF rekenen we de scherpste tarieven in de markt.",
             "Er gelden over het algemeen minder strenge eisen voor je debiteuren."
@@ -126,9 +126,10 @@ const factoringTypes = [
 
 
 const Services = () => {
+    const router = useRouter();
     const [phoneNumber, setPhoneNumber] = useState('');
     const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
-        traditional: true,
+        traditional: false,
         american: false,
         mkb: false,
     });
@@ -148,25 +149,54 @@ const Services = () => {
     return (
         <div className="bg-background">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-8">
-                <div className="text-center my-12">
-                    <motion.h1
-                        className="text-4xl md:text-6xl lg:text-7xl font-bold text-secondary mb-6"
-                        initial={{ y: -50, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                    >
-                        Welke vorm van Factoring <br/> past bij jouw bedrijf?
-                    </motion.h1>
-
-                    <motion.p
-                        className="text-sm md:text-base lg:text-lg max-w-4xl mx-auto mt-12 text-secondary text-center"
-                        initial={{ y: 50, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-                    >
-                        Factoring is een flexibele manier om werkkapitaal (liquiditeit) te vergroten, waarbij de financiering op een natuurlijke wijze meegroeit met jouw onderneming. Daarnaast zijn je debiteuren met Factoring via SOOF verzekerd voor wanbetaling en voeren wij professioneel debiteurenbeheer uit.
-                    </motion.p>
-
+                <div className="text-center my-12 flex flex-col md:flex-row justify-between items-start">
+                    <div className="flex flex-col items-center md:items-start w-full px-4 md:px-0 md:w-2/3">
+                        <motion.h1
+                            className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-4 md:mb-6 text-center md:text-left"
+                            initial={{ y: -50, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                        >
+                            Welke vorm van Factoring <br className="hidden md:block" /> past bij jouw bedrijf?
+                        </motion.h1>
+                        <motion.p
+                            className="text-sm md:text-base lg:text-lg max-w-2xl md:max-w-4xl text-center md:text-left text-secondary mt-6 md:mt-12"
+                            initial={{ y: 50, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                        >
+                            Factoring is een flexibele manier om werkkapitaal (liquiditeit) te vergroten, waarbij de financiering op een natuurlijke wijze meegroeit met jouw onderneming. Daarnaast zijn je debiteuren met Factoring via SOOF verzekerd voor wanbetaling en voeren wij professioneel debiteurenbeheer uit.
+                        </motion.p>
+                    </div>
+                    <div className="bg-white p-6 mt-12 md:mt-0 w-full md:w-1/3 md:ml-6">
+                        <motion.h1
+                            initial={{ y: -50, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                        >
+                            <h2 className="text-xl font-semibold text-secondary mb-3">
+                                Maak een afspraak
+                            </h2>
+                            <p className="mb-4 text-secondary">
+                                We komen graag bij je langs voor een persoonlijke toelichting. Laat je telefoonnummer achter en we plannen samen een afspraak.
+                            </p>
+                            <form onSubmit={handleSubmit} className="flex gap-2">
+                                <input
+                                    type="tel"
+                                    placeholder="Telefoonnummer"
+                                    className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                                    value={phoneNumber}
+                                    onChange={(e) => setPhoneNumber(e.target.value)}
+                                />
+                                <button
+                                    type="submit"
+                                    className="bg-primary text-white text-sm md:text-base px-4 py-2 rounded-lg hover:bg-red-600 transition-colors flex items-center gap-2"
+                                >
+                                    Bel mij terug
+                                </button>
+                            </form>
+                        </motion.h1>
+                    </div>
                 </div>
 
                 <div className="mt-12">
@@ -182,27 +212,6 @@ const Services = () => {
                 </div>
 
 
-                <div className="bg-secondary shadow overflow-hidden rounded-lg my-12">
-                    <div className="px-4 py-5 sm:p-6">
-                        <h2 className="text-2xl font-bold text-beje mb-4">
-                            Factoring is serious business
-                        </h2>
-                        <p className="text-beje mb-6">
-                            Ook al zie je overal dezelfde termen - de voorwaarden en kosten zijn steeds verschillend.
-                        </p>
-                        <ul className="list-disc pl-5 space-y-2 text-beje">
-                            <li>Moet je alle facturen uitbesteden, of een deel?</li>
-                            <li>Zijn je facturen verzekerd tegen wanbetaling vanuit je klant?</li>
-                            <li>Moet je zelf factureren naar je klant en betaling najagen?</li>
-                            <li>Welk percentage van je factuur wordt direct betaald?</li>
-                            <li>Hoe werkt het als een klant niet betaalt?</li>
-                        </ul>
-                        <p className="mt-6 text-beje">
-                            Zo zijn er nog meer zaken om rekening mee te houden.
-                        </p>
-                    </div>
-                </div>
-
                 <div>
                     <h2 className="text-2xl text-secondary font-bold mb-4">Zo werkt Factoring in de basis</h2>
 
@@ -212,6 +221,10 @@ const Services = () => {
 
                     <p className="mb-4 text-secondary">
                         Door voor een factoraar als SOOF te kiezen, heb je jouw zuurverdiende geld nagenoeg direct op je rekening staan. Dat komt omdat wij jouw factuur als het ware opkopen, deze direct aan jou betalen - om het uitstaande bedrag vervolgens zelf te innen bij jouw opdrachtgever. Afhankelijk van de vorm van Factoring betaal je de factoraar een klein percentage over het factuurbedrag.
+                    </p>
+
+                    <p className="mb-4 text-secondary">
+                    Op basis van de waarde van de te verwachten totale factuursom, wordt een kredietlimiet afgesproken. De factoraar betaalt elke factuur van jou direct uit, tót de grens van de kredietlimiet is bereikt.
                     </p>
                 </div>
 
@@ -228,7 +241,7 @@ const Services = () => {
                                         </div>
                                     </div>
                                     {/* Number Badge */}
-                                    <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold">
+                                    <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center font-bold">
                                         {step.number}
                                     </div>
                                 </div>
@@ -247,125 +260,47 @@ const Services = () => {
                     ))}
                 </div>
 
-                <div>
-                    <h2 className="text-2xl text-secondary font-bold mb-4">Het addertje onder het gras</h2>
+                <section className="bg-white">
+                    <div className="container mx-auto">
+                        <div className="flex flex-row gap-4 justify-center">
+                            {/* FAQ Balloon */}
+                            <div className="flex-1 bg-blue-50 rounded-3xl p-4 shadow-md hover:shadow-lg transition-shadow max-w-md">
+                                <div className="flex items-center gap-3 mb-2">
+                                    <HelpCircle className="w-6 h-6 text-secondary" />
+                                    <h3 className="font-semibold text-lg text-secondary">FAQ</h3>
+                                </div>
+                                <p className="text-secondary">
+                                    Bekijk onze veelgestelde vragen voor snelle antwoorden.
+                                </p>
+                                <button className="mt-4 bg-secondary text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors" onClick={() => router.push("/veelgestelde-vragen")}>
+                                    Naar FAQ
+                                </button>
+                            </div>
 
-                    <p className="mb-4 text-secondary">
-                        Er zijn steeds meer Factoraars op de markt die verschillende voorwaarden hanteren en verschillende percentages (4-8%) rekenen. Dat terwijl de service die ze bieden sterk uiteenloopt. Zo moet je meestal zélf de facturen versturen en deze najagen. In de wetenschap dat niet elke ondernemer daar even goed in is, zit daar zomaar een addertje onder het gras.
-                    </p>
-
-                    <p className="mb-4 text-secondary">
-                        Afhankelijk van de vorm van Factoring wordt - bij latere betaling vanuit jouw opdrachtgever - een hoger percentage ingehouden op de factuurwaarde. Voor veel factoraars zit daar een belangrijk deel van hun verdienmodel. Hoe later je opdrachtgever betaalt, hoe meer er wordt verdiend. Kijk daarom goed naar het percentage voorstel, maar staar je niet gelijk blind op dat getal. De voorwaarden en meegeleverde services - zoals debiteurenbeheer - moet je spiegelen aan jouw organisatie en markt.
-                    </p>
-                </div>
+                            {/* Contact Balloon */}
+                            <div className="flex-1 bg-orange-50 rounded-3xl p-4 shadow-md hover:shadow-lg transition-shadow max-w-md">
+                                <div className="flex items-center gap-3 mb-2">
+                                    <Phone className="w-6 h-6 text-primary" />
+                                    <h3 className="font-semibold text-lg text-primary">Contact</h3>
+                                </div>
+                                <p className="text-primary">
+                                    Bel direct voor snelle ondersteuning
+                                </p>
+                                <button className="mt-4 flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition-colors">
+                                    <Phone className="w-4 h-4" />
+                                    Bel nu
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
 
             <section className=" bg-secondary mx-auto text-beje px-8 py-2 rounded-3xl">
-                <div className="max-w-6xl mx-auto px-4 py-12">
-                    <div className="text-center mb-8">
-                        <p className="text-primary uppercase text-sm font-bold mb-4">
-                            Oude wijn in nieuwe zakken
-                        </p>
-                        <h1 className="text-3xl  md:text-4xl font-bold mb-6">
-                            In feite zijn er twee vormen van Factoring
-                        </h1>
-                        <p className="max-w-3xl mx-auto">
-                            Factoring is hot. Er staan steeds meer partijen op. In een poging om onderscheid te creëren,
-                            introduceren ze telkens weer nieuwe Factoring producten. Het heeft vaak een beetje weg van
-                            oude wijn in nieuwe zakken. Sla je alles plat, zijn er ruwweg twee vormen die je overal terug ziet.
-                        </p>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-6 mt-8">
-                        {/* First Option */}
-                        <div className="bg-beje rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                            <h2 className="text-xl text-secondary font-bold mb-4">
-                                100% in één keer uitbetaald
-                            </h2>
-                            <p className="text-secondary">
-                                Bij deze vorm wordt de complete factuurwaarde door de factoraar in één keer uitbetaald - met
-                            </p>
-                        </div>
-
-                        {/* Second Option */}
-                        <div className="bg-beje rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                            <h2 className="text-xl text-secondary font-bold mb-4">
-                                80-95% wordt uitbetaald
-                            </h2>
-                            <p className="text-secondary">
-                                Een groot deel word uitbetaald. De rest wordt ingehouden totdat de factuur is betaald. Hoe
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div className='max-w-7xl mx-auto px-8'>
-                    <h2 className="text-2xl text-primary font-bold mb-4">Traditionele Factoring</h2>
-
-                    <p className="mb-4 ">
-                        Traditionele Factoring wordt met name als geschikt gezien voor grote corporate bedrijven. Doorgaans (bij SOOF hoeft dat niet) draag je je complete debiteurenportfolio over aan een factoraar. Op basis van de waarde van de te verwachten totale factuursom, wordt een kredietlimiet afgesproken. De factoraar betaalt elke factuur van jou direct uit, tót de grens van de kredietlimiet is bereikt. De kans dat je deze bereikt via SOOF is zeer klein omdat wij de facturatie naar je klant voor rekening nemen.
-                    </p>
-
-                    <p className="mb-4 ">
-                        Bij Traditionele Factoring wordt een groot percentage van de factuur direct door de factoraar betaald. Doorgaans varieert dat van 80% tot 90%. De restwaarde van de factuur wordt betaald zodra de klant dat ook heeft gedaan. Hoe langer dat duurt, hoe hoger het percentage is dat de Factoraar rekent.
-                    </p>
-
-                    <p className="mb-4 ">
-                        Bij Traditionele Factoring betaalt SOOF in één keer 95% uit. Ons vergoedings-percentage behoort tot de scherpste in de markt. Bovendien het debiteurenbeheer uit handen. Dat scheelt je tijd en geld.
-                    </p>
-                </div>
-
-                <div className="max-w-4xl mx-auto p-6">
-                    <article className="bg-beje rounded-lg shadow-lg p-6 space-y-6">
-                        {/* Header Section */}
-                        <header>
-                            <div className="text-primary uppercase text-sm font-semibold mb-2">
-                                Voor wie?
-                            </div>
-                            <h1 className="text-2xl text-secondary sm:text-3xl font-bold mb-4">
-                                Ook interessant voor kleine organisaties.
-                            </h1>
-                        </header>
-
-                        {/* Main Content */}
-                        <div className="text-secondary leading-relaxed">
-                            <p>
-                                Traditionele Factoring wordt met name als geschikt gezien voor grote corporate
-                                bedrijven. Maar door de aantrekkelijke voorwaarden en services van SOOF, wordt
-                                deze vorm ook interessant voor kleinere organisaties. Wil je hier meer over weten?
-                                Maak een afspraak.
-                            </p>
-                        </div>
-
-                        {/* Call to Action Section */}
-                        <div className="space-y-4 sm:space-y-6">
-                            {/* Callback Form */}
-                            <div className="text-secondary rounded-lg">
-                                <h2 className="text-lg font-semibold mb-3">Bel mij terug</h2>
-                                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-                                    <input
-                                        type="tel"
-                                        value={phoneNumber}
-                                        onChange={(e) => setPhoneNumber(e.target.value)}
-                                        placeholder="Telefoonnummer"
-                                        className="flex-1 px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
-                                        aria-label="Telefoonnummer"
-                                    />
-                                    <button
-                                        type="submit"
-                                        className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-secondary transition-colors duration-200"
-                                    >
-                                        Bel mij terug
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                
 
                 <article className='my-8 max-w-7xl mx-auto px-8'>
-                    <h1 className="text-4xl font-bold mb-8 text-primary text-center">Factoring Opties Vergelijken</h1>
+                    <h1 className="text-4xl font-bold mb-8 text-beje text-center">De Drie Factoring Opties</h1>
 
                     <div className="space-y-6">
                         {factoringTypes.map((type) => (
@@ -447,7 +382,7 @@ const Services = () => {
                     {/* Info Box Section */}
                     <div className="bg-gray-100 rounded-lg shadow-sm mt-6 lg:mt-0 lg:w-1/2 p-6">
                         <h2 className="text-xl font-semibold text-secondary mb-4">
-                            Bij alle vormen van SOOF Factoring:
+                        Bij alle vormen van factoring door Soof:
                         </h2>
                         <ul className="space-y-4">
                             <li className="flex items-center">

@@ -93,13 +93,22 @@ const Contact = () => {
                                                     +31 06 51 950 524
                                                 </a>
                                             </div>
+
+                                            <div className="h-full rounded-lg overflow-hidden shadow-lg">
+                                                <img
+                                                    src="/images/Foto_Jaap.jpg"
+                                                    alt="Leo from Soof Factoring"
+                                                    className="object-cover object-center w-full h-full"
+                                                />
+                                            </div>
                                         </div>
+
                                     </div>
                                 </div>
 
                                 {/* Contact Form */}
                                 <div>
-                                    <form onSubmit={handleSubmit} className="space-y-6">
+                                    <form onSubmit={handleSubmit} className="space-y-8">
                                         <div>
                                             <label htmlFor="name" className="block text-base font-bold text-secondary mb-1">
                                                 Voor- en achternaam

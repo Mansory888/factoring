@@ -80,7 +80,7 @@ const About = () => {
                                     }
                                 }}
                             >
-                                <span className="text-lg font-medium mr-3">Contact</span>
+                                <span className="text-lg font-medium mr-3">Neem nu contact op</span>
                                 <div className="bg-primary rounded-full p-2.5 ">
                                     <svg
                                         className="w-4 h-4 text-beje"
@@ -179,7 +179,7 @@ const About = () => {
 
                                 <div className="text-lg md:text-xl mb-8">
                                     <p className="mb-4">
-                                    Arnold van Dijk is registeraccountant (RA) met een brede achtergrond in zowel Big Four- als middelgrote accountantskantoren. Hij heeft uitgebreide ervaring opgedaan bij diverse klanten, variërend van non-profitorganisaties en MKB-bedrijven tot financiële instellingen. Arnold combineert analytische scherpte met een resultaatgerichte aanpak en weet zich moeiteloos aan te passen aan verschillende teams en culturen. Zijn expertise omvat auditing, interne controle, externe verslaggeving (RJ/IFRS), risicomanagement, consolidatie en projectmanagement, waarmee hij een sterke financiële basis biedt voor Soof Factoring.
+                                    Arnold van Dijk is registeraccountant (RA) met een brede achtergrond in zowel financiën als risico management. Hij heeft uitgebreide ervaring opgedaan als registeraccountant bij Deloitte en bij diverse klanten, variërend van non-profitorganisaties, middelgrote MKB-bedrijven, grote private ondernemingen tot financiële instellingen. Zijn expertise omvat interne controle, externe verslaggeving (RJ/IFRS), risicomanagement, consolidatie en jaarrekeningrecht, waarmee hij een sterke financiële basis biedt voor Soof Factoring. Daarnaast is hij vooral pragmatisch en zoekt altijd naar de meest passende oplossing in een gegeven situatie, dit heeft een grote positieve invloed op de kwaliteit van de diensten die wij aan onze klanten leveren.
                                     </p>
                                 </div>
 

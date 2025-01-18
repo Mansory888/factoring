@@ -9,11 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#fffff3",
+        background: "#ffffff",
         foreground: "var(--foreground)",
         primary: "#d44c26",
         secondary: "#142444",
-        beje: "#fffff3",
+        beje: "#ffffff",
         
       },
       maxWidth: {

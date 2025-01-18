@@ -9,15 +9,15 @@ const SplashScreen = () => {
   useEffect(() => {
     // 1) Wait 2 seconds to start the outro animation
     const introTimer = setTimeout(() => {
-      setAnimateOut(true); // Trigger outro classes
+      // setAnimateOut(true); // Trigger outro classes
 
-      // 2) Wait for the outro animation to finish, then unmount
-      const outroTimer = setTimeout(() => {
-        setIsVisible(false);
-      }, 3000); // match your .bounce-out-top / .text-blur-out animation duration
+      // // 2) Wait for the outro animation to finish, then unmount
+      // const outroTimer = setTimeout(() => {
+      //   setIsVisible(false);
+      // }, 3000); // match your .bounce-out-top / .text-blur-out animation duration
 
-      return () => clearTimeout(outroTimer);
-    }, 3000);
+      // return () => clearTimeout(outroTimer);
+    }, 1500);
 
     return () => clearTimeout(introTimer);
   }, []);

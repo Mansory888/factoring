@@ -43,6 +43,7 @@ const Navbar = () => {
     { href: '/', text: 'HOME' },
     { href: '/over-ons', text: 'OVER ONS' },
     { href: '/services', text: 'SERVICES' },
+    {href: '/veelgestelde-vragen', text: 'FAQ'},
     { href: '/nieuws', text: 'NIEUWS' },
     { href: '/contact', text: 'CONTACT' }
   ];
