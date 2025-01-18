@@ -282,7 +282,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-4 md:mb-8 lg:mb-12">
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
               {/* Image Container */}
               <div className="w-full md:w-1/2">
                 <div className="relative">
@@ -358,11 +358,10 @@ export default function Home() {
                     </svg>
                   </div>
                 </motion.button>
-                <PhoneContactSection/>
-
               </div>
             </div>
           </motion.div>
+          <PhoneContactSection />
 
 
           <motion.div
@@ -371,7 +370,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 1.5, delay: 0.4 }}
           >
-            <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 py-6 mb-4 md:mb-8 lg:mb-12">
+            <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12">
               {/* Image Container */}
               <div className="w-full md:w-1/2">
                 <div className="relative">
@@ -451,6 +450,7 @@ export default function Home() {
               </div>
             </div>
           </motion.div>
+          <PhoneContactSection />
 
 
           <motion.div
