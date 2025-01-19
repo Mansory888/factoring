@@ -281,7 +281,7 @@ const Services = () => {
                                 <p className="text-primary">
                                     Bel direct voor snelle ondersteuning
                                 </p>
-                                <button className="mt-4 flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition-colors">
+                                <button className="mt-4 flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition-colors" onClick={() => router.push("contact")}>
                                     <Phone className="w-4 h-4" />
                                     Bel nu
                                 </button>
@@ -463,8 +463,8 @@ const Services = () => {
                                         <td key={`${product.type}-${key}`} className="px-6 py-4 text-base text-secondary">
                                             {key === 'AchterafBerekendeRente' ? (
                                                 product[key] ?
-                                                    <span className="text-green-600 text-xl">Yes</span> :
-                                                    <span className="text-red-600 text-xl">No</span>
+                                                    <span className="text-green-600 text-base">Yes</span> :
+                                                    <span className="text-red-600 text-base">No</span>
                                             ) : (
                                                 key === 'FactorFee' ? (
                                                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-base font-medium bg-green-700 text-white">

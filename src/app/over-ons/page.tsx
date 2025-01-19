@@ -118,6 +118,7 @@ const About = () => {
                             <div className="w-full md:w-1/2">
                                 <div className="relative">
                                     <img
+                                        className='pt-16 px-16'
                                         src="/images/white.png"
                                         alt="Simon Adriaan Visscher in an office setting"
                                         width={600}

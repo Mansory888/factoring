@@ -6,7 +6,7 @@ import { Article } from '@/types/article';
 import Data from '../../public/data.json';
 import NewsCard from '@/components/newsCard';
 import HeroSection from "@/components/emailContact";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from "next/navigation";
 import PhoneContactSection from '@/components/phoneContact';
 
@@ -214,7 +214,7 @@ export default function Home() {
 
                 <div
                   onClick={NeemContactOp}
-                  className="bg-[#25D366] rounded-lg p-6 mt-16 text-white flex flex-row items-center justify-center gap-4 h-32 cursor-pointer hover:bg-[#15853f] transition-colors duration-200 shadow-lg"
+                  className="bg-[#2E8B57] rounded-lg p-6 mt-16 text-white flex flex-row items-center justify-center gap-4 h-32 cursor-pointer hover:bg-[#15853f] transition-colors duration-200 shadow-lg"
                 >
                   <MessageCircle size={48} />
                   <h2 className="text-4xl font-bold">Neem contact op</h2>
