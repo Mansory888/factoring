@@ -163,7 +163,7 @@ const Services = () => {
                             Factoring is een flexibele manier om werkkapitaal (liquiditeit) te vergroten, waarbij de financiering op een natuurlijke wijze meegroeit met jouw onderneming. Daarnaast zijn je debiteuren met Factoring via SOOF verzekerd voor wanbetaling en voeren wij professioneel debiteurenbeheer uit.
                         </motion.p>
                     </div>
-                    <div className="bg-white p-6 mt-12 md:mt-0 w-full md:w-1/3 md:ml-6">
+                    <div className="bg-white mt-12 md:mt-0 w-full md:w-1/3 md:ml-6">
                         <motion.h1
                             initial={{ y: -50, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}

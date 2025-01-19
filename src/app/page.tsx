@@ -84,68 +84,55 @@ const FeatureBar = () => {
   ];
 
   return (
-    <div className="w-full ">
-      <div className="max-w-7xl mx-auto px-4 py-6 overflow-hidden relative">
-        <motion.div
-          className="flex flex-nowrap space-x-8 md:space-x-12"
-          animate={{
-            x: ["0%", "-50%"]
-          }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 10,
-              ease: "linear",
-            },
-          }}
-        >
-          {/* Original features */}
-          {features.map((feature, index) => (
-            <div
-              key={`a-${index}`}
-              className="flex items-center space-x-2 flex-shrink-0"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-green-500 mr-3"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+    <div className="w-full">
+      <div className="max-w-7xl mx-auto px-4 py-4">
+        <div className="flex flex-col space-y-6">
+          {/* First row with 4 elements */}
+          <div className="flex justify-center space-x-8">
+            {features.slice(0, 4).map((feature, index) => (
+              <div
+                key={index}
+                className="flex items-center space-x-2"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              <span className="text-base md:text-xl font-medium text-secondary whitespace-nowrap">
-                {feature}
-              </span>
-            </div>
-          ))}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-green-500 mr-3"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-base md:text-xl font-medium text-secondary whitespace-nowrap">
+                  {feature}
+                </span>
+              </div>
+            ))}
+          </div>
 
-          {/* Duplicated features for seamless loop */}
-          {features.map((feature, index) => (
-            <div
-              key={`b-${index}`}
-              className="flex items-center space-x-2 flex-shrink-0"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-green-500 mr-3"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+          {/* Second row with 2 elements */}
+          <div className="flex justify-center space-x-8">
+            {features.slice(4).map((feature, index) => (
+              <div
+                key={index}
+                className="flex items-center space-x-2"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              <span className="text-base md:text-xl font-medium text-secondary whitespace-nowrap">
-                {feature}
-              </span>
-            </div>
-          ))}
-        </motion.div>
-
-        {/* Gradient overlays for smooth fade effect */}
-        <div className="absolute left-0 inset-y-0 w-16 bg-gradient-to-r from-gray-50 to-transparent pointer-events-none" />
-        <div className="absolute right-0 inset-y-0 w-16 bg-gradient-to-l from-gray-50 to-transparent pointer-events-none" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-green-500 mr-3"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-base md:text-xl font-medium text-secondary whitespace-nowrap">
+                  {feature}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
