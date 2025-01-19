@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, HelpCircle, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
+import PhoneContactSection from '@/components/phoneContact';
 
 const steps = [
     {
@@ -44,11 +45,11 @@ const products = [
         FactorFee: "v.a. 1.5%",
         AchterafBerekendeRente: false,
         PastGoedBij: "Past in feite bij ieder bedrijf",
-        VolledigOfPartieel: "Per factuur, per debiteur, volledig; het is allemaal mogelijk.",
-        HoeSnelBetaald: "Altijd binnen 24 uur, meestal dezelfde werkdag",
-        Kredietverzekering: "Alle facturen zijn voor 90% verzekerd tegen wanbetaling en faillissement.",
+        VolledigOfPartieel: "Per factuur, per debiteur, volledige debiteurenportfeuille",
+        Kredietverzekering: "Alle facturen zijn voor 80% verzekerd tegen wanbetaling en faillissement.",
         Debiteurenbeheer: "Volledig inbegrepen",
         Servicegebied: "Factoring mogelijk in heel Europa",
+        MinimaleJaarlijkseOmzet: "500.000",
         Contactpersoon: "Vast"
     },
     {
@@ -57,24 +58,24 @@ const products = [
         FactorFee: "v.a. 1.3%",
         AchterafBerekendeRente: true,
         PastGoedBij: "Veel gekozen door het klein MKB",
-        VolledigOfPartieel: "Per factuur, per debiteur, volledig; het is allemaal mogelijk.",
-        HoeSnelBetaald: "Altijd binnen 24 uur, meestal dezelfde werkdag",
-        Kredietverzekering: "Alle facturen zijn voor 90% verzekerd tegen wanbetaling en faillissement.",
+        VolledigOfPartieel: "Per factuur, per debiteur, volledige debiteurenportfeuille",
+        Kredietverzekering: "Alle facturen zijn voor 80% verzekerd tegen wanbetaling en faillissement.",
         Debiteurenbeheer: "Volledig inbegrepen",
         Servicegebied: "Factoring mogelijk in Nederland",
+        MinimaleJaarlijkseOmzet: "2.500.000",
         Contactpersoon: "Vast"
     },
     {
         type: "American Factoring",
         HoogteUitbetaling: "100% wordt direct uitbetaald. De factor fee wordt direct verrekend.",
-        FactorFee: "v.a. 4.1%",
-        AchterafBerekendeRente: false,
+        FactorFee: "v.a. 3.9%",
+        AchterafBerekendeRente: false,  
         PastGoedBij: "Veel gekozen door het klein MKB en ZZP",
-        VolledigOfPartieel: "Per factuur, per debiteur, volledig; het is allemaal mogelijk.",
-        HoeSnelBetaald: "Altijd binnen 24 uur, meestal dezelfde werkdag",
-        Kredietverzekering: "Alle facturen zijn voor 90% verzekerd tegen wanbetaling en faillissement.",
+        VolledigOfPartieel: "Per factuur, per debiteur, volledige debiteurenportfeuille",
+        Kredietverzekering: "Alle facturen zijn voor 80% verzekerd tegen wanbetaling en faillissement.",
         Debiteurenbeheer: "Volledig inbegrepen",
         Servicegebied: "Factoring mogelijk in Nederland",
+        MinimaleJaarlijkseOmzet: "100,000",
         Contactpersoon: "Vast"
     }
 ];
@@ -84,43 +85,37 @@ const factoringTypes = [
         id: 'traditional',
         title: 'Traditionele Factoring',
         description: 'Bij Traditionele Factoring wordt een groot percentage van de factuur direct door de factoraar betaald. Doorgaans varieert dat van 80% tot 90%. De restwaarde van de factuur wordt betaald zodra de klant dat ook heeft gedaan. Hoe langer dat duurt, hoe hoger het percentage is dat de Factoraar rekent. Bij Traditionele Factoring betaalt SOOF in één keer tot 95% uit. Ons vergoedings-percentage behoort tot de scherpste in de markt. Bovendien het debiteurenbeheer uit handen. Dat scheelt je tijd en geld. ',
+        subtitle: 'Samengevat ziet traditionele factoring er bij SOOF als volgt uit:',
         advantages: [
-            "Kosten van traditionele factoring vallen relatief lager uit. Bij SOOF rekenen we de scherpste tarieven in de markt.",
-            "Er gelden over het algemeen minder strenge eisen voor je debiteuren."
+            "Na het sluiten van de overeenkomst betalen wij uiterlijk binnen 2 werkdagen uw uitgaande facturen.",
+            "De uitbetaling bedraagt 90% van de factuurwaarde verminderd met de overeengekomen factorfee.",
+            "De resterende 10% ontvangt u, zodra de debiteur de factuur aan ons heeft voldaan.",
+            "U draagt uw volledige debiteurenportefeuille aan ons over."
         ],
-        disadvantages: [
-            "Substantiële omzet-eisen bij de gemiddelde factoraar.",
-            "Meer voorwaarden: bedrijf moet minimaal 3 jaar bestaan, verplicht iedere factuur onderbrengen.",
-            "Debiteurenrisico ligt bij jou. DBS factureert en int zelf.",
-            "Niet direct 100% uitbetaald, maar tussen 80% en 90%. Bij SOOF 90%."
-        ]
+
     },
     {
         id: 'american',
         title: 'American Style Factoring',
         description: 'American Style Factoring wordt gezien als de meest flexibele vorm van Factoring, vooral geschikt voor MKBers en ZZPers.',
+        subtitle: 'Samengevat ziet American Style Factoring er bij SOOF als volgt uit:',
         advantages: [
-            "Overeenkomst vaak binnen een dag geregeld, factuur direct verzekerd tegen wanbetaling.",
-            "Flexibiliteit: niet verplicht alle facturen uit te besteden, behoud van regie."
+            "Na het sluiten van de overeenkomst betalen wij uiterlijk binnen 2 werkdagen uw uitgaande facturen.",
+            "De uitbetaling bedraagt 100% van de factuurwaarde verminderd met de overeengekomen factorfee, deze factorfee ligt wel veel hoger dan bij traditionele factoring.",
+            "U maakt zelf een selectie welke debiteuren en welke facturen u wilt factoren."
         ],
-        disadvantages: [
-            "Factoraar mag debiteur weigeren bij hoog risico. SOOF biedt krachtig debiteurenbeheer.",
-            "Hoger vergoedingspercentage door lagere factuurwaarde. SOOF biedt scherpste tarieven.",
-            "Doorgaans niet direct 100% uitbetaald. Bij SOOF wel 100%.",
-            "Debiteurenbeheer meestal niet inbegrepen. Bij SOOF wel."
-        ]
     },
     {
         id: 'mkb',
         title: 'MKB Factoring',
         description: 'MKB Factoring lijkt op American Style Factoring, maar werkt anders qua rentepercentages en uitbetaling.',
+        subtitle: 'Samengevat ziet MKB Factoring er bij SOOF als volgt uit:',
         advantages: [
-            "Vergelijkbaar met American Style factoring.",
-            "Goedkoper als klanten binnen 30 dagen betalen."
+            "Na het sluiten van de overeenkomst betalen wij uiterlijk binnen 2 werkdagen uw uitgaande facturen.",
+            "De uitbetaling bedraagt 100% van de factuurwaarde verminderd met de overeengekomen factorfee.",
+            "Zodra de debiteur aan ons betaald heeft, ontvangt u een renteafrekening, deze dient u achteraf aan ons te voldoen.",
+            "MKB Factoring is alleen mogelijk voor bedrijven met een jaaromzet van minimaal 2.500.000 EUR."
         ],
-        disadvantages: [
-            "Duurder als klanten gemiddeld later dan 30 dagen betalen."
-        ]
     }
 ];
 
@@ -212,7 +207,7 @@ const Services = () => {
                 </div>
 
 
-                <div>
+                <div className='mt-8'>
                     <h2 className="text-2xl text-secondary font-bold mb-4">Zo werkt Factoring in de basis</h2>
 
                     <p className="mb-4 text-secondary">
@@ -224,7 +219,7 @@ const Services = () => {
                     </p>
 
                     <p className="mb-4 text-secondary">
-                    Op basis van de waarde van de te verwachten totale factuursom, wordt een kredietlimiet afgesproken. De factoraar betaalt elke factuur van jou direct uit, tót de grens van de kredietlimiet is bereikt.
+                        Op basis van de waarde van de te verwachten totale factuursom, wordt een kredietlimiet afgesproken. De factoraar betaalt elke factuur van jou direct uit, tót de grens van de kredietlimiet is bereikt.
                     </p>
                 </div>
 
@@ -297,7 +292,7 @@ const Services = () => {
             </div>
 
             <section className=" bg-secondary mx-auto text-beje px-8 py-2 rounded-3xl">
-                
+
 
                 <article className='my-8 max-w-7xl mx-auto px-8'>
                     <h1 className="text-4xl font-bold mb-8 text-beje text-center">De Drie Factoring Opties</h1>
@@ -329,31 +324,31 @@ const Services = () => {
                                         >
                                             <p className="text-secondary">{type.description}</p>
 
-                                            <div className="grid md:grid-cols-2 gap-6">
+                                            <div>
                                                 <div className="space-y-4">
-                                                    <h3 className="text-xl font-semibold text-secondary">Voordelen</h3>
-                                                    <p className="text-primary font-bold border-l-4 border-primary pl-4">
-                                                        Die bij SOOF groter zijn
-                                                    </p>
-                                                    <ul className="list-disc pl-8 space-y-2 text-secondary">
-                                                        {type.advantages.map((advantage, index) => (
-                                                            <li key={index}>{advantage}</li>
-                                                        ))}
-                                                    </ul>
-                                                </div>
 
-                                                <div className="space-y-4">
-                                                    <h3 className="text-xl font-semibold text-secondary">Nadelen</h3>
                                                     <p className="text-primary font-bold border-l-4 border-primary pl-4">
-                                                        Die SOOF wegneemt
+                                                        {type.subtitle}
                                                     </p>
-                                                    <ul className="list-disc pl-8 space-y-2 text-secondary">
-                                                        {type.disadvantages.map((disadvantage, index) => (
-                                                            <li key={index}>{disadvantage}</li>
+                                                    <ul className="list-disc pl-4 space-y-2 text-secondary">
+                                                        {type.advantages.map((advantage, index) => (
+                                                            <div className='flex items-center'>
+                                                                <svg
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    className="h-6 w-6 text-green-500 mr-3"
+                                                                    fill="none"
+                                                                    viewBox="0 0 24 24"
+                                                                    stroke="currentColor"
+                                                                >
+                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                                </svg>
+                                                                <p key={index}>{advantage}</p>
+                                                            </div>
                                                         ))}
                                                     </ul>
                                                 </div>
                                             </div>
+                                            <PhoneContactSection></PhoneContactSection>
                                         </motion.div>
                                     )}
                                 </AnimatePresence>
@@ -382,7 +377,7 @@ const Services = () => {
                     {/* Info Box Section */}
                     <div className="bg-gray-100 rounded-lg shadow-sm mt-6 lg:mt-0 lg:w-1/2 p-6">
                         <h2 className="text-xl font-semibold text-secondary mb-4">
-                        Bij alle vormen van factoring door Soof:
+                            Bij alle vormen van factoring door Soof:
                         </h2>
                         <ul className="space-y-4">
                             <li className="flex items-center">
@@ -448,11 +443,11 @@ const Services = () => {
                     <table className="min-w-full divide-y divide-gray-200 ">
                         <thead className="bg-primary">
                             <tr>
-                                <th scope="col" className="px-6 py-3 text-left text-sm font-semibold text-white">
-                                    Kenmerken
+                                <th scope="col" className="px-6 py-3 text-left text-base font-semibold text-white">
+
                                 </th>
                                 {products.map((product) => (
-                                    <th key={product.type} scope="col" className="px-6 py-3 text-left text-sm font-semibold text-white">
+                                    <th key={product.type} scope="col" className="px-6 py-3 text-left text-base font-semibold text-white">
                                         {product.type}
                                     </th>
                                 ))}
@@ -461,18 +456,18 @@ const Services = () => {
                         <tbody className="bg-beje divide-y divide-gray-200">
                             {Object.keys(products[0]).slice(1).map((key) => (
                                 <tr key={key} className="hover:bg-gray-50">
-                                    <th scope="row" className="px-6 py-4 text-sm font-medium text-secondary whitespace-nowrap">
+                                    <th scope="row" className="px-6 py-4 text-basefont-medium text-secondary text-left whitespace-nowrap">
                                         {key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1').trim()}
                                     </th>
                                     {products.map((product) => (
-                                        <td key={`${product.type}-${key}`} className="px-6 py-4 text-sm text-secondary">
+                                        <td key={`${product.type}-${key}`} className="px-6 py-4 text-base text-secondary">
                                             {key === 'AchterafBerekendeRente' ? (
                                                 product[key] ?
-                                                    <span className="text-green-600">✓</span> :
-                                                    <span className="text-red-600">✗</span>
+                                                    <span className="text-green-600 text-xl">Yes</span> :
+                                                    <span className="text-red-600 text-xl">No</span>
                                             ) : (
                                                 key === 'FactorFee' ? (
-                                                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-base font-medium bg-green-700 text-white">
                                                         {product[key]}
                                                     </span>
                                                 ) : product[key as keyof typeof product]

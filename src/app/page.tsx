@@ -211,24 +211,15 @@ export default function Home() {
                 </div>
 
                 {/* Cards */}
-                <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start mt-16">
-                  {/* First Card */}
-                  <div className="bg-primary rounded-lg p-4 text-secondary flex flex-col items-center justify-center w-72 h-32">
-                    <p className="text-lg md:text-base lg:text-lg font-semibold text-center">JOUW FACTUREN METEEN</p>
-                    <ChangingText />
-                  </div>
 
-                  {/* Second Card */}
-
-                  <div
-                    onClick={NeemContactOp}
-                    className="bg-[#25D366] rounded-lg p-6 text-white flex flex-col items-center justify-center w-72 h-32 cursor-pointer hover:bg-[#15853f] transition-colors duration-200 shadow-lg"
-                  >
-                    <MessageCircle size={48} className="mb-2" />
-                    <h2 className="text-3xl font-bold">Contact op</h2>
-                  </div>
-
+                <div
+                  onClick={NeemContactOp}
+                  className="bg-[#25D366] rounded-lg p-6 mt-16 text-white flex flex-row items-center justify-center gap-4 h-32 cursor-pointer hover:bg-[#15853f] transition-colors duration-200 shadow-lg"
+                >
+                  <MessageCircle size={48} />
+                  <h2 className="text-4xl font-bold">Neem contact op</h2>
                 </div>
+
               </div>
             </motion.div>
 
@@ -242,7 +233,7 @@ export default function Home() {
               <div className="relative">
                 <div className="aspect-w-16 aspect-h-10 md:aspect-h-12 rounded-3xl overflow-hidden">
                   <img
-                    src="/images/main.jpg"
+                    src="/images/main.png"
                     alt="Business people discussing"
                     className="w-full h-full object-cover"
                   />
@@ -315,7 +306,7 @@ export default function Home() {
                 </ul>
 
                 <p className="text-lg md:text-xl text-secondary mb-4">
-                Traditionele factoring is vooral geschikt voor grote bedrijven, waarbij het volledige debiteurenportfolio wordt overgedragen aan Soof Factoring. Op basis van de verwachte openstaande factuursom wordt een kredietlimiet afgesproken. Soof Factoring betaalt de facturen tot deze limiet is bereikt.
+                  Traditionele factoring is vooral geschikt voor grote bedrijven, waarbij het volledige debiteurenportfolio wordt overgedragen aan Soof Factoring. Op basis van de verwachte openstaande factuursom wordt een kredietlimiet afgesproken. Soof Factoring betaalt de facturen tot deze limiet is bereikt.
                 </p>
 
                 <motion.button
@@ -403,7 +394,7 @@ export default function Home() {
                 </ul>
 
                 <p className="text-lg md:text-xl text-secondary mb-4">
-                American Style Factoring wordt als de meeste flexibele vorm van Factoring gezien. Zoals het meestal in de markt wordt aangeboden, is het vooral geschikt voor MKB'ers en ZZP'ers. U hoeft dan namelijk niet al uw facturen aan een factoraar uit te besteden, maar kan volstaan met een deel van de facturen, of zelfs een enkele factuur. Waar andere factoraars tussen de 80% en 90% uitkeren, keren wij tot 100% van het bedrag uit - met aftrek van het vooraf overeengekomen vergoedingspercentage.
+                  American Style Factoring wordt als de meeste flexibele vorm van Factoring gezien. Zoals het meestal in de markt wordt aangeboden, is het vooral geschikt voor MKB'ers en ZZP'ers. U hoeft dan namelijk niet al uw facturen aan een factoraar uit te besteden, maar kan volstaan met een deel van de facturen, of zelfs een enkele factuur. Waar andere factoraars tussen de 80% en 90% uitkeren, keren wij tot 100% van het bedrag uit - met aftrek van het vooraf overeengekomen vergoedingspercentage.
                 </p>
 
                 <motion.button
@@ -492,7 +483,7 @@ export default function Home() {
                 </ul>
 
                 <p className="text-lg md:text-xl text-secondary mb-4">
-                Bij MKB-Factoring keren wij tot 100% van het bedrag uit - met aftrek van het vooraf overeengekomen vergoedingspercentage. De rente over de looptijd wordt achteraf in rekening gebracht. Let op dit is voor bedrijven met een minimale jaaromzet van 2.500.000 EUR.
+                  Bij MKB-Factoring keren wij tot 100% van het bedrag uit - met aftrek van het vooraf overeengekomen vergoedingspercentage. De rente over de looptijd wordt achteraf in rekening gebracht. Let op dit is voor bedrijven met een minimale jaaromzet van 2.500.000 EUR.
                 </p>
 
                 <motion.button

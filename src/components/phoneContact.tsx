@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { ArrowRight, Phone } from 'lucide-react';
+import { useRouter } from "next/navigation";
 
 const PhoneContactSection = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
+  const router = useRouter();
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -14,7 +16,7 @@ const PhoneContactSection = () => {
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8">
       {/* Direct Contact Section */}
-      <div className="p-6">
+      <div className="p-6 border-2 border-secondary rounded-3xl">
         <h2 className="text-2xl font-semibold text-secondary mb-4">
           Direct contact?
         </h2>
@@ -40,7 +42,7 @@ const PhoneContactSection = () => {
 
       {/* Make Appointment Button */}
       <div className="p-6 ">
-        <button className="w-full h-full bg-white rounded-3xl p-6 flex items-center justify-between group transition-all duration-300 hover:shadow-lg">
+        <button className="w-full h-full bg-white rounded-3xl p-6 flex items-center justify-between group transition-all duration-300 hover:shadow-lg" onClick={() => router.push("/contact")}>
           <span className="text-2xl font-semibold text-secondary">
             Maak een afspraak
           </span>

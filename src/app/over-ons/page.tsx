@@ -103,20 +103,22 @@ const About = () => {
                 </section>
             </div>
 
-            <section className="mx-auto px-4 py-8 mt-6 overflow-x-hidden bg-secondary text-beje rounded-3xl">
-                <div className="container mx-auto px-4 md:px-6">
+
+
+            <section className='mx-auto px-4 mt-6 overflow-x-hidden bg-primary text-beje rounded-t-3xl'>
+                <div className='container mx-auto px-4 md:px-6'>
                     <motion.div
                         initial={{ x: -200, opacity: 0 }}
                         whileInView={{ x: "0%", opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 1, delay: 0.2 }}
                     >
-                        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 pt-4">
                             {/* Image Container */}
                             <div className="w-full md:w-1/2">
                                 <div className="relative">
                                     <img
-                                        src="/images/jaap.png"
+                                        src="/images/white.png"
                                         alt="Simon Adriaan Visscher in an office setting"
                                         width={600}
                                         height={600}
@@ -128,7 +130,7 @@ const About = () => {
                             {/* Content Container */}
                             <div className="w-full md:w-1/2">
 
-                                <p className="text-xl font-bold mb-2 text-primary">
+                                <p className="text-xl font-bold mb-2 text-secondary">
                                     CEO
                                 </p>
 
@@ -138,22 +140,25 @@ const About = () => {
 
                                 <div className="text-lg md:text-xl mb-8">
                                     <p className="mb-4">
-                                    Met zijn uitgebreide kennis van debiteurenbeheer en bedrijfsfinanciering helpt hij ondernemers aan snelle en flexibele oplossingen. Als commercieel directeur is Jaap verantwoordelijk voor het aantrekken van nieuwe klanten, het onderhouden van klantrelaties en het ontwikkelen van klantgerichte strategieën. Zijn toewijding aan klanttevredenheid en inzicht in zakelijke financiering positioneren Soof Factoring als een betrouwbare partner voor bedrijven in uiteenlopende sectoren.
+                                        Met zijn uitgebreide kennis van debiteurenbeheer en bedrijfsfinanciering helpt hij ondernemers aan snelle en flexibele oplossingen. Als commercieel directeur is Jaap verantwoordelijk voor het aantrekken van nieuwe klanten, het onderhouden van klantrelaties en het ontwikkelen van klantgerichte strategieën. Zijn toewijding aan klanttevredenheid en inzicht in zakelijke financiering positioneren Soof Factoring als een betrouwbare partner voor bedrijven in uiteenlopende sectoren.
                                     </p>
                                 </div>
 
                             </div>
                         </div>
                     </motion.div>
+                </div>
+            </section>
 
-
+            <section className="mx-auto px-4 overflow-x-hidden bg-secondary text-beje rounded-b-3xl">
+                <div className="container mx-auto px-4 md:px-6">
                     <motion.div
                         initial={{ x: 200, opacity: 0 }}
                         whileInView={{ x: "0%", opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 1, delay: 0.4 }}
                     >
-                        <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 py-6">
+                        <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 pt-6">
                             {/* Image Container */}
                             <div className="w-full md:w-1/2">
                                 <div className="relative">
@@ -174,12 +179,12 @@ const About = () => {
                                 </p>
 
                                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ">
-                                Arnold van Dijk
+                                    Arnold van Dijk
                                 </h1>
 
                                 <div className="text-lg md:text-xl mb-8">
                                     <p className="mb-4">
-                                    Arnold van Dijk is registeraccountant (RA) met een brede achtergrond in zowel financiën als risico management. Hij heeft uitgebreide ervaring opgedaan als registeraccountant bij Deloitte en bij diverse klanten, variërend van non-profitorganisaties, middelgrote MKB-bedrijven, grote private ondernemingen tot financiële instellingen. Zijn expertise omvat interne controle, externe verslaggeving (RJ/IFRS), risicomanagement, consolidatie en jaarrekeningrecht, waarmee hij een sterke financiële basis biedt voor Soof Factoring. Daarnaast is hij vooral pragmatisch en zoekt altijd naar de meest passende oplossing in een gegeven situatie, dit heeft een grote positieve invloed op de kwaliteit van de diensten die wij aan onze klanten leveren.
+                                        Arnold van Dijk is registeraccountant (RA) met een brede achtergrond in zowel financiën als risico management. Hij heeft uitgebreide ervaring opgedaan als registeraccountant bij Deloitte en bij diverse klanten, variërend van non-profitorganisaties, middelgrote MKB-bedrijven, grote private ondernemingen tot financiële instellingen. Zijn expertise omvat interne controle, externe verslaggeving (RJ/IFRS), risicomanagement, consolidatie en jaarrekeningrecht, waarmee hij een sterke financiële basis biedt voor Soof Factoring. Daarnaast is hij vooral pragmatisch en zoekt altijd naar de meest passende oplossing in een gegeven situatie, dit heeft een grote positieve invloed op de kwaliteit van de diensten die wij aan onze klanten leveren.
                                     </p>
                                 </div>
 

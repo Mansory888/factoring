@@ -27,7 +27,7 @@ Zodra wij de benodigde gegevens hebben ontvangen en de overeenkomst getekend ret
     {
         question: 'Ja, ik wil klant worden bij SOOF Factoring. Hoe doe ik dat?',
         answer: `
-            Vul het contactformulier in op de pagina ‘informatie aanvragen’. Dit verplicht je tot niets. Wij nemen vervolgens contact met je op om (vrijblijvend) de mogelijkheden voor jouw onderneming te bespreken. Je mag uiteraard ook zelf contact met ons opnemen via +31 06 51 950 524. Wij zijn bereikbaar op werkdagen van 9.00 tot 17.00 uur.
+            Vul het contactformulier in op de pagina ‘contact’. Dit verplicht je tot niets. Wij nemen vervolgens contact met je op om (vrijblijvend) de mogelijkheden voor jouw onderneming te bespreken. Je mag uiteraard ook zelf contact met ons opnemen via +31 06 51 950 524. Wij zijn bereikbaar op werkdagen van 9.00 tot 17.00 uur.
         `
     }
 ];
@@ -35,15 +35,15 @@ Zodra wij de benodigde gegevens hebben ontvangen en de overeenkomst getekend ret
 
 const Financiëel = [
     {
-        question: 'Waaraan moet de kopie factuur voldoen?',
+        question: 'Waaraan moet de factuur voldoen?',
         answer: `
             Je factuur dient aan de gebruikelijke eisen te voldoen. Het enige verschil: in plaats van je eigen gegevens – zet je op je factuur de naam en het rekeningnummer van SOOF Factoring. Onderaan de factuur plaats je de volgende tekst: Deze vordering is gecedeerd dan wel verpand aan SOOF Factoring. Betaling kan slechts bevrijdend geschieden aan SOOF Factoring op IBAN NL02RABOXXXXXXXXXX o.v.v. factuurnummer.
         `
     },
     {
-        question: 'Hoe lever ik de kopie factuur aan?',
+        question: 'Hoe lever ik de factuur aan?',
         answer: `
-            Je dient de factuur in via de portal, of je stuurt de factuur per mail aan je klant en zet SOOF Factoring in de ‘cc’. Belangrijk is wel: in plaats van je eigen gegevens – zet je op de factuur de naam en het rekeningnummer van SOOF Factoring. Onderaan de factuur plaats je de volgende tekst: Deze vordering is gecedeerd dan wel verpand aan SOOF Factoring. Betaling kan slechts bevrijdend geschieden aan SOOF Factoring op IBAN NL02RABOXXXXXXXXXX o.v.v. factuurnummer. . Je contactpersoon - die je krijgt toegewezen bij je aanmelding - neemt de factuur meteen in behandeling.
+            Je stuurt de factuur per mail aan je klant en zet SOOF Factoring in de ‘cc’. Belangrijk is wel: in plaats van je eigen gegevens – zet je op de factuur de naam en het rekeningnummer van SOOF Factoring. Onderaan de factuur plaats je de volgende tekst: Deze vordering is gecedeerd dan wel verpand aan SOOF Factoring. Betaling kan slechts bevrijdend geschieden aan SOOF Factoring op IBAN NL02RABOXXXXXXXXXX o.v.v. factuurnummer. . Je contactpersoon - die je krijgt toegewezen bij je aanmelding - neemt de factuur meteen in behandeling.
         `
     },
     {
@@ -70,7 +70,7 @@ const OverigeVragen = [
     {
         question: 'Wat is de minimale looptijd?',
         answer: `
-            wij hanteren een minimale looptijd van 6 maanden dit is afhankelijk van de aard en omvang van uw onderneming. De reden dat wij een looptijd hanteren is omdat wij geld voor u apart moeten houden, wat wij niet op een andere manier kunnen laten renderen.
+            Wij hanteren een minimale looptijd van 6 maanden dit is afhankelijk van de aard en omvang van uw onderneming. De reden dat wij een looptijd hanteren is omdat wij geld voor u apart moeten houden, wat wij niet op een andere manier kunnen laten renderen.
         `
     },
     {

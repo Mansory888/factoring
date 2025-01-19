@@ -2,63 +2,74 @@ import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 
 const HeroSection = () => {
-    const [email, setEmail] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        // Handle email submission
-        console.log('Email submitted:', email);
-    };
+        // Handle the callback request here
+        console.log('Callback requested for:', phoneNumber);
+      };
 
     return (
         <div className="relative">
-            {/* Split backgrounds - corrected order and height */}
-            <div className="h-[300px] bg-transparent" />
-            <div className="h-[400px] bg-primary rounded-b-3xl" />
+            {/* Split backgrounds */}
+            <div className="h-[200px] md:h-[300px] bg-transparent" />
+            <div className="h-[500px] md:h-[400px] bg-primary rounded-b-3xl" />
 
-            {/* Content container - centered on the split */}
-            <div className="absolute inset-x-0 top-[50px] px-4">
-                <div className="w-full max-w-4xl mx-auto">
-                    {/* Card overlapping the split */}
-                    <div className="relative bg-white rounded-3xl shadow-xl overflow-hidden h-[500px]">
-                        {/* Background image */}
-                        <img
-                            src="/images/emailBg.jpg"
-                            alt="Decorative office setup"
-                            className="absolute inset-0 w-full h-full object-cover"
-                        />
+            {/* Content container */}
+            <div className="absolute inset-x-0 top-[20px] md:top-[50px] px-4">
+                <div className="w-full max-w-6xl mx-auto">
+                    {/* Main card */}
+                    <div className="relative bg-secondary text-white md:p-8 rounded-2xl shadow-xl min-h-[600px] flex items-center">
+                        {/* Text content */}
+                        <div className="relative z-10 w-full md:w-1/2 p-4">
+                            <div className="max-w-xl">
+                                <h1 className="text-3xl md:text-5xl font-bold mb-4">
+                                    We betalen direct met<br className="hidden md:block" />
+                                    een glimlach<span className="text-red-500">.</span>
+                                </h1>
+                                <p className="text-base md:text-lg mb-8">
+                                    Bij de vriendelijkste factoring service van{' '}
+                                    <br className="hidden md:block" />
+                                    Nederland hoort een gezicht: Onze{' '}
+                                    <br className="hidden md:block" />
+                                    Commercieel Directeur Jaap van Aalst is{' '}
+                                    <br className="hidden md:block" />
+                                    makkelijk bereikbaar.
+                                </p>
+                            </div>
 
-                        {/* Hero content */}
-                        <div className="relative z-10 p-8 lg:p-12 max-w-2xl mx-auto text-center text-white">
-                            <h1 className="text-3xl lg:text-5xl font-bold mb-6">
-                                We Betalen Direct Met Een Glimlach
-                            </h1>
-                            <p className="text-gray-200 mb-8">
-                                We geven de voorkeur aan een persoonlijk gesprek. Laat je email achter.
-                            </p>
-
-                            {/* Email form */}
-                            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
-                                <input
-                                    type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="Email"
-                                    className="flex-1 px-4 py-3 rounded-lg bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C84E31]"
-                                    required
-                                />
-                                <button
-                                    type="submit"
-                                    className="px-6 py-3 bg-[#C84E31] text-white rounded-lg hover:bg-[#B33D22] transition-colors duration-200 flex items-center justify-center gap-2"
-                                    aria-label="Submit email"
-                                >
-                                    <ArrowRight size={20} />
-                                </button>
-                            </form>
+                            <div>
+                                <p className="mb-4 text-white">
+                                    Bel <a href="tel:+31 06 51 950 524" className="text-primary hover:underline">+31 06 51 950 524</a> of laat ons terugbellen
+                                </p>
+                                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
+                                    <input
+                                        type="tel"
+                                        placeholder="Telefoonnummer"
+                                        className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                                        value={phoneNumber}
+                                        onChange={(e) => setPhoneNumber(e.target.value)}
+                                    />
+                                    <button
+                                        type="submit"
+                                        className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors duration-300 flex items-center justify-center"
+                                    >
+                                        Bel mij terug
+                                    </button>
+                                </form>
+                            </div>
                         </div>
 
-                        {/* Background overlay */}
-                        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+                        {/* Image section - responsive overlay */}
+                        <div className="absolute inset-0 md:inset-auto md:right-0 md:top-0 md:bottom-0 md:w-1/2 overflow-hidden rounded-2xl md:rounded-l-none md:rounded-r-2xl">
+                            <div className="absolute inset-0 bg-gradient-to-r from-secondary to-transparent md:hidden" />
+                            <img
+                                src="/images/white.png"
+                                alt="Director portrait"
+                                className="h-full w-full object-cover"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
