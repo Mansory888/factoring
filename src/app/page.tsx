@@ -88,12 +88,10 @@ const FeatureBar = () => {
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex flex-col space-y-6">
           {/* First row with 4 elements */}
-          <div className="flex justify-center space-x-8">
+          <div className="flex flex-col md:flex-row justify-center items-center 
+                          space-y-4 md:space-y-0 md:space-x-8">
             {features.slice(0, 4).map((feature, index) => (
-              <div
-                key={index}
-                className="flex items-center space-x-2"
-              >
+              <div key={index} className="flex items-center space-x-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6 text-green-500 mr-3"
@@ -101,7 +99,12 @@ const FeatureBar = () => {
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
                 <span className="text-base md:text-xl font-medium text-secondary whitespace-nowrap">
                   {feature}
@@ -111,12 +114,10 @@ const FeatureBar = () => {
           </div>
 
           {/* Second row with 2 elements */}
-          <div className="flex justify-center space-x-8">
+          <div className="flex flex-col md:flex-row justify-center items-center
+                          space-y-4 md:space-y-0 md:space-x-8">
             {features.slice(4).map((feature, index) => (
-              <div
-                key={index}
-                className="flex items-center space-x-2"
-              >
+              <div key={index} className="flex items-center space-x-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6 text-green-500 mr-3"
@@ -124,7 +125,12 @@ const FeatureBar = () => {
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
                 <span className="text-base md:text-xl font-medium text-secondary whitespace-nowrap">
                   {feature}
