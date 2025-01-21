@@ -463,8 +463,8 @@ const Services = () => {
                                         <td key={`${product.type}-${key}`} className="px-6 py-4 text-base text-secondary">
                                             {key === 'AchterafBerekendeRente' ? (
                                                 product[key] ?
-                                                    <span className="text-green-600 text-base">Yes</span> :
-                                                    <span className="text-red-600 text-base">No</span>
+                                                    <span className="text-green-600 text-base">Ja</span> :
+                                                    <span className="text-red-600 text-base">Nee</span>
                                             ) : (
                                                 key === 'FactorFee' ? (
                                                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-base font-medium bg-green-700 text-white">
