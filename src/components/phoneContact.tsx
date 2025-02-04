@@ -1,15 +1,36 @@
 import React, { useState } from 'react';
 import { ArrowRight, Phone } from 'lucide-react';
 import { useRouter } from "next/navigation";
+import { Toaster, toast } from "react-hot-toast";
 
 const PhoneContactSection = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const router = useRouter();
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    // Handle the callback request here
-    console.log('Callback requested for:', phoneNumber);
+
+    if (!phoneNumber) {
+      toast.error('Please enter a phone number.');
+      return
+    }
+    
+    try {
+      const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ phoneNumber }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+          toast.success('Email sent successfully!');
+      } else {
+          toast.error('Failed to send email.');
+      }
+  } catch (error) {
+      toast.error('Error sending email.');
+  }
   };
 
   return (

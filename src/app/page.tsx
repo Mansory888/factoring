@@ -9,13 +9,14 @@ import HeroSection from "@/components/emailContact";
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from "next/navigation";
 import PhoneContactSection from '@/components/phoneContact';
+import { Toaster, toast } from "react-hot-toast";
 
 const MovingText = () => (
   <div className="overflow-hidden whitespace-nowrap absolute top-1 md:top-4 left-0 w-24 sm:w-32 md:w-32 lg:w-[160px]">
     <div
       className="text-primary text-xl md:text-3xl font-bold"
     >
-      • VANAF • <br /> €500.000
+      • VANAF • <br /> €100.000
     </div>
   </div>
 );
@@ -163,10 +164,24 @@ export default function Home() {
   const [phoneNumber, setPhoneNumber] = useState('');
 
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Phone number submitted:', phoneNumber);
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ phoneNumber }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        toast.success('Email sent successfully!');
+      } else {
+        toast.error('Failed to send email.');
+      }
+    } catch (error) {
+      toast.error('Error sending email.');
+    }
   };
 
   const NeemContactOp = () => {
@@ -181,7 +196,7 @@ export default function Home() {
             {/* Left Content */}
 
             <motion.div
-              initial={{ x: "30%", opacity: 0 }}
+              initial={{ x: 300, opacity: 0 }}
               whileInView={{ x: "0%", opacity: 1 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 1 }}
@@ -217,7 +232,7 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              initial={{ x: "-30%", opacity: 0 }}
+              initial={{ x: -300, opacity: 0 }}
               whileInView={{ x: "0%", opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1 }}

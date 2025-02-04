@@ -4,6 +4,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { useState, useEffect } from "react";
 import SplashScreen from "@/components/splashScreen";
+import { Toaster } from "react-hot-toast";
 
 export default function RootLayout({
   children,
@@ -27,6 +28,7 @@ export default function RootLayout({
             <Navbar />
             {children}
             <Footer />
+            <Toaster position="bottom-right" reverseOrder={false} />
           </>
         )}
       </body>

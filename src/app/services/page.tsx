@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp, HelpCircle, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import PhoneContactSection from '@/components/phoneContact';
+import { Toaster, toast } from "react-hot-toast";
 
 const steps = [
     {
@@ -75,7 +76,7 @@ const products = [
         Kredietverzekering: "Alle facturen zijn voor 80% verzekerd tegen wanbetaling en faillissement.",
         Debiteurenbeheer: "Volledig inbegrepen",
         Servicegebied: "Factoring mogelijk in Nederland",
-        MinimaleJaarlijkseOmzet: "100,000",
+        MinimaleJaarlijkseOmzet: "100.000",
         Contactpersoon: "Vast"
     }
 ];
@@ -129,10 +130,24 @@ const Services = () => {
         mkb: false,
     });
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log('Phone number submitted:', phoneNumber);
+        try {
+            const response = await fetch('/api/send-email', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ phoneNumber }),
+            });
+      
+            const result = await response.json();
+            if (result.success) {
+              toast.success('Email sent successfully!');
+            } else {
+              toast.error('Failed to send email.');
+            }
+          } catch (error) {
+            toast.error('Error sending email.');
+          }
     };
 
     const toggleSection = (section: string) => {
