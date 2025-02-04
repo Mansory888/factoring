@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Plus, Minus, MapPin, Mail, Phone } from 'lucide-react';
 import { AnimatedFAQItem } from '@/components/faq';
-
+import { Toaster, toast } from "react-hot-toast";
 
 
 const faqs = [
@@ -17,9 +17,34 @@ const faqs = [
 const Contact = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
-        // Add form submission logic here
+
+        const formData = new FormData(e.target as HTMLFormElement); // Get form data
+
+        const fullName = formData.get('name');
+        const email = formData.get('email');
+        const phone = formData.get('phone');
+        const companyName = formData.get('company name');
+        const message = formData.get('message');
+        const fullForumEmail = 'fullForumEmail';
+
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({phoneNumber:phone, email:email, fullName:fullName, companyOrKvK:companyName, questionOrComment:message, semdType:fullForumEmail }),
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                toast.success('Email sent successfully!');
+            } else {
+                toast.error('Failed to send email.');
+            }
+        } catch (error) {
+            toast.error('Error sending email.');
+        }
     };
 
 

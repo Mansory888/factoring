@@ -5,14 +5,20 @@ import { NextResponse } from 'next/server';
 interface RequestBody {
   phoneNumber: string;
   email: string;
-  messageType: string;
+  fullName: string;
+  companyOrKvK: string;
+  questionOrComment: string;
+  semdType: string;
 }
 
 export async function POST(req: Request) {
   try {
     const { phoneNumber }: RequestBody = await req.json();
     const { email }: RequestBody = await req.json();
-    const { messageType }: RequestBody = await req.json();
+    const { semdType }: RequestBody = await req.json();
+    const { fullName }: RequestBody = await req.json();
+    const { companyOrKvK }: RequestBody = await req.json();
+    const { questionOrComment }: RequestBody = await req.json();
 
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -22,12 +28,36 @@ export async function POST(req: Request) {
       },
     });
 
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: 'recipient@example.com', // Replace with your email
-      subject: 'New Phone Number Submission',
-      text: `Phone Number Submitted: ${phoneNumber}`,
-    };
+
+    let mailOptions = {};
+
+    switch (semdType) {
+      case 'phoneEmail':
+        mailOptions = {
+          from: process.env.EMAIL_USER,
+          to: 'recipient@example.com', // Replace with your email
+          subject: 'New Phone Number Submission',
+          text: `Phone Number Submitted: ${phoneNumber}`,
+        };
+        break;
+      case 'emailEmail':
+        break;
+      case 'fullForumEmail':
+           mailOptions = {
+          from: process.env.EMAIL_USER,
+          to: 'recipient@example.com', 
+          subject: 'Nieuwe Inzending',
+          text: `
+            Voor- en achternaam: ${fullName}
+            E-mailadres: ${email}
+            Telefoonnummer: ${phoneNumber}
+            Bedrijfsnaam of KvK nummer: ${companyOrKvK}
+            Vraag of opmerking: ${questionOrComment}
+          `,
+        };
+        break;
+    }
+
 
     await transporter.sendMail(mailOptions);
 
