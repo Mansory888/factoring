@@ -6,6 +6,14 @@ import { useState, useEffect } from "react";
 import SplashScreen from "@/components/splashScreen";
 import { Toaster } from "react-hot-toast";
 
+
+export const metadata = {
+  title: 'SOOF Factoring B.V',
+  icons: {
+    icon: '/favicon.ico', 
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
