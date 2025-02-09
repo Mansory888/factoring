@@ -156,6 +156,7 @@ const stats = [
 
 export default function Home() {
   const router = useRouter();
+  const [isMobile, setIsMobile] = useState(false);
 
   const sortedNews: Article[] = [...Data]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
@@ -170,7 +171,7 @@ export default function Home() {
       const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phoneNumber:phoneNumber, semdType: 'phoneEmail' }),
+        body: JSON.stringify({ phoneNumber: phoneNumber, semdType: 'phoneEmail' }),
       });
 
       const result = await response.json();
@@ -188,18 +189,30 @@ export default function Home() {
     router.push("/contact"); // Navigate to the contact page
   };
 
+  useEffect(() => {
+    // Check the screen width on mount and listen for changes if needed.
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const leftAnimation = isMobile
+    ? { initial: { x: 0, opacity: 0 }, animate: { x: 0, opacity: 1 } }
+    : { initial: { x: 300, opacity: 0 }, animate: { x: 0, opacity: 1 } };
+
   return (
     <div className="bg-background">
       <section className="overflow-x-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
-
             <motion.div
-              initial={{ x: 300, opacity: 0 }}
-              whileInView={{ x: "0%", opacity: 1 }}
+              {...leftAnimation}
+              whileInView={!isMobile ? leftAnimation.animate : {}}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 1 }}
+              style={{ willChange: 'transform, opacity' }}
             >
               <div className="text-center lg:text-left">
                 {/* Main Headings */}
@@ -211,7 +224,6 @@ export default function Home() {
                     <span className="block text-7xl md:text-8xl lg:text-9xl mb-2">
                       EXTRA
                     </span>
-
                     <span className="block text-5xl sm:text-7xl md:text-7xl lg:text-7xl border-b-8 border-primary inline-block">
                       WERKKAPITAAL
                     </span>
@@ -219,7 +231,6 @@ export default function Home() {
                 </div>
 
                 {/* Cards */}
-
                 <div
                   onClick={NeemContactOp}
                   className="bg-[#2E8B57] rounded-lg p-6 mt-16 text-white flex flex-row items-center justify-center gap-4 h-32 cursor-pointer hover:bg-[#15853f] transition-colors duration-200 shadow-lg"
@@ -227,17 +238,17 @@ export default function Home() {
                   <MessageCircle size={48} />
                   <h2 className="text-4xl font-bold">Neem contact op</h2>
                 </div>
-
               </div>
             </motion.div>
 
+            {/* Right Content */}
             <motion.div
               initial={{ x: -300, opacity: 0 }}
-              whileInView={{ x: "0%", opacity: 1 }}
+              whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1 }}
+              style={{ willChange: 'transform, opacity' }}
             >
-              {/* Right Image */}
               <div className="relative">
                 <div className="aspect-w-16 aspect-h-10 md:aspect-h-12 rounded-3xl overflow-hidden">
                   <img
@@ -270,6 +281,7 @@ export default function Home() {
             ease: "easeInOut",
           }}
           viewport={{ once: true, amount: 1 }}
+          style={{ willChange: 'transform, opacity' }}
         >
           Drie Soorten Factoring
         </motion.h1>
@@ -280,6 +292,7 @@ export default function Home() {
             whileInView={{ x: "0%", opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
+            style={{ willChange: 'transform, opacity' }}
           >
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
               {/* Image Container */}
@@ -368,6 +381,7 @@ export default function Home() {
             whileInView={{ x: "0%", opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, delay: 0.4 }}
+            style={{ willChange: 'transform, opacity' }}
           >
             <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12">
               {/* Image Container */}
@@ -457,6 +471,7 @@ export default function Home() {
             whileInView={{ x: "0%", opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, delay: 0.4 }}
+            style={{ willChange: 'transform, opacity' }}
           >
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
               {/* Image Container */}
@@ -555,6 +570,7 @@ export default function Home() {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }} // Move to center
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+              style={{ willChange: 'transform, opacity' }}
             >
               <div className="text-center md:text-left">
                 <h2 className="text-3xl font-bold text-secondary mb-4">
@@ -574,6 +590,7 @@ export default function Home() {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}  // Move to center
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+              style={{ willChange: 'transform, opacity' }}
             >
 
               <div className="border-2 border-secondary rounded-lg p-6 shadow-md w-full max-w-md mx-auto">
@@ -648,6 +665,7 @@ export default function Home() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.4 }}
+                style={{ willChange: 'transform, opacity' }}
               >
                 <h2 className="text-5xl md:text-7xl font-bold mt-4">
                   Nieuws
