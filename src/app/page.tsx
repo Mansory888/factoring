@@ -16,7 +16,7 @@ const MovingText = () => (
     <div
       className="text-primary text-xl md:text-3xl font-bold"
     >
-      • VANAF • <br /> €100.000
+      • VANAF • <br /> €500.000
     </div>
   </div>
 );
