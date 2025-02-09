@@ -63,7 +63,7 @@ const PhoneContactSection = () => {
 
       {/* Make Appointment Button */}
       <div className="p-6 ">
-        <button className="w-full h-full bg-white rounded-3xl p-6 flex items-center justify-between group transition-all duration-300 hover:shadow-lg" onClick={() => router.push("/contact")}>
+        <button className="w-full h-full bg-white rounded-3xl p-2 flex items-center justify-between group transition-all duration-300 hover:shadow-lg" onClick={() => router.push("/contact")}>
           <span className="text-2xl font-semibold text-secondary">
             Maak een afspraak
           </span>

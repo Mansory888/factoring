@@ -70,7 +70,7 @@ const products = [
         type: "American Factoring",
         HoogteUitbetaling: "100% wordt direct uitbetaald. De factor fee wordt direct verrekend.",
         FactorFee: "v.a. 3.9%",
-        AchterafBerekendeRente: false,  
+        AchterafBerekendeRente: false,
         PastGoedBij: "Veel gekozen door het klein MKB en ZZP",
         VolledigOfPartieel: "Per factuur, per debiteur, volledige debiteurenportfeuille",
         Kredietverzekering: "Alle facturen zijn voor 80% verzekerd tegen wanbetaling en faillissement.",
@@ -134,20 +134,20 @@ const Services = () => {
         e.preventDefault();
         try {
             const response = await fetch('/api/send-email', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ phoneNumber:phoneNumber, semdType: 'phoneEmail' }),
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ phoneNumber: phoneNumber, semdType: 'phoneEmail' }),
             });
-      
+
             const result = await response.json();
             if (result.success) {
-              toast.success('Email sent successfully!');
+                toast.success('Email sent successfully!');
             } else {
-              toast.error('Failed to send email.');
+                toast.error('Failed to send email.');
             }
-          } catch (error) {
+        } catch (error) {
             toast.error('Error sending email.');
-          }
+        }
     };
 
     const toggleSection = (section: string) => {
@@ -272,7 +272,7 @@ const Services = () => {
 
                 <section className="bg-white">
                     <div className="container mx-auto">
-                        <div className="flex flex-row gap-4 justify-center">
+                        <div className="flex flex-col md:flex-row gap-4 justify-center">
                             {/* FAQ Balloon */}
                             <div className="flex-1 bg-blue-50 rounded-3xl p-4 shadow-md hover:shadow-lg transition-shadow max-w-md">
                                 <div className="flex items-center gap-3 mb-2">
@@ -304,9 +304,10 @@ const Services = () => {
                         </div>
                     </div>
                 </section>
+
             </div>
 
-            <section className=" bg-secondary mx-auto text-beje px-8 py-2 rounded-3xl">
+            <section className=" bg-secondary mx-auto text-beje py-2 rounded-3xl">
 
 
                 <article className='my-8 max-w-7xl mx-auto px-8'>
