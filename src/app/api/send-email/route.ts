@@ -42,47 +42,57 @@ function isRateLimited(ip: string) {
 
 
 export async function POST(req: Request) {
+
+  console.log('Request received:', req);
+
   try {
 
-    const ip = req.headers.get('x-forwarded-for') || 'unknown';
+    // const ip = req.headers.get('x-forwarded-for') || 'unknown';
 
-    if (isRateLimited(ip)) {
-      return NextResponse.json(
-        { error: 'Too many requests. Please try again later.' },
-        { status: 429 }
-      );
-    }
+    // if (isRateLimited(ip)) {
+    //   return NextResponse.json(
+    //     { error: 'Too many requests. Please try again later.' },
+    //     { status: 429 }
+    //   );
+    // }
 
     const body: RequestBody = await req.json();
     const { phoneNumber, email, semdType, fullName, companyOrKvK, questionOrComment } = body;
 
 
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'send.one.com',
+      port: 587,
+      secure: false,
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: 'alves.nabeiro@gmail.com',
+        pass: '_Vamosserricos',
       },
     });
-
 
     let mailOptions = {};
 
     switch (semdType) {
-      case 'phoneEmail':
+      case "phoneEmail":
         mailOptions = {
-          from: process.env.EMAIL_USER,
-          to: 'recipient@example.com', // Replace with your email
+          from: "alves.nabeiro@gmail.com",
+          to: 'nichita.railean@aol.com', // Replace with your email
           subject: 'New Phone Number Submission',
           text: `Phone Number Submitted: ${phoneNumber}`,
         };
         break;
-      case 'emailEmail':
+      case "emailEmail":
+        mailOptions = {
+          from: "alves.nabeiro@gmail.com",
+          to: 'info@sooffactoring.nl',
+          subject: 'New Email Submission',
+          text: `Email Submitted: ${email}`,
+        };
         break;
-      case 'fullForumEmail':
-           mailOptions = {
-          from: process.env.EMAIL_USER,
-          to: 'recipient@example.com', 
+      case "fullForumEmail":
+        mailOptions = {
+          from: "alves.nabeiro@gmail.com",
+          to: 'info@sooffactoring.nl',
           subject: 'Nieuwe Inzending',
           text: `
             Voor- en achternaam: ${fullName}
@@ -98,7 +108,7 @@ export async function POST(req: Request) {
 
     await transporter.sendMail(mailOptions);
 
-    return NextResponse.json({ success: true }, { status: 200 });
+    return NextResponse.json({ success: semdType }, { status: 200 });
   } catch (error) {
     console.error('Error sending email:', error);
     return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });

@@ -12,13 +12,11 @@ import PhoneContactSection from '@/components/phoneContact';
 import { Toaster, toast } from "react-hot-toast";
 
 const MovingText = () => (
-  <div className="overflow-hidden whitespace-nowrap absolute top-1 md:top-4 left-0 w-24 sm:w-32 md:w-32 lg:w-[160px]">
-    <div
-      className="text-primary text-xl md:text-3xl font-bold"
-    >
-      • VANAF • <br /> €500.000
-    </div>
+  <div className="overflow-hidden whitespace-nowrap absolute top-1 md:top-4 left-1 w-24 sm:w-32 md:w-32 lg:w-[160px] flex justify-center">
+  <div className="text-primary text-xl md:text-3xl text-center font-bold">
+    • VANAF • <br /> €500.000
   </div>
+</div>
 );
 
 const SpinningLogo = () => {
@@ -291,7 +289,7 @@ export default function Home() {
             initial={{ x: -200, opacity: 0 }}
             whileInView={{ x: "0%", opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 1.5, delay: 0.2 }}
             style={{ willChange: 'transform, opacity' }}
           >
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">

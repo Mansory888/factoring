@@ -23,6 +23,7 @@ const PhoneContactSection = () => {
       });
 
       const result = await response.json();
+      console.log("here", result);
       if (result.success) {
           toast.success('Email sent successfully!');
       } else {
